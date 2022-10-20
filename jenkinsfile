@@ -1,4 +1,4 @@
-@Library('my-shared-library') _
+@Library('ank241999/my-shared-library') _
 
 test{
     image_name = 'test'
