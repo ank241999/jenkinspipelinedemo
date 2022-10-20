@@ -1,34 +1,8 @@
-pipeline {
-    agent any
-    stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello ankush jankins World......'
-            }
-        }
-        
-        stage('build') {
-            steps {
-                echo 'Hello ankush jankins World......'
-            }
-        }
-            
-        stage('deploy') {
-            steps {
-                echo 'deploy......'
-            }
-        }
-    
-        stage('test') {
-            steps {
-                echo 'testing......'
-            }
-        }
-    
-        stage('release') {
-            steps {
-                echo 'releasing......'
-            }
-        }
-    }
+@Library('my-shared-library') _
+
+test{
+    image_name = 'test'
+    image_tag = '0.1'
+    buildenv_tag = 'demo'
+    //registry_url = 'gcr.io/spheric-tea-219814/hexwave-algorithms'
 }
