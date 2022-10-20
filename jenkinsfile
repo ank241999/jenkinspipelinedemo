@@ -1,6 +1,5 @@
 pipeline {
     agent any
-echo  'jenkins file '
     stages {
         stage('Hello') {
             steps {
