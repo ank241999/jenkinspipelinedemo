@@ -1,0 +1,174 @@
+@import '../../styles/_variables.scss';
+@import '../../styles/_mixins.scss';
+
+.inputWrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    max-width: 811px;
+    width: 100%;
+    min-height: 718px;
+    padding: 0px;
+    
+    .card{
+        margin-bottom: 0px;
+        min-height: 718px;
+        
+        .register_wrapper{
+            .login-form{
+                .scrollbar{
+                    .form-control{
+                        font-size: 16px;
+                        height: 60px;
+                    }
+                    .label_link{
+                        font-size: 14px;
+                        color: $libertyBlue;
+                        font-weight: bold;
+                        cursor: pointer;
+                    }
+                    .hr_line_wrapper{
+                        font-weight: lighter;
+                        font-size: 10px;
+                        max-width: 352px;
+                        margin: 25px auto;
+
+                        h2.hr_line{
+                            width:100%;
+                            text-align:center;
+                            border-bottom: 1px solid #B7B7B7;
+                            line-height:0.1em;
+                            margin:10px 0 20px;
+
+                            h2.hr_line span {
+                                color: $libertyBlue;
+                                padding:0 10px;
+                                font-size: 10px;
+                            }
+                        }
+                    }
+                    .ld_tooltip{
+                        width: 80px; 
+                        padding: 0px; 
+                        position: absolute; 
+                        top: 6px; 
+                        background-size: 100%; 
+                        color: $libertyBlue; 
+                        font-size: 12px !important; 
+                        right: -95px;
+                        display: none;
+                        text-align: left;
+                    }
+                    .email_tooltip{
+                        top: 6px !important;
+                        text-align: left;
+                    }
+                    span.icon_tickcross{
+                        position: absolute;
+                        float: right;
+                        width:16px;
+                        height: 52px;
+                        margin-left: 5px;
+                        display: none;
+
+                        img{
+                            position: absolute;
+                            top: 50%;
+                            -ms-transform: translateY(-50%);
+                            transform: translateY(-50%);
+                            left: 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@media only screen and (max-width: 1380px) and (min-width: 1025px)  {
+    .inputWrapper{
+        width: 650px !important;
+        min-height: 400px !important;
+        transform: translate(-50%,-45%) !important;
+
+        .card{
+            min-height: 400px;
+
+            .register_wrapper{
+                .login-form{
+                    .scrollbar{
+                        height: 391px !important;
+                        margin-bottom: 0px !important;
+
+                        .responsive-hide{
+                            display: none !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) and (min-width: 320px)  {
+    .inputWrapper{
+        min-height: 500px;
+        transform: translate(-50%,-45%) !important;
+
+        .card{
+            min-height: 500px;
+
+            .register_wrapper{
+                .login-form{
+                    .scrollbar{
+                        width: 100%;
+
+                        .form-control{
+                            font-size: 12px !important;
+                        }
+                        .responsive-hide{
+                            display: none !important;
+                        }
+                        .ld_tooltip{
+                            width: 125px !important; 
+                            right: 42px !important;
+                            top: 55px !important;
+                        }
+                        #passcodeToolTip{
+                            right: 52px !important;
+                            top: 115px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (max-width: 768px) and (min-width: 481px)  {
+    
+}
+@media only screen and (max-width: 1024px) and (min-width: 769px)  {
+    
+}
+@media only screen and (max-width: 1250px) and (min-width: 1025px)  {
+    
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { 
+    
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) { 
+    
+}

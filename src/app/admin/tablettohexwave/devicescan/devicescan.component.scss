@@ -1,0 +1,43 @@
+.btn {
+    border: none;
+    background-color: inherit;
+    padding: 14px 0px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    color: #102937;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.btn.btn-info.done {
+    width: 100%;
+    padding: 14px 0px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #ffffff;
+    // margin-top: 20px;
+    background-color: #102937
+}
+
+.dev {
+    height: 100%;
+    color: #102937;
+    font-weight: bold;
+    margin-bottom: 60px;
+    max-height: 100%;
+}
+
+.ruler {
+    width: 1px;
+    height: 650px;
+    background: #DCDCDC;
+    margin: 0pc auto;
+    display: block;
+}
+
+@media screen and (max-width: 990px) {
+    .ruler {
+        display: none
+    }
+}

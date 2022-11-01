@@ -1,0 +1,97 @@
+<div class="row">
+	<div class="col-lg-5 col-xs-5">
+		<div class="branding-col">
+			<div class="row">
+				<div class="col-lg-1 col-xs-2 text-center pd-left-5 pd-right-5 pd-top-15 fit-content"
+					style="z-index: 9999;">
+					<button type="button" (click)="toggleSideMenu()" class="menu-toggle"
+						[ngClass]="{ 'menu-visible': sideMenuVisible, 'menu-hidden': !sideMenuVisible }">
+						<i class="fa fa-bars"></i>
+					</button>
+				</div>
+				<!-- <div class="col-lg-1 col-xs-2 text-center pd-left-5 pd-right-5 pd-top-15 fit-content responsive-hide"
+					*ngIf="isAdmin">
+					<app-notifications-menu-button [notifications]="notifications"></app-notifications-menu-button>
+				</div> -->
+				<div class="col-lg-10 col-xs-8 pd-left-10 pd-top-15 responsive-margin1 responsive-hide">
+					<div *ngIf="!isAdmin" class="float-left ml-20 mr-20">
+						<h1 class="responsice-center mt-5" style="color: #8292A0; font-size: 20px;">GATE: <span
+								style="color: #ffffff;">North Entrance</span></h1>
+					</div>
+					<div *ngIf="!isAdmin" class="float-left mr-20">
+						<h1 class="responsice-center mt-5" style="color: #8292A0; font-size: 20px;">LANE: <span
+								style="color: #ffffff;">One</span></h1>
+					</div>
+					<!-- <span class="user-name"
+						*ngIf="isAdmin">{{logggedInUser}}</span>
+					<span class="tablet-ip pd-left-15"
+						*ngIf="isAdmin">11.22.33.44.55.66.</span> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-lg-2 col-xs-2">
+		<div class="branding-col" *ngIf="isAdmin">
+			<div class="brand-wrapper">
+				<img id="app_logo" class="brand-logo" [src]="logoImagePath" height="55" alt="Liberty Defense"
+					style="margin-top: 5px;">
+				<!-- <h3 class="brand-name">Admin Template</h3> -->
+			</div>
+		</div>
+	</div>
+	<!-- <app-search-bar class="hidden-xs"></app-search-bar> -->
+	<div class="col-lg-5 col-xs-5 text-center">
+		<div class="branding-col">
+			<div class="brand-wrapper text-right" *ngIf="!isAdmin">
+				<!-- <button type="button" id="btnDisableBeta" (click)="disableBeta()" style="background: cyan;
+				color: #143345;
+				border: 0px none;
+				box-shadow: none;
+				width: 220px;
+				padding: 4px 0px;
+				font-weight: bold;
+				letter-spacing: 1px;
+				margin-top: 20px;
+				font-size: 12px;">DISABLE BETA TEST MODE</button> -->
+				<img id="app_logo" class="brand-logo" [src]="logoImagePath" height="55" alt="Liberty Defense"
+					style="margin-top: 5px;">
+			</div>
+		</div>
+		<div class="actions-wrapper" *ngIf="isAdmin">
+			<!-- <app-notifications-menu-button [notifications]="notifications"></app-notifications-menu-button> -->
+			<!-- <div class="logged-user">
+        		<div class="user-image-wrapper">
+          			<app-preload-image class="user-image" [ratio]="{w:1, h:1}" [src]="baseUrl + '/assets/imgs/profiles/profile-placeholder.png'" alt="profile image"
+					title="profile image"></app-preload-image>
+				</div>
+        		<span class="user-name">{{logggedInUser}}</span>
+      		</div> -->
+			<!-- <app-messages-menu [messages]="messages"></app-messages-menu> -->
+			<!-- <div class="logout-user" (click)="logout()"> -->
+				<!-- <i class="fa fa-sign-out"></i> -->
+				<!-- <a class="logout-text" style="color: #ffffff !important;" translate>topLogout</a> -->
+			<!-- </div> -->
+		</div>
+	</div>
+</div> <!-- Row End  -->
+
+<div class="row desktop-hide responsive-show">
+	<div class="col-xs-2 text-center">
+		&nbsp;
+	</div>
+	<div class="col-xs-8 text-center">
+		<span class="user-name" style="color: #ffffff; font-weight: bold; font-size: 18px;">{{logggedInUser}}</span>
+	</div>
+	<div class="col-xs-2 text-center">
+		<app-notifications-menu-button [notifications]="notifications"></app-notifications-menu-button>
+	</div>
+</div>
+
+<div class="row desktop-hide responsive-show">
+	<div class="col-xs-12 text-center">
+		<span class="user-name" style="color: #8292A0; font-weight: bold; font-size: 18px;">11.22.33.44.55.66.</span>
+	</div>
+	<!-- <div class="col-xs-2 text-center pd-left-5 pd-right-5 pd-top-15 fit-content">
+		<app-notifications-menu-button [notifications]="notifications"></app-notifications-menu-button>
+	</div> -->
+</div>

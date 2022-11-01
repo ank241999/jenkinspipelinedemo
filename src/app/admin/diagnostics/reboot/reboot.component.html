@@ -1,0 +1,33 @@
+<div class="alert-modal">
+    <div class="row mb-15" style="min-height: 37px;">
+        <div class="col-xs-2 text-left">&nbsp;
+            <!-- <img src="../../../assets/images/backscreen_icon.jpg" (click)="onScreenBack()" style="cursor: pointer;" /> -->
+        </div>
+        <div class="col-xs-8">&nbsp;</div>
+        <div class="col-xs-2 text-right">
+            <img src="../../../assets/images/closescreen_icon.jpg" (click)="onScreenClose()" style="cursor: pointer;" />
+        </div>
+    </div>
+    <h1 class="alert-modal-title">Enter Password</h1>
+    <form class="form-horizontal" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-2">&nbsp;</div>
+                <div class="col-xs-8">
+                    <label class="form-label form-label-big col-sm-12" [attr.for]="'password'"> </label>
+                    <input class="form-control alert-modal-input" type="password"
+                        placeholder="{{'addTypehere' | translate}}" formControlName="password">
+                </div>
+                <div class="col-xs-2">&nbsp;</div>
+            </div>
+            <div class="alert-modal-buttons">
+                <div class="col-xs-3">&nbsp;</div>
+                <div class="col-xs-6">
+                    <input type="submit" class="btn alert-modal-button globalButton" [disabled]="!form.valid"
+                        value="REBOOT">
+                </div>
+                <div class="col-xs-3">&nbsp;</div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,90 @@
+@import '../../../styles/_variables';
+
+.cdk-overlay-pane{
+  max-width: none !important;  
+  width: auto;
+  .mat-snack-bar-container {
+    box-shadow: none;
+    max-width: none !important;
+
+    ////
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: block;
+    margin: 24px;
+    //max-width: 33vw;
+    min-width: 344px;
+    padding: 14px 16px;
+    min-height: 48px;
+    transform-origin: center;
+
+    margin: 60px auto 0px;
+    ////
+
+    &.notification-wrapper {
+      background: none;
+      //margin: 24px auto 0px !important;
+      //width: auto !important;
+    }
+  //}
+
+    .notification {
+      &.alert {
+        background-color: $aqua;
+        border: 0;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+        color: $white;
+        font-size: $font-size-xs;
+        letter-spacing: $letter-spacing-xxs;
+        min-width: 300px;
+
+        .notification-icon {
+          color: $white;
+          font-size: 20px;
+          line-height: 12px;
+          margin-right: 30px;
+          vertical-align: middle;
+        }
+
+        &.alert-dismissible {
+          .close {
+            opacity: .5;
+
+            &:hover {
+              opacity: 1;
+            }
+
+            .fa {
+              color: $white;
+            }
+          }
+        }
+
+        &.alert-info {
+          background-color: $libertyBlue;
+        }
+
+        &.alert-success {
+          background-color: $skyblue;
+        }
+
+        &.alert-warning {
+          background-color: $orange;
+        }
+
+        &.alert-danger {
+          background-color: $red;
+        }
+
+        &.alert-dark {
+          background-color: $grey;
+        }
+
+        .notification-line ~ .notification-text {
+          margin-top: 15px;
+        }
+      }
+
+    }
+  }
+}

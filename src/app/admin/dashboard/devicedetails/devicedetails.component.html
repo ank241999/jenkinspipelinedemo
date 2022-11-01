@@ -1,0 +1,66 @@
+<div class="alert-modal">
+    <div class="row mb-15" style="min-height: 37px;">
+        <div class="col-xs-2 text-left">&nbsp;
+            <!-- <img src="../../../assets/images/backscreen_icon.jpg" (click)="onScreenBack()"
+                    style="cursor: pointer;" /> -->
+        </div>
+        <div class="col-xs-8">&nbsp;</div>
+        <div class="col-xs-2 text-right">
+            <img src="../../../assets/images/closescreen_icon.jpg" (click)="onScreenClose()" style="cursor: pointer;" />
+        </div>
+    </div>
+    <h1 class="alert-modal-title">{{deviceName}} Details</h1>
+    <form class="form-horizontal">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-2"></div>
+                <div class="col-xs-8">
+                </div>
+                <div class="col-xs-2"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-3"></div>
+                <div class="col-xs-6">
+                    <div class="row">
+                        <div class="col-xs-5 pd-left-30">
+                            <label style="color:#D3D3D3">REMOTE POWER</label>
+                        </div>
+                        <div class="col-xs-7">
+                            <mat-slide-toggle disableRipple class="mat-override" [checked]="true">
+                                <span class="mat-slide-toggle-label-on">ON</span>
+                                <span class="mat-slide-toggle-label-off">OFF</span>
+                            </mat-slide-toggle>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3"></div>
+            </div>
+
+            <div class="alert-modal-buttons">
+                <div class="col-xs-3"></div>
+                <div class="col-xs-6">
+                    <button type="submit" class="btn alert-modal-button globalButton">PING DEVICE</button>
+                </div>
+                <div class="col-xs-3"></div>
+            </div>
+
+            <div class="alert-modal-buttons">
+                <div class="col-xs-3"></div>
+                <div class="col-xs-6">
+                    <button type="submit" class="btn alert-modal-button globalButton">PING LANE</button>
+                </div>
+                <div class="col-xs-3"></div>
+            </div>
+
+            <div class="alert-modal-buttons">
+                <div class="col-xs-3"></div>
+                <div class="col-xs-6">
+                    <button type="submit" class="btn alert-modal-button globalButton">SEND LOGS TO LIBERTY
+                        DEFENSE</button>
+                </div>
+                <div class="col-xs-3"></div>
+            </div>
+        </div>
+    </form>
+</div>

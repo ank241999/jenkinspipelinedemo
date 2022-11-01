@@ -1,0 +1,547 @@
+@import '../../../styles/_variables.scss';
+@import '../../../styles/_mixins.scss';
+
+$card-title-bg-color: $aqua;
+$card-title-txt-color: $white;
+$card-subtitle-txt-color: $grey;
+$card-progress-bg-color: $grey2;
+$card-pbar-bg-color: $aqua;
+$card-pbar-inactive-bg-color: $inactive-bg-color;
+
+.ld-btn-default{
+  background: #102937;
+  border: solid 1px #707070;
+  border-radius: 10px;
+  width: 100%;
+  color: #ffffff;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 15px 0px;
+}
+.ld-btn-primary{
+  background: #55E3C3;
+  border: 0px none;
+  border-radius: 10px;
+  width: 100%;
+  color: #ffffff;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 15px 0px;
+}
+.ld-btn-secondary{
+  background: #FD0026;
+  border: 0px none;
+  border-radius: 10px;
+  width: 100%;
+  color: #ffffff;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 15px 0px;
+}
+.location_list{
+  color: #ffffff;
+  font-size: 16px;
+  margin: 0px 0px 80px 0px;
+}
+.location_list > option{
+  background: #143345;
+  color: #ffffff;
+}
+#forms-wizard {
+  .step{
+    min-height: 620px;
+  }
+  .step1_charimg{
+    margin-bottom: 30px;
+    width: 25%;
+  }
+  .step2_mapimg{
+    max-width: 400px;
+    width:100%;
+  }
+  .step3btn_qr{
+    margin-bottom: 50px;
+    margin-top: 50px;
+  }
+  .step3_charimg{
+    width: 100%;
+  }
+  .step4_charimg{
+    width: 65%;
+  }
+  .step6_charimg{
+    width: 70%;
+  }
+  .partner_wrap{
+    width: 200px;
+    position: absolute;
+    top: calc(100% + 200px);
+    left: calc(100% - 135px);
+
+    .partner_txt{
+      float: left;
+      font-size: 22px;
+    }
+    .partner_arrow{
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 15px 0 15px 50px;
+      border-color: transparent transparent transparent #ffffff;
+      float: right;
+      margin-top: 2px;
+    }
+  }
+  
+  .arrow_box {
+    position: absolute;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    top: calc(100% + 150px);
+    left: -30px;
+    color: #000000;
+    font-size: 16px;
+    width: 280px;
+    text-align: left;
+  }
+  .arrow_box:after {
+    right: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(255, 255, 255, 0);
+    border-right-color: #ffffff;
+    border-width: 30px;
+    margin-top: -30px;
+  }
+  .arrow_box_right {
+    position: absolute;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    top: calc(100% + 150px);
+    right: -25px;
+    color: #000000;
+    font-size: 16px;
+    width: 280px;
+    text-align: left;
+  }
+  .arrow_box_right:after {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(255, 255, 255, 0);
+    border-left-color: #ffffff;
+    border-width: 30px;
+    margin-top: -30px;
+  }
+  span.device-details-txt{
+    width: 100%;
+    float: left;
+    margin-bottom: 5px;
+  }
+  .card {
+    background: #143345;
+    color: #ffffff !important;
+    min-height: 670px;
+    padding: 0 15px;
+    // padding-bottom: 73px;
+    padding-bottom: 100px;
+    position: relative;
+
+    .title {
+      // background-color: $card-title-bg-color;
+      background-color: transparent;
+      border-bottom: solid 1px #707070;
+      color: $card-title-txt-color;
+      margin-bottom: 35px;
+      padding: 15px 0;
+
+      .main-title {
+        color: #00B9FF;
+        display: inline-block;
+        font-size: $font-size-lg;
+        font-weight: 300;
+        letter-spacing: $letter-spacing-lg;
+        line-height: $font-size-lg;
+        margin-bottom: 0;
+        margin-right: $separation;
+        margin-top: 0;
+      }
+
+      .sub-title {
+        font-size: $font-size-sm;
+        letter-spacing: $letter-spacing-sm;
+        line-height: $font-size-lg;
+        vertical-align: top;
+        color: $card-title-txt-color;
+        font-weight: 300;
+      }
+    }
+
+    .inner-title {
+      margin-bottom: 30px;
+
+      .main-title {
+        font-size: $font-size-lg;
+        font-weight: 700;
+        letter-spacing: $letter-spacing-lg;
+        margin-bottom: 8px;
+        margin-top: 0;
+      }
+
+      .sub-title {
+        color: $card-subtitle-txt-color;
+        font-size: $font-size-sm;
+        letter-spacing: $letter-spacing-sm;
+      }
+    }
+
+    // Image selection of step 3
+    .checkboxes {
+      margin-bottom: 50px;
+
+      &.checked{
+        .inspiration-image-wrapper::after{
+          content: '';
+          position: absolute;
+          top: 0px;
+          bottom: 0px;
+          left: 0px;
+          right: 0px;
+          background: rgba($card-txt-color, 0.2);
+        }
+
+        .select-btn {
+          background-color: $card-txt-color;
+          color: $white;
+        }
+      }
+
+      input {
+        display: none;
+      }
+
+      label {
+        cursor: pointer;
+        text-align: center;
+        width: 100%;
+
+        .inspiration-image-wrapper {
+          position: relative;
+          box-shadow: $shadow;
+          margin-bottom: 25px;
+          transition: box-shadow .7s;
+          border: 6px solid $white;
+
+          &:hover {
+            box-shadow: $shadow-hover;
+          }
+
+          .inspiration-image {
+            height: auto;
+            width: 100%;
+
+
+          }
+        }
+
+        .select-btn {
+          @include button-outline($libertyBlue, $white, $libertyBlue);
+          box-shadow: $shadow;
+          padding: 7px 40px;
+          transition: background-color .5s, color .5s;
+
+          &:hover {
+            background-color: $card-txt-color;
+            color: $white;
+          }
+        }
+      }
+    }
+
+    .submited-message {
+      display: table;
+      table-layout: fixed;
+      text-align: center;
+      width: 100%;
+
+      h2 {
+        font-size: $font-size-xlg;
+        font-weight: 900;
+        letter-spacing: $letter-spacing-md;
+        margin-bottom: 20px;
+      }
+
+      span {
+        font-size: $font-size-lg;
+        font-weight: 700;
+        letter-spacing: $letter-spacing-md;
+      }
+
+      .vertical-center {
+        display: table-cell;
+        height: 508px;
+        vertical-align: middle;
+      }
+    }
+
+    // Material progress bar
+    .wizard-progress {
+      // background-color: $card-progress-bg-color;
+      background-color: transparent;
+      bottom: 0;
+      position: absolute;
+      width: 100%;
+
+      .wizard-progress-bar {
+        border-left: 20px;
+        border-left-color: transparent;
+        border-left-style: solid;
+        border-right: 20px;
+        border-right-color: transparent;
+        border-right-style: solid;
+        padding: 25px 0;
+        position: relative;
+
+        mat-progress-bar {
+          border-radius: 11px;
+          height: 23px;
+
+          .mat-progress-bar-buffer {
+            // background-color: $card-pbar-inactive-bg-color;
+            background-color: #707070;
+            
+          }
+
+          .mat-progress-bar-fill {
+            &::after {
+              background-color: $card-pbar-bg-color;
+            }
+          }
+        }
+
+        .progress-button {
+          // background-color: $card-pbar-inactive-bg-color;
+          background-color: #707070;
+          border-radius: 50%;
+          height: 40px;
+          left: 33%;
+          position: absolute;
+          top: 15px;
+          width: 40px;
+
+          .fa {
+            display: none;
+            font-size: 20px;
+          }
+
+          &.active {
+            background-color: $card-pbar-bg-color;
+
+            .fa {
+              display: inherit;
+            }
+          }
+
+          &.disabled {
+            cursor: inherit;
+            pointer-events: none;
+          }
+        }
+      }
+
+      .progress-bar-action-button-col {
+        padding-right: 0;
+      }
+
+      .progress-number {
+        font-weight: 900;
+        letter-spacing: $letter-spacing-md;
+        padding: 25px 0;
+      }
+
+      .progress-button {
+        background-color: $card-title-bg-color;
+        border: 0;
+        color: $white;
+        font-size: $font-size-xs;
+        font-weight: 700;
+        height: 74px;
+        letter-spacing: $letter-spacing-sm;
+        transition: opacity .5s;
+        width: 100%;
+
+        &[disabled] {
+          opacity: .5;
+        }
+      }
+
+    }
+
+    .last-row {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+mat-button-toggle-group {
+  &.mat-button-toggle-group {
+    // We have to go deeper in the hierarchy to override material styles
+    &.mat-button-toggle-vertical {
+      .mat-button-toggle + .mat-button-toggle {
+        border: solid 1px $form-label-color;
+      }
+    }
+  }
+}
+
+mat-button-toggle {
+  &.mat-button-toggle-checked {
+    background-color: $form-tag-color;
+    // We need to add !important to to override the deep hierarchy of material styles
+    border-color: $form-tag-color !important;
+
+    .mat-button-toggle-label-content {
+      color: $white;
+    }
+  }
+
+  .mat-button-toggle-label,
+  .mat-button-toggle-label-content {
+    color: $form-label-color;
+    letter-spacing: 1.8px;
+  }
+}
+
+// iPhone X in landscape
+@media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3)and (orientation : landscape) {
+  
+}
+// iPhone X in portrait
+@media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : portrait) {
+  
+}
+
+// iPad in landscape
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { 
+  /* STYLES GO HERE */
+}
+// iPad in portrait
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+  /* STYLES GO HERE */ 
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)  {
+  // #forms-wizard .card{
+  //   background: blue !important;
+  // }
+  app-top-navbar-content .branding-col .brand-logo {
+    height: 45px !important;
+  }
+  .entrance_qrimg{
+    width: 220px !important;
+  }
+  .step1_charimg {
+    width: 75% !important;
+  }
+  .wd-100{
+    width: 100% !important;
+  }
+  .step3btn_qr{
+    width: 220px !important;
+    margin-bottom: 25px !important;
+  }
+  .partner_wrap{
+    display: none;
+  }
+  .step4_charimg{
+    width: 200px !important;
+    margin-bottom: 15px;
+  }
+  #forms-wizard .arrow_box{
+    position: unset !important;
+    background: transparent !important;
+    color: #ffffff !important;
+    border:solid 1px #ffffff;
+    float: left;
+    padding: 20px !important;
+    width: 100% !important;
+  }
+  .step6_charimg{
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+  #forms-wizard .arrow_box_right {
+    position: unset!important;
+    background: 0 0!important;
+    color: #fff!important;
+    border: 1px solid #fff;
+    float: left;
+    padding: 20px!important;
+    width: 100%!important;
+  }
+  .step6_header{
+    display: none;
+  }
+}
+@media screen and (width: 1600px), screen and (height: 900px) {
+  #forms-wizard .card {
+    min-height: 650px;
+  }
+  #forms-wizard .step {
+    min-height: 460px;
+  }
+}
+@media screen and (width: 1366px), screen and (height: 768px) {
+  #forms-wizard .card{
+    min-height: 520px !important;
+  }
+  #forms-wizard .step {
+    min-height: 335px !important;
+  }
+  .step1_charimg{
+    width: 15% !important;
+  }
+  .step2_mapimg{
+    width:50% !important;
+  }
+  .step3btn_qr{
+    margin-bottom: 0px !important;
+    margin-top: 15px !important;
+  }
+  .step3_charimg{
+    width: 80% !important;
+  }
+  .step4_charimg{
+    width: 35% !important;
+  }
+  .partner_wrap{
+    top: 50px !important;
+    left: 50px !important;
+  }
+  .arrow_box {
+    top: 0px !important;
+    left: -70px !important;
+  }
+  .arrow_box_summary{
+    left: -35px !important;
+  }
+  .arrow_box_right {
+    top: 0px !important;
+    right: -32px !important;
+  }
+  .step6_charimg{
+    width: 55% !important;
+  }
+}

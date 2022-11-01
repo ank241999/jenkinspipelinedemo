@@ -1,0 +1,177 @@
+<app-condense #condenseMenu [ngClass]="condenseMenu.menuState">
+    <div class="pd-left-20 mb-15">
+        <!-- <div class="pd-left-20 mb-15" *ngIf="!isAdmin"> -->
+        <span class="menu-item-title" style="color: #b7b7b7;" translate>lblMAC : 11.22.33.44.55.66.</span>
+    </div>
+    <div class="pd-left-20 mb-15">
+        <!-- <div class="pd-left-20" *ngIf="!isAdmin"> -->
+        <span class="menu-item-title" style="color: #b7b7b7;" translate>lblUser : <span>{{logggedInUser}}</span></span>
+    </div>
+
+    <p class="menu-heading" style="margin-top: 25px" *ngIf="isAdmin"><strong translate>menuCONFIGURATIONSETTINGS
+        </strong></p>
+    <a class="simple-menu-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/admin/dashboard']" *ngIf="isAdmin">
+        <span class="menu-item-title" translate>menuThreatandDeviceStatus</span>
+    </a>
+
+    <!-- <div class="pd-left-20 mb-15" *ngIf="!isAdmin">
+        <span class="menu-item-title" style="color: #b7b7b7;" translate>lblMAC : 11.22.33.44.55.66.</span>
+    </div>
+    <div class="pd-left-20" *ngIf="!isAdmin">
+        <span class="menu-item-title" style="color: #b7b7b7;" translate>lblUser : <span>{{logggedInUser}}</span></span>
+    </div> -->
+    <!-- <a class="simple-menu-item sidebar-logout" (click)="logout()" style="position: absolute; bottom: 20px;" *ngIf="!isAdmin">
+        <span class="menu-item-title" translate>menuLogout</span>
+    </a> -->
+
+    <a class="simple-menu-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/admin/networksetup']" *ngIf="isAdmin">
+        <span class="menu-item-title" translate>menuNetworkSetup</span>
+    </a>
+    <a class="simple-menu-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/admin/networksetup/laneintegration']"
+        *ngIf="isAdmin">
+        <span class="menu-item-title" translate>menuACM/VMS Management</span>
+    </a>
+    <a class="simple-menu-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: false}" [routerLink]="['/admin/venuesetup']" *ngIf="isAdmin">
+        <span class="menu-item-title" translate>menuVenueSetup</span>
+    </a>
+    <a class="simple-menu-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: false}" [routerLink]="['/admin/hexwavetogate']" *ngIf="isAdmin">
+        <span class="menu-item-title" translate>menuGateManagement</span>
+    </a>
+    <a class="simple-menu-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: false}" [routerLink]="['/admin/tablettohexwave']" *ngIf="isAdmin">
+        <span class="menu-item-title" translate>menuLaneManagement</span>
+    </a>
+    <a class="simple-menu-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: false}" [routerLink]="['/admin/devicemanagement']" *ngIf="isAdmin">
+        <span class="menu-item-title" translate>menuDeviceManagement</span>
+    </a>
+    <a class="simple-menu-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: false}" [routerLink]="['/admin/tablet']" *ngIf="isAdmin">
+        <span class="menu-item-title" translate>menuTabletManagement</span>
+    </a>
+    <a class="simple-menu-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: false}" [routerLink]="['/admin/location']" *ngIf="isAdmin">
+        <span class="menu-item-title">Location Management</span>
+    </a>
+    <a class="simple-menu-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: false}" [routerLink]="['/admin/customer']" *ngIf="isAdmin">
+        <span class="menu-item-title">Customer Management</span>
+    </a>
+    <a class="simple-menu-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/admin/securityintegration']" *ngIf="isAdmin">
+        <span class="menu-item-title" translate>menuSecurityIntegration</span>
+    </a>
+    <a class="simple-menu-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/admin/diagnostics']" *ngIf="isAdmin">
+        <span class="menu-item-title" translate>menuDiagnostics</span>
+    </a>
+    <a class="simple-menu-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/admin/statemonitoring']" *ngIf="isAdmin">
+        <span class="menu-item-title">Application State Monitor</span>
+    </a>
+    <mat-expansion-panel class="expandable-menu-item" #utilsExpandableSection="routerLinkActive" [expanded]="false"
+        [routerLinkActive]="['active']" *ngIf="istechnicianltd || istechniciancust || isAdmin">
+        <mat-expansion-panel-header>
+            <div class="item-header-content">
+                <mat-panel-title class="expandable-item-title">Calibration Service</mat-panel-title>
+                <mat-panel-description class="expandable-item-description" *ngIf="istechnicianltd || isAdmin">Air Calibration, Full Calibration, Offset Value
+                </mat-panel-description>
+            </div>
+        </mat-expansion-panel-header>
+        <a class="expandable-sub-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+            [routerLink]="['/admin/calibrationservice/fullcalibration']" *ngIf="istechnicianltd || isAdmin">
+            <span class="icon-abbr">MO</span>
+            <span class="menu-item-title">Full Calibration</span>
+        </a>
+        <a class="expandable-sub-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+            [routerLink]="['/admin/calibrationservice/aircalibration']" *ngIf="istechniciancust || isAdmin || istechnicianltd">
+            <span class="icon-abbr">MO</span>
+            <span class="menu-item-title">Air Calibration</span>
+        </a>
+        <a class="expandable-sub-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+            [routerLink]="['/admin/calibrationservice/offsetcalculation']" *ngIf="istechniciancust || isAdmin || istechnicianltd">
+            <span class="icon-abbr">MO</span>
+            <span class="menu-item-title">Offset Value</span>
+        </a>
+    </mat-expansion-panel>
+
+    <!-- Report section -->
+    <mat-expansion-panel class="expandable-menu-item" #utilsExpandableSection="routerLinkActive" [expanded]="false"
+        [routerLinkActive]="['active']" *ngIf="isAdmin">
+        <mat-expansion-panel-header>
+            <div class="item-header-content">
+                <mat-panel-title class="expandable-item-title" translate>menuReports</mat-panel-title>
+                <mat-panel-description class="expandable-item-description" translate>menuThreatActivityReports
+                </mat-panel-description>
+            </div>
+        </mat-expansion-panel-header>
+        <a class="expandable-sub-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+            [routerLink]="['/admin/reports/reportdashboard']">
+            <span class="icon-abbr">MO</span>
+            <span class="menu-item-title" translate>menuReportDashboard</span>
+        </a>
+        <a class="expandable-sub-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+            [routerLink]="['/admin/reports/throughput']">
+            <span class="icon-abbr">MO</span>
+            <span class="menu-item-title" translate>menuThroughput</span>
+        </a>
+        <a class="expandable-sub-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+            [routerLink]="['/admin/reports/threatactivityreport']">
+            <span class="icon-abbr">MO</span>
+            <span class="menu-item-title" translate>menuThreatActivity</span>
+        </a>
+        <a class="expandable-sub-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+            [routerLink]="['/admin/reports/datewise']">
+            <span class="icon-abbr">MO</span>
+            <span class="menu-item-title" translate>menuThreatReport</span>
+        </a>
+        <a class="expandable-sub-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+            [routerLink]="['/admin/reports/analyticdatareport']">
+            <span class="icon-abbr">MO</span>
+            <span class="menu-item-title" translate>menuAnalyticReport</span>
+        </a>
+        <a class="expandable-sub-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+            [routerLink]="['/admin/reports/betatestmodereport']">
+            <span class="icon-abbr">MO</span>
+            <span class="menu-item-title" translate>menuBetaTestModeReport</span>
+        </a>
+        <a class="expandable-sub-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+            [routerLink]="['/admin/reports/Personspecificthreatreport']">
+            <span class="icon-abbr">MO</span>
+            <span class="menu-item-title">Total Persons Scanned Report</span>
+        </a>
+        <a class="expandable-sub-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+            [routerLink]="['/admin/reports/personscanneddetails']">
+            <span class="icon-abbr">MO</span>
+            <span class="menu-item-title">Person Scanned Details Report</span>
+        </a>
+    </mat-expansion-panel>
+    <a class="simple-menu-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: false}" [routerLink]="['/admin/accountmanagement']" *ngIf="isAdmin">
+        <span class="menu-item-title" translate>menuAccountManagement</span>
+    </a>
+    <a class="simple-menu-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/admin/threatmanagement']" *ngIf="isAdmin">
+        <span class="menu-item-title" translate>menuThreatManagement</span>
+    </a>
+    <a class="simple-menu-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact: true}" [routerLink]="['/admin/settings']" *ngIf="isAdmin">
+        <span class="menu-item-title" translate>menuUserSettings</span>
+    </a>
+    <!-- <a class="simple-menu-item" (click)="toggleSideMenu()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: false}" [routerLink]="['/admin/activitymonitoring/activitythreats']" *ngIf="isAdmin">
+        <span class="menu-item-title" translate>menuThreatMonitoring</span>
+    </a> -->
+    <a class="simple-menu-item sidebar-logout" (click)="forceclear()" style="position: relative; text-transform: uppercase;
+    bottom: 0px;color: red" *ngIf="!istechniciancust && !isAdmin && !istechnicianltd">
+        <span class="menu-item-title">Force Clear</span>
+    </a>
+    <a class="simple-menu-item sidebar-logout" (click)="logout()" style="position: relative; text-transform: uppercase;
+    bottom: 0px;color: #b7b7b7;">
+        <span class="menu-item-title" translate>menuLogout</span>
+    </a>
+</app-condense>

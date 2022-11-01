@@ -1,0 +1,140 @@
+<div class="main-navbar-container" style="width: 100%; height: 60px; z-index: 999;">
+    <div class="row" style="width: 100%;">
+        <div class="col-lg-3 col-xs-3">&nbsp;</div>
+        <div class="col-lg-6 col-xs-5">
+            <div class="branding-col">
+                <div class="brand-wrapper" style="text-align: center;">
+                    <img alt="Liberty Defense" class="brand-logo" [src]="logoImagePath" height="55">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-4">&nbsp;</div>
+    </div>
+</div>
+
+<div class="inputWrapper alreadylogin">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="card">
+                <div class="login_wrapper">
+
+                    <form class="form-horizontal login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="row text-center responsive-hide">
+                                    <div class="col-sm-12">
+                                        <h2>&nbsp;</h2>
+                                    </div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-sm-12">
+                                        <h2 class="title_text" translate>lblAlreadyLoginHeading</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div>
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-8">
+
+                                    <div class="row text-center mt-25" id="email-dv">
+                                        <div class="col-xs-2 col-sm-1">&nbsp;</div>
+                                        <label class="col-xs-8 col-sm-10 label-text nopadding"
+                                            translate>lblNameOrEmail</label>
+                                        <div class="col-xs-2 col-sm-1 responsive-hide">&nbsp;</div>
+                                    </div>
+
+                                    <div class="row text-center">
+                                        <div class="col-xs-2 col-sm-1">&nbsp;</div>
+                                        <div class="col-xs-8 col-sm-10 nopadding" id="email_input_wrapper">
+                                            <input type="email" class="form-control" placeholder=""
+                                                formControlName="email">
+                                            <span id="txtAlreadyLogin" class="message-text"
+                                                style="top: 23px; display: block !important;"
+                                                translate>lblLoggedInAlready</span>
+                                        </div>
+                                        <div class="col-xs-2 col-sm-1">
+                                            <div class="ld_tooltip" id="emailToolTip" translate>lblEmailcannotbefound
+                                            </div>
+                                            <span class="icon_tickcross" style="float: left;" id="emailTickRight"><img
+                                                    src="../../../assets/images/checkmark2x.png" /></span>
+                                            <span class="icon_tickcross" style="float: left;" id="emailTickWrong"><img
+                                                    src="../../../assets/images/invalidcross2x.png" /></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row text-center mt-25">
+                                        <div class="col-xs-2 col-sm-1">&nbsp;</div>
+                                        <label class="col-xs-8 col-sm-10 label-text nopadding"
+                                            translate>lblConfirmPass</label>
+                                        <div class="col-xs-2 col-sm-1 hidden-label">&nbsp;</div>
+                                    </div>
+
+                                    <div class="row text-center">
+                                        <div class="col-xs-2 col-sm-1">&nbsp;</div>
+                                        <div class="col-xs-8 col-sm-10 nopadding">
+                                            <div class="row text-center">
+                                                <div class="col-xs-6 col-sm-3 mb-10"
+                                                    [ngClass]="{ 'has-error': ((loginForm.get('passcode1').invalid) && (loginForm.get('passcode1').touched))}">
+                                                    <input type="number" #passcode1 formControlName="passcode1"
+                                                        class="form-control text-center" onKeyPress="if(this.value.length==1) return false;" placeholder=""
+                                                        (keyup)="nextFocus('2', $event)" id="passcode1">
+                                                </div>
+                                                <div class="col-xs-6 col-sm-3 mb-10"
+                                                    [ngClass]="{ 'has-error': ((loginForm.get('passcode2').invalid) && (loginForm.get('passcode2').touched))}">
+                                                    <input type="number" #passcode2 formControlName="passcode2"
+                                                        class="form-control text-center" onKeyPress="if(this.value.length==1) return false;" placeholder=""
+                                                        (keyup)="nextFocus('3', $event)">
+                                                </div>
+                                                <div class="col-xs-6 col-sm-3 mb-10"
+                                                    [ngClass]="{ 'has-error': ((loginForm.get('passcode3').invalid) && (loginForm.get('passcode3').touched))}">
+                                                    <input type="number" #passcode3 formControlName="passcode3"
+                                                        class="form-control text-center" onKeyPress="if(this.value.length==1) return false;" placeholder=""
+                                                        (keyup)="nextFocus('4', $event)">
+                                                </div>
+                                                <div class="col-xs-6 col-sm-3 mb-10"
+                                                    [ngClass]="{ 'has-error': ((loginForm.get('passcode4').invalid) && (loginForm.get('passcode4').touched))}">
+                                                    <input type="number" #passcode4 formControlName="passcode4"
+                                                        class="form-control text-center" onKeyPress="if(this.value.length==1) return false;" placeholder=""
+                                                        (keyup)="nextFocus('5', $event)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-2 col-sm-1">
+                                            <div class="ld_tooltip" id="passcodeToolTip" translate>lblIncorrect</div>
+                                            <span class="icon_tickcross" id="passcodeTickWrong"
+                                                style="float: left;"><img
+                                                    src="../../../assets/images/invalidcross2x.png" /></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row text-center notlogin mt-25">
+                                        <div class="col-xs-2 col-sm-1"></div>
+                                        <div class="col-xs-8 col-sm-10">
+                                            <button class="globalButton" type="submit" [disabled]="!loginForm.valid"
+                                                id="btnLogout" translate>lblLOGOUT</button>
+                                        </div>
+                                        <div class="col-xs-2 col-sm-1"></div>
+                                    </div>
+
+                                    <div class="row text-center mt-25">
+                                        <a class="col-sm-12 label_link" href="#" (click)="cancel()"><strong
+                                                translate>lblCANCEL</strong></a>
+                                    </div>
+                                    <div class="row text-center mt-25 responsive-hide">
+                                        <div class="col-sm-12">
+                                            <h2>&nbsp;</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

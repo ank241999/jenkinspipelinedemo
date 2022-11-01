@@ -1,0 +1,137 @@
+<div class="inputWrapper calibrationservice">
+    <div id="smart-tables">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card">
+                    <div class="row mb-15" style="margin-left: -45px; margin-right: -45px; min-height: 37px;">
+                        <div class="col-xs-2 text-left">&nbsp;
+                            <!-- <img src="../../../assets/images/backscreen_icon.jpg" (click)="onScreenBack()"
+                                style="cursor: pointer;" /> -->
+                        </div>
+                        <div class="col-xs-9 text-right">
+                        </div>
+                        <div class="col-xs-1 text-right">
+                            <img src="../../../assets/images/closescreen_icon.jpg" style="cursor: pointer;"
+                                (click)="refresh()" />
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-1 link_back">&nbsp;</div>
+                            <div class="col-xs-10">&nbsp;</div>
+                            <div class="col-xs-1" style="text-align: right;">&nbsp;</div>
+                        </div>
+                        <div class="innercard-wrapper">
+                            <header class="row title  pd-left-75">
+                                <div class="col-xs-12">
+                                    <h2 class="main-title">Offset Calculation
+                                        <div class="action-icon-tooltip">
+                                            <!-- <i class="action-icon fa fa-question-circle-o"></i> -->
+                                            <img class="action-icon" src="../../../assets/images/question_icon.png" />
+
+                                            <div class="action-tooltip action-tooltip-alt">
+                                                <!-- <span class="action-tooltip-point"></span> -->
+                                                <p class="action-tooltip-text">
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </h2>
+                                    <!-- <span class="close">&times;</span> -->
+                                </div>
+                            </header>
+                            <div class="container-fluid">
+                                <mat-horizontal-stepper #stepper>
+                                    <mat-step [stepControl]="firstFormGroup">
+                                        <form [formGroup]="firstFormGroup">
+                                            <ng-template matStepLabel>Offset Value</ng-template>
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-3"></div>
+                                                    <div class="col-md-6" style="font-size: 30px;font-weight: 800;">
+                                                        Ensure that there is enough space and no
+                                                        objects in front of the device</div>
+                                                    <div class="col-md-3"></div>
+                                                </div>
+                                                <div class="row" style="margin-top: 40px">
+                                                    <div class="col-md-3"></div>
+                                                    <div class="col-md-3" style="font-size: 25px;">
+                                                        Number of Frames
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <input type="number" min="0" class="form-control text-center"
+                                                            formControlName="firstframe" (input)="checkValue($event)"
+                                                            required>
+                                                    </div>
+                                                    <div class="col-md-5"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-10"></div>
+                                                    <div class="col-md-2">
+                                                        <button class="globalButton" [disabled]="!firstFormGroup.valid"
+                                                            (click)="getoffset()" matStepperNext>Next</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </mat-step>
+                                    <mat-step>
+                                        <ng-template matStepLabel>Display Offset Value</ng-template>
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-md-4"></div>
+                                                <div class="col-md-4" style="font-size: 30px;font-weight: 800;">
+                                                    Current Offset Value</div>
+                                                <div class="col-md-4"></div>
+                                            </div>
+                                            <div class="row" style="margin-top: 40px">
+                                                <div class="col-md-5"></div>
+                                                <div class="col-md-1" style="font-size: 25px;">
+                                                    <input type="number" class="form-control text-center"
+                                                        [value]="offsetvalue" disabled="true" required>
+                                                </div>
+                                                <div class="col-md-6">
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin-top: 40px">
+                                                <div class="col-md-10"></div>
+                                                <div class="col-md-2">
+                                                    <button class="globalButton" matStepperNext>Next</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </mat-step>
+                                    <mat-step>
+                                        <ng-template matStepLabel>Persist Current Offset Value</ng-template>
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-md-3"></div>
+                                                <div class="col-md-6" style="font-size: 30px;font-weight: 800;">
+                                                    You can persist the calculated offset value if needed</div>
+                                                <div class="col-md-3"></div>
+                                            </div>
+                                            <div class="row" style="margin-top: 40px">
+                                                <div class="col-md-4"></div>
+                                                <div class="col-md-4">
+                                                    <button class="globalButton" type="submit" disabled
+                                                        (click)="saveoffset()">Save
+                                                        Offset Value</button>
+                                                </div>
+                                                <div class="col-md-4"></div>
+                                            </div>
+                                            <div class="row" style="margin-top: 40px">
+                                                <div class="col-md-10"></div>
+                                                <div class="col-md-2">
+                                                    <button class="globalButton" (click)="refresh()">END</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </mat-step>
+                                </mat-horizontal-stepper>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

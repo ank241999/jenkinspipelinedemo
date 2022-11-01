@@ -1,0 +1,92 @@
+@import '../../styles/_variables.scss';
+@import '../../styles/_mixins.scss';
+
+.alreadyloginalert{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    max-width: 811px;
+    width: 100%;
+    min-height: 718px;
+    padding: 0px;
+    
+    .card{
+        margin-bottom: 0px;
+        min-height: 718px;
+        
+        .login_wrapper{
+            .login-form{
+                .title_text{
+                    font-size: 36px;
+                    font-weight: bold;
+                }
+                .form-control{
+                    font-size: 16px;
+                    height: 60px;
+                }
+                .label_link{
+                    font-size: 14px;
+                    color: $libertyBlue;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1366px) and (min-width: 1025px)  {
+    .inputWrapper{
+        width: 650px !important;
+        min-height: 500px !important;
+        transform: translate(-50%,-45%) !important;
+
+        .card{
+            min-height: 500px;
+
+            .responsive-hide{
+                display: none !important;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) and (min-width: 320px)  {
+    .inputWrapper{
+        min-height: 420px;
+
+        .card{
+            min-height: 500px;
+
+            .login_wrapper{
+                .login-form{
+                    .form-control{
+                        font-size: 12px !important;
+                    }
+                    .responsive-hide{
+                        display: none !important;
+                    }
+                    .ld_tooltip{
+                        // background: url(../../../assets/images/popup_2x.png) no-repeat; 
+                        width: 125px !important; 
+                        right: 42px !important;
+                        top: 55px !important;
+                    }
+                    #passcodeToolTip{
+                        right: 25px !important;
+                        top: 115px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { 
+   
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) { 
+   
+}

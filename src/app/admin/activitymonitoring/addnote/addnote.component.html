@@ -1,0 +1,51 @@
+<div class="alert-modal addnotewrapper">
+    <div>
+        <div class="row mb-15 addnote_headerwrapper">
+            <!-- <div class="col-xs-2 text-left">&nbsp;
+                <img src="../../../assets/images/backscreen_icon.jpg" (click)="onScreenBack()" style="cursor: pointer;" />
+            </div> -->
+            <div class="col-xs-11 addnote_header_title">Notes regarding this scan</div>
+            <div class="col-xs-1 text-right addnote_header_closewrapper">
+                <img class="addnote_header_btnclose" src="../../../assets/images/closescreen_icon.jpg" (click)="onScreenClose()" />
+            </div>
+        </div>
+
+        <!-- <h1 class="alert-modal-title" translate>Notes regarding this scan</h1> -->
+
+        <form class="form-horizontal" [formGroup]="form" (ngSubmit)="onclick()">
+            <div class="form-group">
+                <div class="row">
+                    <!-- <div class="col-xs-2">&nbsp;</div> -->
+                    <div class="col-xs-12">
+                        <!-- <div [ngClass]="{ 'has-error': ((form.get('name').invalid) && (form.get('name').touched)) }"> -->
+                        <div>
+                            <!-- <label class="form-label form-label-big col-sm-12" [attr.for]="'name'"> </label> -->
+                            <!-- <input class="form-control alert-modal-input" type="textarea" placeholder="{{'addTypehere' | translate}}"
+                                formControlName="name"> -->
+                            <textarea class="form-control" formControlName="name" [id]="'name'" placeholder="Note"
+                                rows="6" maxlength="255"></textarea>
+
+                            <!-- <div class="validation-errors">
+                                <ng-container *ngFor="let validation of validationMessages.name">
+                                    <div class="help-block"
+                                        *ngIf="form.get('name').hasError(validation.type) && (form.get('name').dirty || form.get('name').touched)">
+                                        {{ validation.message }}
+                                    </div>
+                                </ng-container>
+                            </div> -->
+                        </div>
+                    </div>
+                    <!-- <div class="col-xs-2">&nbsp;</div> -->
+                </div>
+                <!-- <div class="alert-modal-buttons">
+                    <div class="col-xs-3">&nbsp;</div>
+                    <div class="col-xs-6">
+                        <input type="submit" class="btn alert-modal-button globalButton"
+                            (click)="validateFields(); form.valid;" [disabled]="!form.valid" value="ADD">
+                    </div>
+                    <div class="col-xs-3">&nbsp;</div>
+                </div> -->
+            </div>
+        </form>
+    </div>
+</div>

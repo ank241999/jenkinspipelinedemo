@@ -1,0 +1,202 @@
+<div class="inputWrapper userSettings">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="card">
+				<header class="row title">
+					<div class="col-xs-12 text-center">
+						<h2 class="main-title" translate>usersetsettings</h2>
+						<hr class="line">
+					</div>
+				</header>
+				<form class="form-horizontal" [formGroup]="activeThreatForm" (ngSubmit)="onSubmit()">
+					<div class="form-group">
+						<label class="form-label form-label-big col-sm-2" translate>usersetlanguage</label>
+						<div class="col-sm-10">
+							<mat-select placeholder="" name="handgunLocationDrp" formControlName="languageDrp"
+								class="form-control">
+								<mat-option *ngFor="let lang of languages" [value]="lang.id">{{ lang.value }}
+								</mat-option>
+							</mat-select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="form-label form-label-big col-sm-2" translate>usersetnothreatindication</label>
+						<div class="col-sm-10">
+							<mat-select placeholder="" name="handgunLocationDrp" formControlName="noThreatIndicationDrp"
+								class="form-control">
+								<mat-option *ngFor="let threatConf of noThreatConfig" [value]="threatConf.id">
+									{{ threatConf.value }}
+								</mat-option>
+							</mat-select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="form-label form-label-big col-sm-2 hidden-label">&nbsp;</label>
+						<div class="col-sm-10">
+							<mat-accordion>
+								<mat-expansion-panel>
+									<mat-expansion-panel-header>
+										<mat-panel-title>
+											<strong translate>usersetaccesspointap</strong>
+										</mat-panel-title>
+									</mat-expansion-panel-header>
+									<div class="row" style="margin-bottom: 10px;">
+										<label class="form-label form-label-big label-left col-md-2 col-sm-12"
+											translate>usersetaccesspointssid</label>
+										<div class="col-sm-10">
+											<input matInput name="ssidTxt" type="text" placeholder="SSID"
+												formControlName="ssidTxt" class="form-control user-setting-text">
+										</div>
+									</div>
+									<div class="row">
+										<label class="form-label form-label-big label-left col-md-2 col-sm-12"
+											translate>usersetaccesspointpassword</label>
+										<div class="col-md-10 col-sm-12">
+											<input matInput name="passwordTxt" type="text" placeholder="Password"
+												formControlName="passwordTxt" class="form-control user-setting-text">
+										</div>
+									</div>
+								</mat-expansion-panel>
+							</mat-accordion>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="form-label form-label-big col-sm-2 hidden-label">&nbsp;</label>
+						<div class="col-sm-10">
+							<mat-accordion>
+								<mat-expansion-panel>
+									<mat-expansion-panel-header>
+										<mat-panel-title>
+											<strong translate>usersetcalltoaction</strong>
+										</mat-panel-title>
+									</mat-expansion-panel-header>
+									<div>
+										<ul>
+											<li>
+												<a href="#ExpirationDate" class="next" translate>usersetcolorofnothreat
+													<div [ngStyle]="{'background-color': ctaColorNonThreatDrp}"
+														style="float: right;" class="color-dv"
+														(click)="showColorPopup('ctaColorNonThreatDrp_popup')">&nbsp;
+													</div>
+													<div class="color-popup-dv ctaColorNonThreatDrp_popup">
+														<div *ngFor="let color of colors" class="color-outer-dv">
+															<div [ngStyle]="{'background-color': color.id}"
+																class="color-dv-popup"
+																id="ctaColorNonThreatDrp_{{color.id}}"
+																(click)="colorSelect('ctaColorNonThreatDrp_',color.id)">
+																&nbsp;</div>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li>
+												<a href="#NoThreatIndication" class="next"
+													translate>usersetcolorofanomaly
+													<div [ngStyle]="{'background-color': ctaColorAnomalyDrp}"
+														style="float: right;" class="color-dv"
+														(click)="showColorPopup('ctaColorAnomalyDrp_popup')">&nbsp;
+													</div>
+													<div class="color-popup-dv ctaColorAnomalyDrp_popup">
+														<div *ngFor="let color of colors" class="color-outer-dv">
+															<div [ngStyle]="{'background-color': color.id}"
+																class="color-dv-popup"
+																id="ctaColorAnomalyDrp_{{color.id}}"
+																(click)="colorSelect('ctaColorAnomalyDrp_',color.id)">
+																&nbsp;</div>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li>
+												<a href="#NoThreatIndication" class="next"
+													translate>usersetcolorofmetalthreat
+													<div [ngStyle]="{'background-color': ctaColorMetalThreatDrp}"
+														style="float: right;" class="color-dv"
+														(click)="showColorPopup('ctaColorMetalThreatDrp_popup')">&nbsp;
+													</div>
+													<div class="color-popup-dv ctaColorMetalThreatDrp_popup">
+														<div *ngFor="let color of colors" class="color-outer-dv">
+															<div [ngStyle]="{'background-color': color.id}"
+																class="color-dv-popup"
+																id="ctaColorMetalThreatDrp_{{color.id}}"
+																(click)="colorSelect('ctaColorMetalThreatDrp_',color.id)">
+																&nbsp;</div>
+														</div>
+													</div>
+												</a>
+											</li>
+											<li>
+												<a href="#NoThreatIndication" class="next"
+													translate>usersetcolorofnonmetalthreat
+													<div [ngStyle]="{'background-color': ctaColorNonMetalThreatDrp}"
+														style="float: right;" class="color-dv"
+														(click)="showColorPopup('ctaColorNonMetalThreatDrp_popup')">
+														&nbsp;</div>
+													<div class="color-popup-dv ctaColorNonMetalThreatDrp_popup">
+														<div *ngFor="let color of colors" class="color-outer-dv">
+															<div [ngStyle]="{'background-color': color.id}"
+																class="color-dv-popup"
+																id="ctaColorNonMetalThreatDrp_{{color.id}}"
+																(click)="colorSelect('ctaColorNonMetalThreatDrp_',color.id)">
+																&nbsp;</div>
+														</div>
+													</div>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</mat-expansion-panel>
+							</mat-accordion>
+						</div>
+                                                <div class="form-group" style="margin-top: 90px;">
+							<label class="form-label form-label-big col-sm-2" translate>Primary Device</label>
+							<div class="col-sm-10">
+								<mat-slide-toggle disableRipple class="mat-override" style="margin-left: 10px;"
+									[checked]="primaryDevice" (change)="primaryDeviceMode($event)">
+									<span class="mat-slide-toggle-label-on">ON</span>
+									<span class="mat-slide-toggle-label-off">OFF</span>
+								</mat-slide-toggle>
+							</div>
+						</div>
+						<div class="form-group" style="margin-top: 90px;">
+							<label class="form-label form-label-big col-sm-2" translate>Beta Test Mode</label>
+							<div class="col-sm-10">
+								<mat-slide-toggle disableRipple class="mat-override" style="margin-left: 10px;"
+									[checked]="betaTestMode" (change)="betaMode($event)">
+									<span class="mat-slide-toggle-label-on">ON</span>
+									<span class="mat-slide-toggle-label-off">OFF</span>
+								</mat-slide-toggle>
+							</div>
+						</div>
+						<div class="form-group" style="margin-top: 90px;">
+							<label class="form-label form-label-big col-sm-2" translate>Primary Guard Mode</label>
+							<div class="col-sm-10">
+								<mat-slide-toggle disableRipple class="mat-override" style="margin-left: 10px;"
+									[checked]="primaryGuardMode" (change)="primaryMode($event)">
+									<span class="mat-slide-toggle-label-on">ON</span>
+									<span class="mat-slide-toggle-label-off">OFF</span>
+								</mat-slide-toggle>
+							</div>
+						</div>
+						<div class="form-group" style="margin-top: 90px;">
+							<label class="form-label form-label-big col-sm-2" translate>Send threats to Hexwave</label>
+							<div class="col-sm-10">
+								<mat-slide-toggle disableRipple class="mat-override" style="margin-left: 10px;"
+									[checked]="sendThreats" (change)="sendThreatsToHexawave($event)">
+									<span class="mat-slide-toggle-label-on">ON</span>
+									<span class="mat-slide-toggle-label-off">OFF</span>
+								</mat-slide-toggle>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="form-label form-label-big col-sm-10 hidden-label">&nbsp;</label>
+						<div class="col-sm-2 text-center">
+							<input class="btn globalButton" type="submit" value="SAVE">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

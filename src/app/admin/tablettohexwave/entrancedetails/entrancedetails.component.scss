@@ -1,0 +1,22 @@
+.close {
+    cursor: pointer;
+    position: absolute;
+    top: 5%;
+    right: 0%;
+    padding: 12px 16px;
+    transform: translate(0%, -50%);
+    font-size: 40px;
+}
+
+.btn.btn-info.htg {
+    width: 100%;
+    // table-layout: fixed;
+    cursor: pointer;
+    // border-collapse: collapse;
+    padding: 10px 0px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #ffffff;
+    // display: inline-block;
+    background-color: #102937;
+}

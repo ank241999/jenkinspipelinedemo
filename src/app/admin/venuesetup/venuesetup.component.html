@@ -1,0 +1,193 @@
+<div class="inputWrapper venuesetup">
+    <div class="card">
+        <!-- <div class="row">
+            <div class="col-xs-12 col-lg-10 col-md-10 col-sm-12">
+                &nbsp;
+            </div>
+            <div class="col-xs-12 col-lg-2 col-md-2 col-sm-12">
+                <button class="globalButton" (click)="genetecSetting()" translate>Genetec Settings</button>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col-lg-5 logo-panel">
+                <div class="row">
+                    <div class="col-xs-1 link_back" style="cursor: pointer;">
+                        &nbsp;
+                    </div>
+                    <div class="col-xs-10">&nbsp;</div>
+                    <div class="col-xs-1" style="text-align: right;">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2">&nbsp;</div>
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-xs-12">&nbsp;</div>
+                        </div>
+                        <header class="row title" translate>
+                            <div class="col-xs-12 no-padding">
+                                <h2 class="main-title" translate>venuCustomize</h2>
+                                <p class="desc-title" translate>venu</p>
+                            </div>
+                        </header>
+
+                        <div class="row mb-30" style="border: 1px solid #DCDCDC;">
+
+                            <div class="col-lg-12 no-padding avatar-upload-wrapper">
+                                <div class="row" style="width: 100%;">
+                                    <div class="col-xs-12 pd-15" style="min-height: 450px;">
+                                        <div appFileUpload class="img-frame"
+                                            (filesChangeEmiter)="onDropzoneSingleChange($event, 'avatar')"
+                                            [allowedExtensions]="['png', 'jpg', 'bmp', 'jpeg']">
+                                            <div class="img-preview"
+                                                [ngStyle]="{ 'background-image': 'url(' + (uploaders.avatar.url || placeholderlogo) + ')'}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row text-center" style="border-top: 1px solid #DCDCDC; width: 100%;">
+                                    <div class="col-xs-12 pd-15">
+                                        <button class="globalButton" type="button"
+                                            [ngClass]="'btn btn-upload' + ((uploaders.avatar.progress === 100) ? ' done' : '')"
+                                            (click)="((uploaders.avatar.progress === undefined) ? fileDialogAvatar.click() : null)">
+                                            <span *ngIf="uploaders.avatar.progress === undefined"
+                                                translate>venuUploadLogo</span>
+                                            <mat-progress-bar
+                                                *ngIf="(uploaders.avatar.progress >= 0) && (uploaders.avatar.progress < 100)"
+                                                [value]="uploaders.avatar.progress"
+                                                class="mat-progress-bar-round color color-aqua"
+                                                style="position: absolute; top: -220px; width: 280px; color: #143345;">
+                                            </mat-progress-bar>
+                                            <span *ngIf="uploaders.avatar.progress === 100"
+                                                translate>venuUploaded</span>
+                                        </button>
+                                        <input #fileDialogAvatar (change)="onSingleChange($event, 'avatar')"
+                                            type="file" />
+                                    </div>
+                                    <div class="col-xs-12 pd-15">
+                                        <p style="width: 310px; margin: 0px auto 10px; text-align: left;" translate>
+                                            venuMakesure</p>
+                                        <ul style="width: 310px; margin: 0px auto; text-align: left;">
+                                            <li translate>venuPNG</li>
+                                            <li translate>venu65pixel</li>
+                                            <li translate>venuFile</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 pd-15">
+                                        <button class="revert_logo" (click)="clearUploadedFile()" id="revert_logo"
+                                            translate>venuREVERTTODEFAULT</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-lg-2">&nbsp;</div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 footprint-panel">
+                <div class="row">
+                    <div class="col-xs-8">
+                        &nbsp;
+                    </div>
+                    <div class="col-xs-4">
+                        <button class="globalButton" style="height: 42px;" (click)="genetecSetting()" translate>venuCofigureGenetec</button>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-lg-1">
+                        &nbsp;
+                    </div>
+                    <div class="col-lg-10">
+                        <header class="row title">
+                            <div class="col-xs-12 no-padding">
+                                <h2 class="main-title" translate>venuUploadVenueFootprint</h2>
+                                <p class="desc-title" translate>venuIdentifyentrances</p>
+                            </div>
+                        </header>
+
+                        <div class="row mb-30" style="border: 1px solid #DCDCDC;">
+
+                            <div class="col-lg-12 no-padding avatar-upload-wrapper">
+                                <div class="row" style="width: 100%;">
+                                    <div class="col-xs-12 pd-15">
+                                        <div appFileUpload class="img-frame"
+                                            (filesChangeEmiter)="onDropzoneSingleChange($event, 'footprint')"
+                                            [allowedExtensions]="['png', 'jpg', 'bmp', 'jpeg']">
+                                            <div class="img-preview"
+                                                [ngStyle]="{ 'background-image': 'url(' + (uploaders.footprint.url || placeholderfootprint) + ')' }">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row text-center" style="border-top: 1px solid #DCDCDC; width: 100%;">
+                                    <div class="col-xs-12 pd-15">
+                                        <button class="globalButton"
+                                            [ngClass]="'btn btn-upload' + ((uploaders.footprint.progress === 100) ? ' done' : '')"
+                                            (click)="((uploaders.footprint.progress === undefined) ? fileDialogFootprint.click() : null)">
+                                            <span *ngIf="uploaders.footprint.progress === undefined"
+                                                translate>venuUploadFootprint</span>
+                                            <mat-progress-bar
+                                                *ngIf="(uploaders.footprint.progress >= 0) && (uploaders.footprint.progress < 100)"
+                                                [value]="uploaders.footprint.progress"
+                                                class="mat-progress-bar-round color color-aqua"
+                                                style="position: absolute; top: -220px; width: 280px; color: #143345;">
+                                            </mat-progress-bar>
+                                            <span *ngIf="uploaders.footprint.progress === 100"
+                                                translate>venuUploaded</span>
+                                        </button>
+                                        <input #fileDialogFootprint (change)="onSingleChange($event, 'footprint')"
+                                            type="file" />
+                                    </div>
+                                    <div class="col-xs-12 pd-15">
+                                        <p style="width: 310px; margin: 0px auto 10px; text-align: left;" translate>
+                                            venuMakesuretheyourimage</p>
+                                        <ul style="width: 310px; margin: 0px auto; text-align: left;">
+                                            <li translate>venuPNG</li>
+                                            <li translate>venu~650</li>
+                                            <li translate>venu500KB</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-12 pd-15">
+                                        <button class="clear" (click)="clearUploadedFile()" id="clear"
+                                            translate>venuCLEAR</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-lg-1">&nbsp;</div>
+                </div>
+            </div>
+            <div class="col-lg-1">
+                <div class="row">
+                    <div class="col-xs-12" style="text-align: right;">
+                        &nbsp;
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 no-padding">
+                <button class="globalButton" (click)="onSubmit()"><span
+                        *ngIf="(uploaders.avatar.progress === undefined) && (uploaders.footprint.progress === undefined)"
+                        translate>venuSKIP</span>
+                    <span *ngIf="(uploaders.footprint.progress === 100) || (uploaders.avatar.progress === 100)"
+                        translate>venuDONE</span></button>
+            </div>
+        </div>
+    </div>
+</div>

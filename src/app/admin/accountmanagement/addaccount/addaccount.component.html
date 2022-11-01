@@ -1,0 +1,317 @@
+<div class="inputWrapper addaccount">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="card">
+				<div class="row mb-15" style="margin-left: -45px; margin-right: -45px; min-height: 37px;">
+					<div class="col-xs-2 text-left">
+						<img src="../../../assets/images/backscreen_icon.jpg" (click)="onScreenBack()"
+							style="cursor: pointer;" />
+					</div>
+					<div class="col-xs-8">&nbsp;</div>
+					<div class="col-xs-2 text-right">
+						<img src="../../../assets/images/closescreen_icon.jpg" (click)="onScreenClose()"
+							style="cursor: pointer;" />
+					</div>
+				</div>
+				<header class="row title pd-left-75">
+					<div class="col-xs-12">
+						<h2 class="main-title" translate>addCreateAccount</h2>
+					</div>
+				</header>
+				<!-- <hr class="line"> -->
+				<div class="row">
+					<div class="col-xs-12">
+						<form class="form-horizontal pd-left-75" [formGroup]="form" (ngSubmit)="onSubmit()"
+							(input)="updateProgress()" (change)="updateProgress()" (reset)="updateProgress()">
+							<div class="col-lg-4">
+								<!-- First Name -->
+								<div class="row mt-25">
+									<div class="col-lg-12">
+										<div class="form-group"
+											[ngClass]="{ 'has-error': ((form.get('firstName').invalid) && (form.get('firstName').touched)) }">
+											<label class="col-sm-12 label-text" [attr.for]="'firstName'" translate>addFirstName</label>
+											<div class="col-sm-12">
+												<input type="text" class="form-control" formControlName="firstName"
+													[id]="'firstName'" placeholder="{{'addTypehere' | translate}}">
+											</div>
+											<div class="validation-errors col-sm-12">
+												<ng-container *ngFor="let validation of validationMessages.firstName">
+													<div class="help-block"
+														*ngIf="form.get('firstName').hasError(validation.type) && (form.get('firstName').dirty || form.get('firstName').touched)">
+														{{ validation.message }}
+													</div>
+												</ng-container>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Last Name -->
+								<div class="row mt-25">
+									<div class="col-lg-12">
+										<div class="form-group">
+											<label class="col-sm-12 label-text" [attr.for]="'optionalText'" translate>addLastName</label>
+											<div class="col-sm-12">
+												<input type="text" class="form-control" formControlName="lastName"
+													[id]="'lastName'" placeholder="{{'addTypehere' | translate}}">
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Email-->
+								<div class="row mt-25">
+									<div class="col-lg-12">
+										<div class="form-group"
+											[ngClass]="{ 'has-error': ((form.get('email').invalid) && (form.get('email').touched)) }">
+											<label class="col-sm-12 label-text" [attr.for]="'email'" translate>addEmail</label>
+											<div class="col-sm-12">
+												<input type="email" class="form-control" formControlName="email"
+													[id]="'email'" placeholder="{{'addTypehere' | translate}}">
+											</div>
+											<div class="validation-errors col-sm-12">
+												<ng-container *ngFor="let validation of validationMessages.email">
+													<div class="help-block"
+														*ngIf="form.get('email').hasError(validation.type) && (form.get('email').dirty || form.get('email').touched)">
+														{{ validation.message }}
+													</div>
+												</ng-container>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Confirm Email-->
+								<div class="row mt-25">
+									<div class="col-lg-12">
+										<div class="form-group">
+											<label class="col-sm-12 label-text" [attr.for]="'confirmemail'" translate>addConfirmEmail</label>
+											<div class="col-sm-12"
+												[ngClass]="{ 'has-error': ((form.get('confirmemail').invalid) && (form.get('confirmemail').dirty)) }">
+												<input type="text" class="form-control" formControlName="confirmemail"
+													[id]="'confirmemail'" placeholder="{{'addTypehere' | translate}}" #confirmemail1
+													(focusout)="compareEmail()" appBlockCopyPaste>
+
+											</div>
+											<div class="validation-errors col-sm-12"
+												[ngClass]="{ 'has-error': (!isEmailValid) }">
+
+												<div class="help-block" *ngIf="!isEmailValid" translate>
+													addNotamatch,tryagain!
+												</div>
+												<!-- </ng-container> -->
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- Passcode-->
+								<div class="row mt-25">
+									<div class="col-lg-12">
+										<div class="form-group">
+											<label class="col-sm-12 label-text" [attr.for]="'password'" translate>addPasscode</label>
+											<div class="col-sm-12">
+												<div class="row">
+													<div class="col-sm-3"
+														[ngClass]="{ 'has-error': ((form.get('password1').invalid) && (form.get('password1').dirty)) }">
+														<input type="number" class="form-control text-center"
+															formControlName="password1" [id]="'password1'"
+															placeholder="X"
+															onKeyPress="if(this.value.length==1) return false;"
+															#passcode1 (keyup)="nextFocus('2', $event)">
+													</div>
+													<div class="col-sm-3"
+														[ngClass]="{ 'has-error': ((form.get('password2').invalid) && (form.get('password2').dirty)) }">
+														<input type="number" class="form-control text-center"
+															formControlName="password2" [id]="'password2'"
+															placeholder="X"
+															onKeyPress="if(this.value.length==1) return false;"
+															#passcode2 (keyup)="nextFocus('3', $event)">
+													</div>
+													<div class="col-sm-3"
+														[ngClass]="{ 'has-error': ((form.get('password3').invalid) && (form.get('password3').dirty)) }">
+														<input type="number" class="form-control text-center"
+															formControlName="password3" [id]="'password3'"
+															placeholder="X"
+															onKeyPress="if(this.value.length==1) return false;"
+															#passcode3 (keyup)="nextFocus('4', $event)">
+													</div>
+													<div class="col-sm-3"
+														[ngClass]="{ 'has-error': ((form.get('password4').invalid) && (form.get('password4').dirty)) }">
+														<input type="number" class="form-control text-center"
+															formControlName="password4" [id]="'password4'"
+															placeholder="X"
+															onKeyPress="if(this.value.length==1) return false;"
+															#passcode4 (keyup)="nextFocus('5', $event)">
+													</div>
+												</div>
+											</div>
+											<div class="validation-errors col-sm-12">
+												<!-- <ng-container *ngFor="let validation of validationMessages.password">
+														  <div class="help-block" *ngIf="form.get('password').hasError(validation.type) && (form.get('password').dirty || form.get('password').touched)">
+															{{ validation.message }}
+														  </div>
+												</ng-container> -->
+											</div>
+										</div>
+									</div>
+
+								</div>
+								<!--Confirm Passcode-->
+								<div class="row mt-25">
+									<div class="col-lg-12">
+										<div class="form-group">
+											<label class="col-sm-12 label-text" [attr.for]="'confirmpassword'" translate>addConfirmpasscode</label>
+											<div class="col-sm-12">
+												<div class="row">
+													<div class="col-sm-3"
+														[ngClass]="{ 'has-error': ((form.get('confirmPassword1').invalid) && (form.get('confirmPassword1').dirty)) }">
+														<input type="number" class="form-control text-center"
+															formControlName="confirmPassword1" [id]="'confirmPassword1'"
+															placeholder="X"
+															onKeyPress="if(this.value.length==1) return false;"
+															#confPasscode1 (keyup)="nextFocus('6', $event)">
+													</div>
+													<div class="col-sm-3"
+														[ngClass]="{ 'has-error': ((form.get('confirmPassword2').invalid) && (form.get('confirmPassword2').dirty)) }">
+														<input type="number" class="form-control text-center"
+															formControlName="confirmPassword2" [id]="'confirmPassword2'"
+															placeholder="X"
+															onKeyPress="if(this.value.length==1) return false;"
+															#confPasscode2 (keyup)="nextFocus('7', $event)">
+													</div>
+													<div class="col-sm-3"
+														[ngClass]="{ 'has-error': ((form.get('confirmPassword3').invalid) && (form.get('confirmPassword3').dirty)) }">
+														<input type="number" class="form-control text-center"
+															formControlName="confirmPassword3" [id]="'confirmPassword3'"
+															placeholder="X"
+															onKeyPress="if(this.value.length==1) return false;"
+															#confPasscode3 (keyup)="nextFocus('8', $event)">
+													</div>
+													<div class="col-sm-3"
+														[ngClass]="{ 'has-error': ((form.get('confirmPassword4').invalid) && (form.get('confirmPassword4').dirty)) }">
+														<input type="number" class="form-control text-center"
+															formControlName="confirmPassword4" [id]="'confirmPassword4'"
+															placeholder="X"
+															onKeyPress="if(this.value.length==1) return false;"
+															#confPasscode4 (keyup)="nextFocus('9', $event)"
+															(focusout)="comparePassword()">
+													</div>
+												</div>
+											</div>
+											<div class="validation-errors col-sm-12"
+												[ngClass]="{ 'has-error': (!isPasswordValid) }">
+												<!-- <ng-container *ngFor="let validation of validationMessages.confirmpassword"> -->
+												<div class="help-block" *ngIf="!isPasswordValid" translate>
+													addNotamatch
+												</div>
+												<!-- </ng-container> -->
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4">
+								<!-- User Role-->
+								<div class="row mt-25">
+									<div class="col-lg-12">
+										<div class="form-group"
+											[ngClass]="{ 'has-error': ((form.get('role').invalid) && (form.get('role').touched)) }">
+											<label class="col-sm-12 label-text" [attr.for]="'role'" translate>addROLE</label>
+											<div class="col-sm-12">
+												<select class="form-control" formControlName="role" [id]="'role'" #t
+													(change)="changeRole(t.value)">
+													<!-- <option disabled selected hidden value=""> -- Select a role -- </option> -->
+													<option *ngFor="let item of userRoles" [value]="item.id">
+														{{ item.role }}
+													</option>
+												</select>
+											</div>
+											<div class="validation-errors col-sm-12">
+												<ng-container *ngFor="let validation of validationMessages.role">
+													<div class="help-block"
+														*ngIf="form.get('role').hasError(validation.type) && (form.get('role').dirty || form.get('role').touched)">
+														{{ validation.message }}
+													</div>
+												</ng-container>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- ExpirationDate-->
+								<div class="row mt-25">
+									<div class="col-lg-12">
+										<div class="form-group basic-user"
+											[ngClass]="{ 'has-error': isValidExpiryDate===1 || isValidExpiryDate===2 }">
+											<label class="col-sm-12 label-text" translate>addExpirationdate</label>
+											<div class="col-sm-12">
+												<div style="min-height: 60px; border: 1px solid #e4e4e4;"
+													[ngStyle]="{'border-color': isValidExpiryDate===1 ? '#a94442' : (isValidExpiryDate===2 ? '#a94442' : '#e4e4e4') }">
+													<input type="text" class="form-control date-input"
+														[matDatepicker]="picker"
+														[formControl]="form.controls.expiryDate"
+														placeholder="{{'addSelectaDate' | translate}}"
+														style="border: 0px none; width: 80%; float: left;"
+														(focusout)="dateFilter('form.controls')">
+													<mat-datepicker-toggle matSuffix [for]="picker"
+														style="float: right; margin-top: 8px;"></mat-datepicker-toggle>
+													<mat-datepicker #picker></mat-datepicker>
+													<!-- <select class="form-control" formControlName="expiryDays"
+														[id]="'expiryDays'" [disabled]="!disableSelect.value">
+														<option disabled selected hidden value=""> -- Select a role --
+														</option>
+														<option *ngFor="let item of expiryDays" [value]="item">{{ item }}
+														</option>
+													</select> -->
+												</div>
+											</div>
+											<div class="validation-errors col-sm-12"
+												[ngClass]="{ 'has-error': isValidExpiryDate===1 || isValidExpiryDate===2 }">
+												<!-- <ng-container *ngFor="let validation of validationMessages.expiryDate">
+													<div class="help-block"
+														*ngIf="form.get('expiryDate').hasError(validation.type) && (form.get('expiryDate').dirty || form.get('expiryDate').touched)">
+														{{ validation.message }}
+													</div>
+												</ng-container> -->
+												<div class="help-block" *ngIf="isValidExpiryDate===1" translate>
+													addPleaseensure
+												</div>
+												<div class="help-block" *ngIf="isValidExpiryDate===2" translate>
+													addExpirationdateisrequired
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-2"></div>
+							<div class="col-lg-2">
+								<div class="row mt-25 responsive-hide">&nbsp;</div>
+								<div class="row mt-25 responsive-hide">&nbsp;</div>
+								<div class="row mt-25 responsive-hide">&nbsp;</div>
+								<div class="row mt-25 responsive-hide">&nbsp;</div>
+								<div class="row mt-25 responsive-hide">&nbsp;</div>
+								<div class="row mt-25 responsive-hide">&nbsp;</div>
+								<div class="row mt-25 responsive-hide">&nbsp;</div>
+								<div class="row mt-25 responsive-hide">&nbsp;</div>
+								<div class="row mt-25 responsive-hide">&nbsp;</div>
+								<div class="row mt-25 responsive-hide">&nbsp;</div>
+								<div class="row mt-25 responsive-hide">&nbsp;</div>
+								<div class="row mt-25 responsive-hide">&nbsp;</div>
+								<div class="row mt-25">
+									<div class="col-lg-12">
+										<div class="text-center">
+											<input class="globalButton" type="submit"
+												(click)="validateFields(); form.valid" value="DONE"
+												style="margin-bottom: 10px;"
+												[disabled]="!form.valid || isValidExpiryDate===1 || isValidExpiryDate===2">
+											<!-- <input type="button" class="globalButton" [disabled]="!form.valid"
+												(click)="createAnother()" value="CREATE ANOTHER"> -->
+											<!-- <input class="btn globalButton" type="button" (click)="close()" value="Cancel"> -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

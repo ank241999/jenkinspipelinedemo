@@ -1,0 +1,411 @@
+/* Add application styles & imports to this file! */
+/* You can add global styles to this file, and also import other style files */
+@import "~angular-notifier/styles.css";
+body{
+    background: #EBEBEB;
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Arial';
+    font-size: 14px;
+    color: #143245;
+}
+.fa:before{
+    color: #ffffff;
+}
+input[type=text]:focus, input[type=email]:focus, input[type=number]:focus {
+    outline: 0px solid #143245 !important;
+    box-shadow: inset 0px 0.3px 0 1px #143245
+  }
+
+/* Scrollbar Style */
+.scrollbar {
+    float: left;
+    height: 501px;
+    background: #fff;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-bottom: 25px;
+}
+.scrollbar-primary::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+    
+.scrollbar-primary::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #4285F4;
+}
+    
+.scrollbar-danger::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+    
+.scrollbar-danger::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+    
+.scrollbar-danger::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #ff3547;
+}
+    
+.scrollbar-warning::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+    
+.scrollbar-warning::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+    
+.scrollbar-warning::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #FF8800;
+}
+    
+.scrollbar-success::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+    
+.scrollbar-success::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+    
+.scrollbar-success::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #00C851;
+}
+    
+.scrollbar-info::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+    
+.scrollbar-info::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+    
+.scrollbar-info::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #33b5e5;
+}
+    
+.scrollbar-default::-webkit-scrollbar-track {
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+    
+.scrollbar-default::-webkit-scrollbar {
+    width: 12px;
+    background-color: #ffffff;
+}
+    
+.scrollbar-default::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #E1E1E1;
+}
+    
+.scrollbar-secondary::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+    
+.scrollbar-secondary::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+    
+.scrollbar-secondary::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #aa66cc;
+}
+/* Common Styles For Login, AlreadyLogin, AlreadyLoginAlert and RegisterAgain */
+.login_wrapper{
+    text-align: center;
+    margin: 0px auto 0px;
+}
+.terms_wrapper{
+    text-align: center;
+    margin: 0px auto 0px;
+}
+.field_wrapper{
+    max-width: 352px;
+    margin: 0px auto;
+    position: relative;
+}
+.label-container{
+    max-width: 352px; 
+    text-align: left; 
+    margin-left: auto; 
+    margin-right: auto;
+    margin-bottom: 5px;
+}
+
+.email-input-text{
+    font-family: "Montserrat"; 
+    font-weight: lighter; 
+    font-size: 14px !important; 
+    max-width: 342px; 
+    width: 100%;
+    height: 48px; 
+    border: 0px; 
+    background-image: url('../../assets/images/Name_or_Email@2x.png');
+    margin-top: 0px;
+    padding-left: 10px;
+}
+.passcode-container{
+    max-width: 352px; 
+    height: 46px; 
+    /* background-image: url('assets/images/Repeat_Grid_1@2x.png'); 
+    background-repeat: no-repeat;  */
+    text-align: left; 
+    margin-left: auto; 
+    margin-right: auto;
+    margin-top: 0px;
+    position: relative;
+}
+.passcode-input-text{
+    font-weight: lighter;
+    font-size: 14px !important;
+    width: 78px !important;
+    height: 44px !important;
+    text-align: center;
+    display: inline-block;
+}
+.passcode-input-text1{
+    font-weight: lighter;
+    font-size: 14px !important;
+    width: 78px !important;
+    height: 44px !important;
+    text-align: center;
+    margin-left: 13px;
+    display: inline-block;
+}
+
+/* .ld_tooltip{
+    width: 202px; 
+    min-height: 49px; 
+    padding: 0px; 
+    position: absolute; 
+    top: -3px; 
+    background-size: 100%; 
+    color: #143345; 
+    right: -210px;
+    text-align: left;
+    display: none;
+} */
+span.icon_tickcross{
+    position: absolute;
+    float: right;
+    width:24px;
+    height: 42px;
+    margin-left: 0px;
+    display: none;
+}
+span.icon_tickcross img{
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 0px;
+}
+.message-text{
+    border: 0px none;
+    width: 145px;
+    margin: 0px 0 0 0px;
+    background: transparent;
+    position: absolute;   
+    min-height: 50px;
+    outline: none;
+    color: #B7B7B7;    
+    -webkit-user-select:none; 
+    -webkit-touch-callout:none; 
+    -moz-user-select:none; 
+    -ms-user-select:none; 
+    user-select:none;     
+    float: right;    
+    margin-left: -120px;
+    display: none;
+    right: 1px;
+    top: 18px;
+    font-size: 12px;
+}
+.message-text-list{
+    border: 0px none;
+    width: 150px;
+    margin: 10px 0 0 0px;
+    background: transparent;
+    position: absolute;
+    right: 0px;
+    /* min-height: 50px; */
+    outline: none;
+    color: #B7B7B7;
+    -webkit-user-select:none; 
+    -webkit-touch-callout:none; 
+    -moz-user-select:none; 
+    -ms-user-select:none; 
+    user-select:none; 
+    cursor: default; 
+    display: block;   
+    font-size: 14px;
+}
+.forgot-passcode-text{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.forgot-passcode-text a{
+    font-weight: bold; 
+    font-size: 12px;
+    color: #143245 !important;
+}
+h2.hr_line{
+    width:100%;
+    text-align:center;
+    border-bottom: 1px solid #B7B7B7;
+    line-height:0.1em;
+    margin:10px 0 20px;
+} 
+h2.hr_line span {
+    background: #ffffff;
+    color:#143345;
+    padding:0 10px;
+    font-size: 12px;
+}
+.btn[disabled]{
+    font-family: "Montserrat"; 
+    font-weight: bold; 
+    font-size: 14px; 
+    background-image: url('../../assets/images/login_rectangle_2x.png'); 
+    border: none; 
+    width: 352px; 
+    height: 70px;
+    background-color: rgb(235, 235, 235);
+    color: #143245 !important;
+    background-repeat: no-repeat;
+}
+.btn[disabled]:hover{
+    background-image: url('../../assets/images/login_rectangle_2x.png'); 
+    color: #143245 !important;
+    background-repeat: no-repeat;
+}
+.btn{
+    font-family: "Montserrat"; 
+    font-weight: bold; 
+    font-size: 14px; 
+    background-image: url('../../assets/images/active_login_logout_register_rectangle_2x.png'); 
+    border: none; 
+    width: 352px; 
+    height: 70px; 
+    color: #ffffff !important;
+    background-repeat: no-repeat;
+}
+.btn:hover{
+    background-image: url('../../assets/images/active_login_logout_register_rectangle_2x.png'); 
+    color: #ffffff !important;
+    background-repeat: no-repeat;
+}
+.cancel_wrapper{
+    font-weight: bold;
+    font-size: 14px;
+    max-width: 352px;
+    margin: 25px auto;
+    display: block !important;
+}
+span.cancel_link{
+    color: #143245 !important;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+}
+.notlogin{
+    display: block;
+}
+.loggout-alert-wrapper{
+    font-family: "Montserrat";
+    font-weight: lighter;
+    font-size: 14px;
+    max-width: 352px;
+    margin: 10px auto;
+    color: #143245 !important;
+    padding-top: 0px !important;
+}
+
+/* Custom Autocomplete Style */
+.autocomplete_container{
+    background: #ffffff;
+    display: none;
+    left: calc(100% + 10px);
+    max-width: 352px;
+    position:absolute;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+.list_option{
+    background: #fff;
+    border: 1px solid #143245;
+    border-bottom: none;
+    color: #000;
+    float: left;
+    max-width: 352px;
+    padding: 10px 0px 10px 10px;
+    width: 100%;
+}
+.list_option:hover, .list_option:hover span{
+    background: #ABB7BE;
+    color: #ffffff;
+    cursor: pointer;
+}
+.list_option:last-child{
+    border-bottom: solid 1px #143245;;
+}
+.autocomplete_name{
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 0px 0;
+    text-align: left;
+}
+.autocomplete_email{
+    font-size: 14px;
+    text-align: left;
+}
+.mat-select-value {
+    color: rgba(255,255,255,1) !important;
+}
+span.ng-star-inserted{
+    color: #ffffff !important;
+}
+.mat-select-arrow {
+    color: rgba(255,255,255,1) !important;
+}
+@media only screen and (max-width: 480px) and (min-width: 320px) {
+    .autocomplete_container{
+        left: 0px !important;
+        max-width: 267px !important;
+        top: calc(100% + 2px) !important;
+        width: 100%;
+    }
+    .message-tex{
+        color: #143245 !important;
+    }
+    .passcode-input-text{
+        width: 59px !important;
+    }
+    .passcode-input-text1{
+        width: 59px !important;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 320px)  {
+    .autocomplete_container{
+        left: 0px !important;
+        max-width: 352px;
+        top: calc(100% + 2px) !important;
+        width: 100%;
+    }
+}

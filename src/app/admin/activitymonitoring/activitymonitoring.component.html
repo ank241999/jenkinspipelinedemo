@@ -1,0 +1,232 @@
+<div class="inputWrapper activitymonitoring" style="padding: 0 0 !important;">
+  <div class="row inner_activitymonitoring">
+    <form class="form-horizontal" [formGroup]="form" (ngSubmit)="saveLog()">
+      <div class="col-lg-12">
+        <!-- <div class="row">
+				<div class="col-lg-12">
+					<div class="row activity_header">
+						<div class="col-lg-6 col-xs-12" style="border-bottom: solid 1px #000000;">
+							<h1 class="text-right responsice-center">GATE: <span>{{gate}}</span></h1>
+						</div>
+						<div class="col-lg-6 col-xs-12" style="border-bottom: solid 1px #000000;">
+							<h1 class="text-left responsice-center">LANE: <span>{{lane}}</span></h1>
+						</div>
+					</div>
+				</div>
+			</div> -->
+        <div class="row">
+          <div class="col-lg-9 outer_canvas_wrapper">
+            <div class="col-lg-12 canvas_wrapper">
+              <div class="col-lg-6 brs-1">
+                <div class="row">
+                  <div class="col-lg-12">&nbsp;</div>
+                  <div class="col-lg-12">
+                    <div class="txt_view_title_front text_front" translate>
+                      lblFRONT</div>
+                    <canvas class="canvasBaseImg" no-bounce id="canvasfront" #canvasfront translate>
+                      lblSorry
+                    </canvas>
+                    <div class="txt_side_front_left">L</div>
+                    <div class="txt_side_front_right">R</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-6 bls-1">
+                <div class="row">
+                  <div class="col-lg-12">&nbsp;</div>
+                  <div class="col-lg-12">
+                    <div class="txt_view_title_back text_back" translate>
+                      lblBACK</div>
+                    <canvas class="canvasBaseImg" no-bounce id="canvasback" #canvasback translate>
+                      lblSorry
+                    </canvas>
+                    <div class="txt_side_back_left">L</div>
+                    <div class="txt_side_back_right">R</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 activityRightPanel" id="dv_rightpanel">
+            <div class="currentstatus_wrapper pd-top-15" style="border-bottom: 1px solid #d8d8d8;">
+              <h2 class="activityRightPanel_heading" translate style="font-size: 18px;">
+                lblCurrentStatus
+              </h2>
+              <div class="threatstatus_wrapper row">
+                <div class="threatstatus_img col-lg-3 col-sm-2 text-center">
+                  <img src="{{ selectedThreatStatusImage }}" class="md-card-image" />
+                </div>
+                <div class="threatstatus_details col-lg-9 col-sm-10">
+                  <!-- <div class="recent-act-div">
+								  <span class="activity-text" translate>lblThreatStatus</span>
+								  <span class="activity-text-value" translate> {{status}}</span>
+							  </div> -->
+                  <div class="recent-act-div">
+                    <span class="activity-text" translate>lblThreatType</span>
+                    <span class="activity-text-value" translate>
+                      {{ threatType }}</span>
+                  </div>
+                  <div class="recent-act-div">
+                    <span class="activity-text" translate>lblDate</span>
+                    <span class="activity-text-value" translate>
+                      {{ date }}</span>
+                  </div>
+                  <div class="recent-act-div">
+                    <span class="activity-text" translate>lblTime</span>
+                    <span class="activity-text-value" translate>
+                      {{ time }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pd-left-0 th_right_panel" style="background-color: #f8f8f8 !important;" id="dv_rcact">
+              <div class="mat-elevation-z8 mat-elevation-z81" id="dv_recentActivity">
+                <h2 class="lbl_recent_activity" style="padding-left: 0px !important;" translate>
+                  lblRecentActivity
+                </h2>
+                <div class="recentactivity_list">
+                  <mat-table #table [dataSource]="dataSource" matSort matSortActive="timestamp" matSortDirection="desc">
+                    <ng-container matColumnDef="status">
+                      <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header class="mat-header-cell-custom" translate> lblRecentActivity</th> -->
+                      <td mat-cell *matCellDef="let row" class="mat-header-cell-custom threat-act text-center"
+                        id="img-{{ row.id }}" style="padding-left: 0px !important;">
+                        <div style="width: 60px;">
+                          <img src="{{ row.threatIcon }}" class="md-card-image" style="height: 25px;" />
+                        </div>
+                      </td>
+                    </ng-container>
+                    <ng-container matColumnDef="timestamp">
+                      <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header class="mat-header-cell-custom" translate> lblRecentActivity</th> -->
+                      <td id="{{ row.id }}" mat-cell *matCellDef="let row" class="mat-header-cell-custom threat-act"
+                        (click)="selectActivity(row.id)" style="width:220px;">
+                        <span class="activity-text" style="font-weight: 700;" translate>lblThreatType
+                        </span>
+                        <span class="activity-text-value" translate>{{ row.threatType }}
+                        </span>
+                        <div>
+                          <span class="activity-text" style="font-weight: 700;" translate>lblTime </span>
+                          <span class="activity-text-value" translate>{{
+                            row.time
+                            }}</span>
+                        </div>
+                      </td>
+                    </ng-container>
+                    <ng-container matColumnDef="actualResult">
+                      <!-- <th mat-header-cell *matHeaderCellDef mat-sort-header class="mat-header-cell-custom" translate> lblRecentActivity</th> -->
+                      <td mat-cell *matCellDef="let row" class="mat-header-cell-custom threat-act text-center"
+                        id="img-s-{{ row.id }}" style="padding-left: 18px !important;">
+                        <div style="width: 60px;" *ngIf="row.actualResult==true" (click)="showlogdetail(row.id)">
+                          <img src="../../assets/images/logCorrect.png" class="md-card-image" style="height: 30px;" />
+                        </div>
+                        <div style="width: 60px;" *ngIf="row.actualResult==false" (click)="showlogdetail(row.id)">
+                          <img src="../../assets/images/logIncorrect.png" class="md-card-image" style="height: 30px;" />
+                        </div>
+                      </td>
+                    </ng-container>
+                    <!-- <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row> -->
+                    <mat-row style="background-color: #f8f8f8 !important;"
+                      *matRowDef="let row; columns: displayedColumns"></mat-row>
+                    <!-- <mat-row *matRowDef = "let row;"></mat-row> -->
+                  </mat-table>
+                </div>
+                <mat-paginator [pageSize]="7" [pageSizeOptions]="[]" style="display: none;"></mat-paginator>
+                <!-- <mat-paginator [pageSize]="20" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> -->
+              </div>
+              <div class="mat-elevation-z8 th_recentActivityThreat" id="dv_recentActivityThreat">
+                <p class="threat_heading">
+                  THREAT DETECTED
+                </p>
+                <div class="threatalert_text_wrapper">
+                  <p class="th_p_kindlyAddressGuest">
+                    PLEASE KINDLY ADDRESS THE GUEST.
+                  </p>
+                  <p class="th_p_btnContinue">
+                    CLICK THE BUTTON TO CONTINUE AFTER ALL CLEAR.
+                  </p>
+                </div>
+                <button type="button" class="btn_continue" id="btnContinue" (click)="continueActivity(1)">
+                  CONTINUE
+                </button>
+              </div>
+              <div class="mat-elevation-z8" class="dv_recentActivityThreatOverlay" id="dv_recentActivityThreatOverlay">
+              </div>
+            </div>
+            <div class="col-md-12" class="dv_log" id="dv_log">
+              <button type="button" class="btn_log" id="btnLog" (click)="showLogSection()">
+                LOG ACTUAL RESULT
+              </button>
+            </div>
+            <!-- <div class="col-md-12" class="dv_confirm" id="dv_confirm">
+              <button type="button" class="btn_confirm" id="btnConfirm" (click)="saveLog()">
+                CONFIRM & SAVE
+              </button><br />
+              <button type="button" class="btn_cancel" id="btnCancel" (click)="continueActivity(2)">
+                CANCEL
+              </button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="modal dv_actual_logs" id="dv_actual_logs">
+  <div class="modal-content" style="margin-top: 150px; margin-left:50px; width: 1000px;">
+
+    <!-- Modal Header -->
+    <div class="modal-header" style="background: darkgrey;">
+      <h1 class="modal-title">LOG ACTUAL RESULT</h1>
+    </div>
+
+    <!-- Modal body -->
+    <div class="modal-body">
+      <table>
+        <tr *ngFor="let threat of logactualthreat; let i = index">
+          <td style="width: 5%;"><input type='checkbox' (change)="onselectthreattype($event.target.checked,i,'actualresult')" name="result" />
+          </td>
+          <td>{{ threat.threattype }}</td>
+          <td>
+            <mat-select placeholder="" (selectionChange)="onselectthreattype($event.value,i,'threattype')" multiple>
+              <mat-option *ngFor="let type of threatTypes" [value]="type.value">{{ type.value }}
+              </mat-option>
+            </mat-select>
+          </td>
+          <td>{{ threat.weapon }}</td>
+          <td>
+            <mat-select placeholder="" (selectionChange)="onselectthreattype($event.value,i,'weapon')" multiple>
+              <mat-option *ngFor="let weapon of typeOfWeapon" [value]="weapon.value">{{ weapon.value }}
+              </mat-option>
+            </mat-select>
+          </td>
+          <td style="width: 20%;">{{ threat.location }}</td>
+          <td style="width: 20%;">
+            <mat-select placeholder="" (selectionChange)="onselectthreattype($event.value,i,'location')" multiple>
+              <mat-option *ngFor="let location of threatLocations" [value]="location.value">{{ location.value }}
+              </mat-option>
+            </mat-select>
+          </td>
+        </tr>
+      </table>
+      <div class="col-md-12">&nbsp;</div>
+      <textarea class="form-control" style="border: solid;" [(ngModel)]="note" placeholder="Add Note...."
+        rows="1" maxlength="255"></textarea>
+    </div>
+
+    <!-- Modal footer -->
+    <div class="modal-footer" style="background: darkgrey;">
+      <div class="col-md-12">
+        <button type="button" class="btn_cancel" (click)="continueActivity(2)">
+          CANCEL
+        </button>&nbsp;
+        <button type="button" class="btn_cancel" (click)="saveLog()">
+          CONFIRM & SAVE
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

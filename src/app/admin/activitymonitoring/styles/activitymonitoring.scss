@@ -1,0 +1,1246 @@
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '../../../styles/_variables';
+@import '../../../styles/_mixins';
+
+.activitymonitoring{
+  	.canvas_wrapper{
+		background: #fcfcfc; //$libertyBlue;
+		border-color: #fcfcfc;
+		border-style: solid;
+		/*border-width: 30px;*/
+		border-width: 20px;
+		display: block;
+		height: 100%;
+		padding: 0px;
+		position: relative;
+		text-align: center;
+		
+		.seperator{
+			min-height: 400px;
+		}
+		.txt_view_title_front{
+			position: absolute;
+			top: 60px;
+            left: 60px;
+			color: $libertyBlue;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.txt_view_title_back{
+			position: absolute;
+			top: 60px;
+            left: 60px;
+			color: $libertyBlue;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.txt_side_front_left{
+			position: absolute;
+			bottom: 54px;
+            right: 60px;
+			color: $libertyBlue;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.txt_side_front_right{
+			position: absolute;
+			bottom: 54px;
+            left: 60px;
+			color: $libertyBlue;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.txt_side_back_left{
+			position: absolute;
+			bottom: 60px;
+            left: 60px;
+			color: $libertyBlue;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.txt_side_back_right{
+			position: absolute;
+			bottom: 60px;
+            right: 60px;
+			color: $libertyBlue;
+			font-size: 18px;
+			font-weight: bold;
+		}
+
+		.activity_header{
+			padding-left: 15px;
+			padding-right: 15px;
+
+			h1{
+				color: #ffffff;
+				font-size: 34px;
+				font-weight: bold;
+			}
+		}
+    	.canvasBaseImg{
+			  //max-width: 300px;
+			  max-width: 321px;
+      		width: 100%;
+    	}
+  	}
+
+  	.activityRightPanel{
+		background: #f8f8f8;
+		padding-right: 0px !important;
+		padding-left: 0px !important;
+
+		.currentstatus_wrapper{
+			background: $white;
+			padding-left: 20px;
+
+			.activityRightPanel_heading{
+				font-size: 24px;
+				font-weight: bold;
+				margin-bottom: 20px;
+				margin-top: 0px;
+				color: #143345;
+			}
+			.threatstatus_wrapper{
+				min-height: 120px !important;
+				//min-height: 178px !important;
+  
+				.threatstatus_img{
+				  .md-card-image{
+						max-width: 80px;
+						width: 100%;
+				  }
+				}
+				.threatstatus_details{
+				  .recent-act-div{
+						padding-bottom: 5px;
+  
+						.activity-text{
+						  font-weight: bold;
+						  color: #143345;
+						}
+						.activity-text-value{
+						  font-size: 12px;
+						  color: #143345;
+						}
+				  }
+				}
+		  	}
+		}
+    	
+    	
+    	.mat-elevation-z8{
+      		box-shadow: none !important;
+      		padding-bottom: 20px;
+
+      		h2{
+        		font-size: 24px;
+        		font-weight: bold;
+      		}
+      		.recentactivity_list{
+        		//max-width: 390px;
+        		overflow-y: auto;
+        		width: 100%;
+
+        		.mat-table{
+          			.threat-act{
+            			border-bottom: 0px solid !important;
+            			padding-left: 10px !important;
+            			padding-right: 0px !important;
+          			}
+          			.mat-row{
+            			cursor: pointer;
+            			min-height: 60px !important;
+          			}
+          			.mat-row:hover{
+            			background: $grey9;
+          			}
+        		}
+      		}
+		}
+		.mat-elevation-z81{
+			padding-left: 0px;
+			width: 90%;
+			margin-left: 5%;
+			margin-right: 5%;
+		  }
+  	}
+}
+
+/* 2020.07.14 Start */
+.inner_activitymonitoring{
+	background: #fcfcfc;
+	margin-right: 0px !important;
+	margin-left: 0px !important;
+	padding-right: 15px !important;
+	padding-left: 0px !important;
+}
+.outer_canvas_wrapper{
+	padding-right: 0px !important;
+	padding-left: 0px !important;
+}
+.activity-text{
+	color: #143345 !important;
+}
+.activity-text-value{
+	color: #143345 !important;
+}
+.text_front{
+	top: 28px !important;
+	left: 46px !important;
+}
+.text_back{
+	top: 28px !important;
+	left: 46px !important;
+}
+.dv_actual_logs{
+	vertical-align: baseline;
+	bottom: 0px;
+	text-align: center;
+	background-color: white;
+	display: none;
+	font-weight: 900;
+    color: #000000;
+	opacity: 0.6;
+	table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+		border: solid;
+	}
+	td, th {
+		border: solid;
+		width: 10%;
+		input[type="checkbox"] {
+			appearance: none;
+			position: relative;
+			top: 50%;
+			background-color: #4caf50;
+			width: 40px;
+			height: 40px;
+			outline: none;
+		}
+		input[type="checkbox"]:before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) translate(-4px, 3px) rotate(45deg);
+			background-color: #ffffff;
+			width: 12px;
+			height: 5px;
+			border-radius: 40px;
+		}
+		input[type="checkbox"]:after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) translate(3px, 2px) rotate(-45deg);
+			background-color: #ffffff;
+			width: 16px;
+			height: 5px;
+			border-radius: 40px;
+		}
+		input[type="checkbox"]:checked {
+			background-color: #f44336;
+		}
+		input[type="checkbox"]:checked:before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(45deg);
+			background-color: #ffffff;
+			width: 20px;
+			height: 5px;
+		}
+		input[type="checkbox"]:checked:after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(-45deg);
+			background-color: #ffffff;
+			width: 20px;
+			height: 5px;
+			border-radius: 40px;
+		}	
+	}
+}
+.radio_correct_wrapper{
+	padding-top: 17px;
+	padding-bottom: 0px;
+}
+.r_correct{
+	float: left;
+	margin: 18px 5px 14px 0 !important;
+	width: 20px;
+	height: 20px;
+}
+.l_correct{
+	color: #ffffff !important;
+	padding-top: 7px;
+	width: 135px;
+	font-size: 16px;
+}
+.radio_incorrect_wrapper{
+	padding-top: 17px;
+	padding-bottom: 0px;
+}
+.r_incorrect{
+	float: left;
+	margin: 18px 5px 14px 0 !important;
+	width: 20px;
+	height: 20px;
+}
+.l_incorrect{
+	color: #ffffff !important;
+	padding-top: 7px;
+	width: 135px;
+	font-size: 16px;
+}
+.expected_result_wrapper{
+	padding-top: 17px;
+	padding-bottom: 0px;
+	border-left: 1px solid #ffffff;
+	min-height: 103px;
+}
+.expected_result_dropdown{
+	font-size: 16px;
+	height: 32px;
+	color: #000000;
+	background-color: #ffffff;
+}
+.expected_result_label{
+	color: #ffffff !important;
+	font-size: 16px;
+	margin-top: 5px;
+}
+.weapon_type_wrapper{
+	padding-top: 17px;
+	padding-bottom: 0px;
+	border-left: 1px solid #ffffff;
+	min-height: 103px;
+}
+.weapon_type_dorpdown{
+	font-size: 16px;
+	height: 32px;
+	color: #000000;
+	background-color: #ffffff;
+}
+.weapon_type_label{
+	color: #ffffff !important;
+	font-size: 16px;
+	margin-top: 5px;
+}
+.weapon_location_wrapper{
+	padding-top: 17px;
+	padding-bottom: 0px;
+	border-left: 1px solid #ffffff;
+	border-right: 1px solid #ffffff;
+	min-height: 103px;
+}
+.weapon_location_dropdown{
+	font-size: 16px;
+	height: 32px;
+	color: #000000;
+	background-color: #ffffff;
+}
+.weapon_location_label{
+	color: #ffffff !important;
+	font-size: 16px;
+	margin-top: 5px;
+}
+.btn_addnote_wrapper{
+	padding: 17px 0px 0 0;
+	min-height: 103px;
+}
+.btn_addnote{
+	background: #ffffff;
+	border: 0px none;
+	box-shadow: none;
+	width: 120px;
+	padding: 11px 0px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	color: #000000;
+	font-size: 16px;
+}
+.lbl_recent_activity{
+	font-size: 18px !important;
+	padding-left: 24px;
+	color: #143345;
+}
+.threatalert_text_wrapper{
+	margin: 0px auto;
+}
+.btn_continue{
+	background: #1aaf54;
+	border: 0px none;
+	box-shadow: none;
+	width: 220px;
+	padding: 11px 0px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	margin-top: 26px; font-size: 16px;
+}
+.dv_recentActivityThreatOverlay{
+	top: 175px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	background-color: cyan;
+	text-align: center;
+	display: block;
+	opacity: 0.5;
+	position: absolute;
+	width: 100%;
+	height: 70%; display: none;
+}
+.dv_log{
+	text-align: center;
+	background-color: cyan;
+	float: right;
+	bottom: 0px;
+	border: 2px solid #143345;
+	opacity: 1; display: none;
+	position: absolute; padding: 17px 0 16px 0; width: 100%;
+}
+.btn_log{
+	background: #143345;
+	color: #ffffff;
+	border: 0px none;
+	box-shadow: none;
+	width: 220px;
+	padding: 6px 0px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	margin: 16px 0 16px 0;
+	font-size: 16px;
+}
+.dv_confirm{
+	text-align: center;
+	background-color: cyan;
+	float: right;
+	bottom: 0px;
+	border: 2px solid #143345;
+	display: none;
+	position: absolute; padding: 10px 0 9px 0; width: 100%;
+}
+.btn_confirm{
+	background: #8292A0;
+	color: #707070;
+	border: 0px none;
+	box-shadow: none;
+	width: 220px;
+	padding: 5px 0px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	margin: 3px 0 0px 0;
+	font-size: 16px;
+}
+.btn_cancel{
+	background: #143345;
+	color: #ffffff;                  
+	border: 0px none;
+	box-shadow: none;
+	width: 220px;
+	padding: 5px 0px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	margin: 10px 0 3px 0;
+	font-size: 16px;
+}
+.threat_heading{
+	margin-bottom: 0px;
+	font-size: 2vw;
+	font-weight: bold;
+	color: yellow;
+}
+/* 2020.07.14 End */
+.th_right_panel{
+	//height: 556px; 
+	height: 602px;
+	padding-top: 1px;	
+}
+.th_recentActivityThreat
+{
+	padding: 60px 0 40px 0px;
+	background-color: red;
+	border: 2px solid yellow;
+	text-align: center;
+	display: none;
+	height: 100%;
+}
+.th_p_kindlyAddressGuest{
+	font-size: 22px; 
+	font-weight: bold; 
+	color: yellow; 
+	margin-top:32px;
+}
+.th_p_btnContinue{
+	font-size: 22px; 
+	font-weight: bold; 
+	color: yellow; 
+	margin-top:32px;
+}
+
+@media only screen and (max-width: 480px) and (min-width: 320px) {
+  	.activitymonitoring{
+		.canvas_wrapper{
+			.activity_header{
+				h1{
+					font-size: 22px;
+				}
+			}
+		}
+    	.activityRightPanel{
+      		padding-top: 10px;
+      		width: 100%;
+
+      		.mat-elevation-z8{
+        		.recentactivity_list{
+          			margin-left: -8px;
+				}
+      		}
+		}
+  	}
+}
+@media only screen and (max-width: 768px) and (min-width: 481px)  {
+  	.activitymonitoring{
+    	.activityRightPanel{
+      		padding-top: 10px;
+      		width: 100% !important;
+    	}
+  	}
+}
+@media only screen and (max-width: 1024px) and (min-width: 769px)  {
+  	.activitymonitoring{
+		.canvas_wrapper{
+			.txt_view_title_front{
+				top: 60px;
+				left: 60px;
+			}
+			.txt_view_title_back{
+				top: 60px;
+				left: 60px;
+			}
+		}
+    	.activityRightPanel{
+      		max-width: 100% !important;
+      		padding-top: 10px;
+      		width: 100% !important;
+
+      		.threatstatus_wrapper{
+        		.threatstatus_details{
+          			.recent-act-div{
+            			.activity-text-value{
+              				font-size: 14px !important;
+            			}
+          			}
+        		}
+      		}
+      		.mat-elevation-z8{
+        		.recentactivity_list{
+          			max-width: 100%;
+          			width: 100%;
+
+          			.mat-table{
+            			max-width: 100% !important;
+            			width: 100% !important;
+          			}
+        		}
+      		}
+    	}
+  	}
+}
+
+@media only screen and (max-width: 1380px) and (min-width: 1025px)  {
+  	.activitymonitoring{
+    	.canvas_wrapper{
+			.activity_header{
+				h1{
+					font-size: 26px;
+				}
+			}
+      		.canvasBaseImg{
+        		//max-width: 175px !important;
+				//max-width: 220px !important;
+				max-width: 240px !important;
+				width: 100% !important;
+			}
+			.txt_view_title_front{
+				top: 60px;
+				left: 7px;
+			}
+			.txt_view_title_back{
+				top: 60px;
+				left: 7px;
+			}  
+    	}
+    	.activityRightPanel{
+      		.threatstatus_wrapper{
+        		.threatstatus_details{
+          			.recent-act-div{
+            			.activity-text{
+              				font-size: 12px !important;
+            			}
+            			.activity-text-value{
+              				font-size: 10px !important;
+            			}
+          			}
+        		}
+      		}
+      		.mat-elevation-z8{
+        		.recentactivity_list{
+          			.mat-table{
+            			.mat-row{
+              				min-height: 45px !important;
+            			}
+          			}
+        		}
+			  }			  
+    	}
+	  }
+	  
+	.th_right_panel{
+		//height: 380px; 
+		height: 422px; 
+		padding-top: 1px;
+	}
+	.th_recentActivityThreat
+	{
+		padding: 20px 0 40px 0px;
+		background-color: red;
+		border: 2px solid yellow;
+		text-align: center;
+		display: none;
+		height: 100%;
+	}
+	.th_p_kindlyAddressGuest{
+		font-size: 22px; 
+		font-weight: bold; 
+		color: yellow; 
+		margin-top:2px;
+	}
+	.th_p_btnContinue{
+		font-size: 22px; 
+		font-weight: bold; 
+		color: yellow; 
+		margin-top:2px;
+	}
+}
+// iPad in landscape
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { 
+    
+}
+// iPad in portrait
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+	.dv_actual_logs {
+		padding: 0px;
+	}
+	.radio_incorrect_wrapper {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	.radio_correct_wrapper {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	.l_correct{
+		font-size: 14px;
+	}
+	.l_incorrect{
+		font-size: 14px;
+	}
+	.r_correct{
+		width: 16px;
+		height: 16px;
+	}
+	.r_incorrect{
+		width: 16px;
+		height: 16px;
+	}
+	.expected_result_label {
+		font-size: 14px;
+	}
+	.weapon_type_label {
+		font-size: 14px;
+	}
+	.weapon_location_label {
+		font-size: 14px;
+	}
+	.btn_addnote {
+		width: 112px;
+		font-size: 14px;
+	}
+}
+
+/* Iphone X Protrait */
+@media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
+	.dv_actual_logs {
+		width: 360px;
+	}
+	.l_correct{
+		width: 200px;
+	}
+	.l_incorrect{
+		width: 200px;
+	}
+	.r_correct {
+		margin: 7px 5px 7px 0 !important;
+	}
+	.r_incorrect {
+		margin: 7px 5px 7px 0 !important;
+	}
+	.expected_result_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_type_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_location_wrapper {
+		border-left: 0px none;
+		border-right: 0px none;
+	}
+}
+
+/* Iphone X Lamdscape */
+@media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : landscape) {
+	.dv_actual_logs {
+		padding: 0px;
+	}
+	.radio_incorrect_wrapper {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	.radio_correct_wrapper {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	.l_correct{
+		font-size: 14px;
+	}
+	.l_incorrect{
+		font-size: 14px;
+	}
+	.r_correct{
+		width: 16px;
+		height: 16px;
+	}
+	.r_incorrect{
+		width: 16px;
+		height: 16px;
+	}
+	.expected_result_label {
+		font-size: 14px;
+	}
+	.weapon_type_label {
+		font-size: 14px;
+	}
+	.weapon_location_label {
+		font-size: 14px;
+	}
+	.btn_addnote {
+		width: 112px;
+		font-size: 14px;
+	}
+}
+
+/* Iphone 6/7/8 Plus */
+@media screen and (device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) {
+	.dv_actual_logs {
+		width: 400px;
+	}
+	.l_correct{
+		width: 200px;
+	}
+	.l_incorrect{
+		width: 200px;
+	}
+	.r_correct {
+		margin: 7px 5px 7px 0 !important;
+	}
+	.r_incorrect {
+		margin: 7px 5px 7px 0 !important;
+	}
+	.expected_result_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_type_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_location_wrapper {
+		border-left: 0px none;
+		border-right: 0px none;
+	}
+}
+
+@media screen and (device-width: 736px) and (device-height: 414px) and (-webkit-device-pixel-ratio: 3) and (orientation : landscape) {
+	.dv_actual_logs {
+		width: 721px;
+	}
+	.radio_correct_wrapper{
+		padding-left: 15px;
+	}
+	.radio_incorrect_wrapper{
+		padding-left: 15px;
+	}
+	.l_correct{
+		width: 175px;
+	}
+	.l_incorrect {		
+		width: 175px;
+	}
+	.r_correct {
+		margin: 9px 5px 14px 0!important;
+	}
+	.r_incorrect {
+		margin: 9px 5px 14px 0!important;
+	}
+}
+/* Iphone 6/7/8 Plus End */
+
+/* Iphone 6/7/8 */
+@media screen and (device-width: 375px) and (device-height: 667px) {
+	.dv_actual_logs {
+		width: 360px;
+	}
+	.l_correct{
+		width: 200px;
+	}
+	.l_incorrect{
+		width: 200px;
+	}
+	.r_correct {
+		margin: 7px 5px 7px 0 !important;
+	}
+	.r_incorrect {
+		margin: 7px 5px 7px 0 !important;
+	}
+	.expected_result_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_type_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_location_wrapper {
+		border-left: 0px none;
+		border-right: 0px none;
+	}
+}
+@media screen and (device-width: 667px) and (device-height: 375px) and (orientation : landscape) {
+	.dv_actual_logs {
+		width: 652px;
+	}
+	.l_correct{
+		width: 200px;
+	}
+	.l_incorrect{
+		width: 200px;
+	}
+	.r_correct {
+		margin: 7px 5px 7px 0 !important;
+	}
+	.r_incorrect {
+		margin: 7px 5px 7px 0 !important;
+	}
+	.expected_result_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_type_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_location_wrapper {
+		border-left: 0px none;
+		border-right: 0px none;
+	}
+}
+/* Iphone 6/7/8 End */
+
+/* Iphone 5/SE Protrait */
+@media only screen and (device-width : 320px) and (device-height : 568px) {
+	.dv_actual_logs {
+		width: 305px;
+	}
+	.l_correct {
+		width: 220px;
+	}
+	.l_incorrect {
+		width: 220px;
+	}
+	.r_correct {
+		margin: 5px 5px 5px 0!important;
+	}
+	.r_incorrect {
+		margin: 5px 5px 5px 0!important;
+	}
+	.expected_result_wrapper{
+		border-left: 0px none;
+	}
+	.weapon_type_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_location_wrapper {
+		border-left: 0px none;
+		border-right: 0px none;
+	}
+	.text_front {
+		left: 20px !important;
+	}
+	.text_back {
+		left: 20px !important;
+	}
+}
+@media only screen and (device-width : 568px) and (device-height : 320px) {
+	.dv_actual_logs {
+		width: 563px;
+	}
+	.l_correct {
+		width: 220px;
+	}
+	.l_incorrect {
+		width: 220px;
+	}
+	.r_correct {
+		margin: 5px 5px 5px 0!important;
+	}
+	.r_incorrect {
+		margin: 5px 5px 5px 0!important;
+	}
+	.expected_result_wrapper{
+		border-left: 0px none;
+	}
+	.weapon_type_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_location_wrapper {
+		border-left: 0px none;
+		border-right: 0px none;
+	}
+	.text_front {
+		left: 20px !important;
+	}
+	.text_back {
+		left: 20px !important;
+	}
+}
+
+/* Google Pixel 2 */
+@media only screen and (device-width : 411px) and (device-height : 731px) {
+	.dv_actual_logs {
+		width: 396px;
+	}
+	.l_correct {
+		width: 220px;
+	}
+	.l_incorrect {
+		width: 220px;
+	}
+	.r_correct {
+		margin: 5px 5px 5px 0 !important;
+	}
+	.r_incorrect {
+		margin: 5px 5px 5px 0 !important;
+	}
+	.expected_result_wrapper{
+		border-left: 0px none;
+	}
+	.weapon_type_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_location_wrapper {
+		border-left: 0px none;
+		border-right: 0px none;
+	}
+	.text_front {
+		left: 20px !important;
+	}
+	.text_back {
+		left: 20px !important;
+	}
+}
+@media only screen and (device-width : 731px) and (device-height : 411px) and (orientation : landscape) {
+	.dv_actual_logs {
+		width: 716px;
+	}
+	.l_correct {
+		width: 220px;
+	}
+	.l_incorrect {
+		width: 220px;
+	}
+	.r_correct {
+		margin: 5px 5px 5px 0 !important;
+	}
+	.r_incorrect {
+		margin: 5px 5px 5px 0 !important;
+	}
+	.expected_result_wrapper{
+		border-left: 0px none;
+	}
+	.weapon_type_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_location_wrapper {
+		border-left: 0px none;
+		border-right: 0px none;
+	}
+	.text_front {
+		left: 20px !important;
+	}
+	.text_back {
+		left: 20px !important;
+	}
+}
+/* Google Pixel 2 XL */
+@media only screen and (device-width : 411px) and (device-height : 823px) {
+	.dv_actual_logs {
+		width: 396px;
+	}
+	.l_correct {
+		width: 220px;
+	}
+	.l_incorrect {
+		width: 220px;
+	}
+	.r_correct {
+		margin: 5px 5px 5px 0 !important;
+	}
+	.r_incorrect {
+		margin: 5px 5px 5px 0 !important;
+	}
+	.expected_result_wrapper{
+		border-left: 0px none;
+	}
+	.weapon_type_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_location_wrapper {
+		border-left: 0px none;
+		border-right: 0px none;
+	}
+	.text_front {
+		left: 20px !important;
+	}
+	.text_back {
+		left: 20px !important;
+	}
+}
+@media only screen and (device-width : 823px) and (device-height : 411px) and (orientation : landscape){
+	.radio_correct_wrapper{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.radio_incorrect_wrapper{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.r_correct {
+		width: 16px;
+		height: 16px;
+	}
+	.r_incorrect {
+		width: 16px;
+		height: 16px;
+	}
+	.l_correct {
+		font-size: 14px;
+	}
+	.l_incorrect {
+		font-size: 14px;
+	}
+	.expected_result_label{
+		font-size: 14px;
+	}
+	.weapon_type_label{
+		font-size: 14px;
+	}
+	.weapon_location_label{
+		font-size: 14px;
+	}
+}
+/* Surface Duo */
+@media only screen and (device-width : 450px) and (device-height : 600px) {
+	.dv_actual_logs {
+		width: 435px;
+	}
+	.l_correct {
+		width: 220px;
+	}
+	.l_incorrect {
+		width: 220px;
+	}
+	.r_correct {
+		margin: 5px 5px 5px 0 !important;
+	}
+	.r_incorrect {
+		margin: 5px 5px 5px 0 !important;
+	}
+	.expected_result_wrapper{
+		border-left: 0px none;
+	}
+	.weapon_type_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_location_wrapper {
+		border-left: 0px none;
+		border-right: 0px none;
+	}
+	.text_front {
+		left: 20px !important;
+	}
+	.text_back {
+		left: 20px !important;
+	}
+}
+@media only screen and (device-width : 600px) and (device-height : 450px) {
+	.dv_actual_logs {
+		width: 585px;
+	}
+	.l_correct {
+		width: 220px;
+	}
+	.l_incorrect {
+		width: 220px;
+	}
+	.r_correct {
+		margin: 5px 5px 5px 0 !important;
+	}
+	.r_incorrect {
+		margin: 5px 5px 5px 0 !important;
+	}
+	.expected_result_wrapper{
+		border-left: 0px none;
+	}
+	.weapon_type_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_location_wrapper {
+		border-left: 0px none;
+		border-right: 0px none;
+	}
+	.text_front {
+		left: 20px !important;
+	}
+	.text_back {
+		left: 20px !important;
+	}
+}
+/* Samsung Galaxy S5 */
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+	.dv_actual_logs {
+		width: 345px;
+	}
+	.expected_result_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_type_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_location_wrapper {
+		border-left: 0px none;
+		border-right: 0px none;
+	}
+	.r_correct {
+		margin: 7px 11px 7px 0!important;
+	}
+	.l_correct {
+		width: 285px;
+	}
+	.r_incorrect {
+		margin: 7px 10px 7px 0!important;
+	}
+	.l_incorrect {
+		width: 285px;
+	}
+}
+@media screen and (device-width: 640px) and (device-height: 360px) and (-webkit-device-pixel-ratio: 3) and (orientation : landscape) {
+	.dv_actual_logs {
+		width: 625px;
+	}
+	.radio_correct_wrapper{
+		padding-left: 15px;
+	}
+	.radio_incorrect_wrapper{
+		padding-left: 15px;
+	}
+	.l_correct{
+		width: 175px;
+	}
+	.l_incorrect {		
+		width: 175px;
+	}
+	.r_correct {
+		margin: 9px 5px 14px 0!important;
+	}
+	.r_incorrect {
+		margin: 9px 5px 14px 0!important;
+	}
+}
+
+/* Samsung Galaxy Fold */
+@media screen and (device-width: 280px) and (device-height: 653px) {
+	.dv_actual_logs {
+		width: 265px;
+	}
+	.l_correct {
+		width: 200px;
+	}
+	.l_incorrect {
+		width: 200px;
+	}
+	.r_correct {
+		margin: 8px 5px 8px 0 !important;
+	}
+	.r_incorrect {
+		margin: 8px 5px 8px 0 !important;
+	}
+	.expected_result_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_type_wrapper {
+		border-left: 0px none;
+	}
+	.weapon_location_wrapper {
+		border-left: 0px none;
+		border-right: 0px none;
+	}
+	.r_correct {
+		margin: 7px 11px 7px 0!important;
+	}
+	.l_correct {
+		width: 285px;
+	}
+	.r_incorrect {
+		margin: 7px 10px 7px 0!important;
+	}
+	.l_incorrect {
+		width: 285px;
+	}
+}
+
+@media only screen and (max-width: 1199px){
+.mat-elevation-z81{
+	padding-left: 25px !important;
+	width: 100% !important;
+	margin-left: 0% !important;
+	margin-right: 0% !important;
+  }
+  /*.th_right_panel{
+	width: 100% !important;
+	margin-left: 0% !important;
+	margin-right: 0% !important;
+  }*/
+}
+@media only screen and (max-width: 767px){
+	.dv_recentActivityThreatOverlay{
+		top: 220px !important;
+	}
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px){
+	.dv_recentActivityThreatOverlay{
+		top: 187px !important;
+	}
+}

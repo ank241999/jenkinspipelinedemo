@@ -1,0 +1,122 @@
+<div class="inputWrapper threatDeatils">
+    <div class="smart-tables" id="smart-tables">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card" style="min-height: 650px;">
+                    <div class="row mb-15" style="margin-left: -45px; margin-right: -45px; min-height: 37px;">
+                        <div class="col-xs-2 text-left">&nbsp;
+                            <!-- <img src="../../../assets/images/backscreen_icon.jpg" (click)="onScreenBack()"
+                                style="cursor: pointer;" /> -->
+                        </div>
+                        <div class="col-xs-8">&nbsp;</div>
+                        <div class="col-xs-2 text-right">
+                            <img src="../../../assets/images/closescreen_icon.jpg" (click)="onScreenClose()"
+                                style="cursor: pointer;" />
+                        </div>
+                    </div>
+                    <div class="innercard-wrapper">
+                        <header class="row title">
+                            <div class="col-xs-12">
+                                <h2 class="main-title" style="font-size: 36px;" translate>threatNorth</h2>
+                            </div>
+                        </header>
+                        <div class="row mt-25">&nbsp;</div>
+                        <div class="table-wrapper">
+                            <table class="table table-stripes" mat-table [dataSource]="dataSourceDevice" matSort
+                                #sortThreats="matSort">
+                                <ng-container matColumnDef="threatIcon">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                        style="text-align: center; width: 136px;">
+                                        TYPE OF THREAT </th>
+                                    <td mat-cell *matCellDef="let row"
+                                        style="height: 60px; vertical-align: middle; text-align: center; "> <img
+                                            style="height: 60%;" src="{{row.threatIcon}}"
+                                            (click)="showthreatIconDetails()" /> </td>
+                                </ng-container>
+                                <ng-container matColumnDef="creation_timestamp">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center;">
+                                        DATE </th>
+                                    <td mat-cell *matCellDef="let row" style="height: 60px; vertical-align: middle;">
+                                        {{row.creation_timestamp | date : 'MM/dd/yyyy'}}</td>
+                                </ng-container>
+                                <ng-container matColumnDef="time">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center;">
+                                        TIME </th>
+                                    <td mat-cell *matCellDef="let row" style="height: 60px; vertical-align: middle;">
+                                        {{row.time}}
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="user_name">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center;">
+                                        GUARD NAME </th>
+                                    <td mat-cell *matCellDef="let row" style="height: 60px; vertical-align: middle;">
+                                        {{row.user_name}}
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="tablet_name">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center;">
+                                        TABLET </th>
+                                    <td mat-cell *matCellDef="let row" style="height: 60px; vertical-align: middle;">
+                                        {{row.tablet_name}}
+                                    </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="displayedColumnsGate"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumnsGate;"
+                                    (click)="selection.toggle(row)"></tr>
+                            </table>
+                            <mat-paginator #paginatorThreats class="paginator" [pageSizeOptions]="[]" [pageSize]="50"
+                                style="display: none;">
+                            </mat-paginator>
+                            <!-- <table class="table table-stripes">
+                                <tr>
+                                    <th style="width: 10%;" translate>threatTYPE </th>
+                                    <th style="width: 10%;" translate>threatDATE </th>
+                                    <th style="width: 10%;" translate>threatTIME </th>
+                                    <th style="width: 10%;" translate>threatGUARD </th>
+                                    <th>threatTABLET </th>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:center"><img src="../../assets/imgs/Warning Small.png"
+                                            style="width: 25%;"></td>
+                                    <td>11/12/2019</td>
+                                    <td>4.30PM</td>
+                                    <td style="color: #04abff" (click)="openGuardLogs()">Jon Doe -->
+                            <!-- <span class="tooltiptext">Tooltip text</span></td> -->
+                            <!-- <td>9829871479</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:center"><img src="../../assets/imgs/Ok small.png"
+                                            style="width: 25%;"></td>
+                                    <td>11/12/2019</td>
+                                    <td>5.30PM</td>
+                                    <td style="color: #04abff" (click)="openGuardLogs()">Peter Parker -->
+                            <!-- <span class="tooltiptext">Tooltip text</span></td> -->
+                            <!-- <td>889854579</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:center"><img src="../../assets/imgs/Ok small.png"
+                                            style="width: 25%;"></td>
+                                    <td>12/19/2019</td>
+                                    <td>4.30PM</td>
+                                    <td style="color: #04abff" (click)="openGuardLogs()">James -->
+                            <!-- <span class="tooltiptext">Tooltip text</span></td> -->
+                            <!-- <td>9885645475</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:center"><img src="../../assets/imgs/Warning Small.png"
+                                            style="width: 25%;"></td>
+                                    <td>12/20/2019</td>
+                                    <td>2.30PM</td>
+                                    <td style="color: #04abff" (click)="openGuardLogs()">Martin -->
+                            <!-- <span class="tooltiptext">Tooltip text</span></td> -->
+                            <!-- <td>4045137856</td>
+                                </tr>
+                            </table> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

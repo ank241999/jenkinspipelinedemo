@@ -1,0 +1,66 @@
+<div class="inputWrapper reportdashboard">
+	<div class="row">
+		<div class="col-lg-1"></div>
+		<div class="col-lg-10">
+			<ngb-carousel wrap="true">
+				<ng-template ngbSlide>
+					<div class="card pd-20">
+						<header class="title">
+							<h2 class="main-title" [routerLink]="['../positionwise']" style="cursor: pointer;" translate>repothreatsbylocation</h2>
+						</header>
+						<canvas *ngIf="isBrowser" baseChart class="ng2-chart" [datasets]="reportData" [labels]="lineChartLabels" [options]="data.lineChart.options" [colors]="lineChartColors" [legend]="data.lineChart.Legend" [chartType]="data.lineChart.type" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+					</div>
+				</ng-template>
+				<ng-template ngbSlide>
+					<div class="card pd-20">
+						<header class="title">
+							<h2 class="main-title" [routerLink]="['../positionwise']" style="cursor: pointer;" translate="">repothreatsbylocation</h2>
+						</header>
+						<canvas *ngIf="isBrowser" baseChart class="ng2-chart" [colors]="lineChartColors" [datasets]="reportData" [labels]="lineChartLabels" [options]="data.barChart.options" [legend]="data.barChart.Legend" [chartType]="data.barChart.type" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+					</div>
+				</ng-template>
+				<ng-template ngbSlide>
+					<div class="card pd-20">
+						<header class="title">
+							<h2 class="main-title" [routerLink]="['../datewise']" style="cursor: pointer;"> <span translate> repothreatsbymonth</span> ({{currentMonth}})</h2>
+						</header>
+						<canvas *ngIf="isBrowser" baseChart class="ng2-chart" [datasets]="reportDataDatewise" [labels]="lineChartDatewiseLabels" [options]="data.lineChart.options" [colors]="lineChartColors" [legend]="data.lineChart.Legend" [chartType]="data.lineChart.type" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+					</div>
+				</ng-template>
+				<ng-template ngbSlide>
+					<div class="card pd-20">
+						<header class="title">
+							<h2 class="main-title" [routerLink]="['../datewise']" style="cursor: pointer;"><span translate> repothreatsbymonth</span> ({{currentMonth}})</h2>
+						</header>
+						<canvas *ngIf="isBrowser" baseChart class="ng2-chart" [colors]="lineChartColors" [datasets]="reportDataDatewise" [labels]="lineChartDatewiseLabels" [options]="options" [legend]="data.barChart.Legend" [chartType]="data.barChart.type" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+					</div>
+				</ng-template>
+				<ng-template ngbSlide>
+					<div class="card pd-20">
+						<header class="title">
+							<h2 class="main-title" [routerLink]="['../throughput']" style="cursor: pointer;" translate>repothroughputbylastsixhours</h2>
+						</header>
+						<canvas *ngIf="isBrowser" baseChart class="ng2-chart" [datasets]="reportlinechartThroughput" [labels]="throughputLabels" [options]="data.lineChart.options" [colors]="throughputColor" [legend]="data.lineChart.Legend" [chartType]="data.lineChart.type" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+					</div>
+				</ng-template>
+				<ng-template ngbSlide>
+					<div class="card pd-20">
+						<header class="title">
+							<h2 class="main-title" [routerLink]="['../throughput']" style="cursor: pointer;" translate>repothroughputbylastsixhours</h2>
+						</header>
+						<canvas *ngIf="isBrowser" baseChart class="ng2-chart" [colors]="lineChartColors" [datasets]="reportThroughput" [labels]="throughputChartLabels" [options]="data.barChart.options" [legend]="data.barChart.Legend" [chartType]="data.barChart.type" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+					</div>
+				</ng-template>
+				<ng-template ngbSlide>
+					<div class="card pd-20">
+						<header class="title">
+							<h2 class="main-title" [routerLink]="['../Personspecificthreatreport']" style="cursor: pointer;"> Total Persons Scanned in last six hours </h2>
+						</header>
+						<canvas *ngIf="isBrowser" baseChart class="ng2-chart" [colors]="lineChartColors" [datasets]="reportpersonspecificthreat" [labels]="reportpersonspecificthreatLabels" [options]="reportpersonspecificthreatoptions" [legend]="data.barChart.Legend" [chartType]="data.barChart.type" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+					</div>
+				</ng-template>
+			</ngb-carousel>
+		</div>
+		<div class="col-lg-1"></div>
+	</div>
+</div>

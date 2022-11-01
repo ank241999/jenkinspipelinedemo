@@ -1,0 +1,62 @@
+@import '../../../styles/_variables';
+@import '../../../styles/_mixins';
+
+.alert-modal {
+    width: 600px;
+    max-width: 100%;
+
+    .alert-model-close{
+        background: none;
+        border: 0px none;
+        cursor: pointer;
+        font-size: 26px;
+        margin-top: -10px;
+        outline: none;
+    }
+    .alert-modal-title {
+        color: $libertyBlue;
+        font-family: Arial;
+        font-size: 36px;
+        font-weight: bold;
+        letter-spacing: $letter-spacing-lg;
+        text-align: center;
+    }
+
+    .alert-modal-text {
+        color: $grey8;
+        display: block;
+        text-align: center;
+    }
+
+    .alert-modal-input {
+        color: $tableHeaderColor;
+        font-size: 16px;
+        font-weight: bold;
+        min-height: 50px;
+        border-radius: 0px;
+    }
+
+  .alert-modal-buttons {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+    .alert-modal-button {
+      @include button($white, $libertyBlue, $libertyBlue);
+      margin-bottom: 10px;
+      margin-top: 40px;
+      min-width: 60px;
+      font-weight: 400;
+      width: 60%;
+
+      &.alert-modal-button-success {
+        @include button($white, $libertyBlue, $libertyBlue);
+        margin-right: 10px;
+      }
+
+      &.alert-modal-button-failure {
+        @include button($white, $libertyBlue, $libertyBlue);
+      }
+    }
+  }
+}

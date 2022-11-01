@@ -1,0 +1,140 @@
+@import '../../../styles/_variables';
+@import '../../../styles/_tables';
+
+
+.hexwavepairdetail{
+    #smart-tables {
+        .card{
+			.innercard-wrapper{
+				.title{
+					.main-title{
+						font-family: Arial;
+						font-size: 36px;
+						font-weight: bold;
+					}
+				}
+				.search-bar-wrapper {
+					margin-bottom: 10px;
+					margin-top: 1px;
+				
+					.search-bar-icon {
+						color: $libertyBlue;
+						font-size: $font-size-lg;
+						line-height: 47px;
+						padding-left: 10px;
+						position: absolute;
+						right: 30px;
+					}
+				
+					.search-bar-input {
+						background-color: $white;
+						border: solid 2px $form-input-border-color;
+						color: $libertyBlue;
+						letter-spacing: 2px;
+						padding: 14px 10px 12px;
+						width: 100%;
+						margin-top: 0px;
+					}
+				}
+				.globalButton{
+					font-family: Arial;
+					font-size: 16px;
+					font-weight: 700;
+					letter-spacing: 2px;
+				}
+				.table-wrapper{
+					.mat-table{
+                        tr{
+                            th{
+                                color: $tableHeaderColor;
+                                font-family: Arial;
+                                font-size: 12px;
+                            }
+							.mat-column-select {
+                                background: $white;
+                                padding-left: 0px;
+
+                                .mat-checkbox {
+                                    label {
+                                        text-align: center;
+
+                                        .mat-checkbox-inner-container {
+                                            height: 24px;
+                                            width: 24px;
+
+                                            .mat-checkbox-frame {
+                                                border-color: #e4e4e4;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+							td{
+								color: $libertyBlue;
+								font-family: Arial;
+								font-size: 17px;
+								font-weight: bold;
+							}
+                        }
+					}
+				}
+				.paginator {
+					//material paginator
+					.mat-paginator-page-size {
+						align-items: center;
+					}
+					.mat-paginator-page-size-label {
+						color: $libertyBlue;
+						font-size: 14px;
+						margin-left: 0px;
+						margin-right: 10px;
+					}
+					.mat-paginator-page-size-select {
+						margin: 0px;
+
+						.mat-form-field-wrapper {
+							padding: 0px;
+							text-align: center;
+
+							.mat-form-field-underline {
+								display: none;
+							}
+						}
+					}
+					.mat-paginator-range-actions {
+						color: $libertyBlue;
+						font-size: 14px;
+					}
+				}
+			} 
+		}
+  	}
+}
+
+
+@media only screen and (device-width: 768px) {
+  /* For general iPad layouts */
+  
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+  /* For portrait layouts only */
+  
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+  /* For landscape layouts only */
+  
+}
+
+// iPhone X in landscape 
+@media only screen and (min-device-width : 320px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3)and (orientation : landscape) { 
+  
+}
+// iPhone X in portrait
+@media only screen and (min-device-width : 320px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : portrait) {
+  
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 1024px) {
+
+}

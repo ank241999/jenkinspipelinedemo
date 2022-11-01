@@ -1,0 +1,214 @@
+<div class="inputWrapper analyticsdata">
+    <div id="smart-tables">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card table-2">
+                    <header class="row title">
+                        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 mb-20">
+                            <h2 class="main-title" translate>repoAnalytic</h2>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            &nbsp;
+                        </div>
+                    </header>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="table-1-filters">
+                                <form [formGroup]="filtersForm">
+                                    <div class="row row-input" style="margin-top: 5px !important;">
+                                        <div class="col-sm-2 pd-left-0">
+                                            <label class="control-label" translate>Date Range</label>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <select class="form-control" formControlName="dateRange" [id]="'dateRange'"
+                                                #dateRange (change)="changeRange(dateRange.value)">
+                                                <option value="Daily">Daily
+                                                </option>
+                                                <option value="Weekly">Weekly
+                                                </option>
+                                                <option value="Monthly">Monthly
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-1">
+                                            &nbsp;
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <label class="control-label" translate>repodatefrom</label>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control date-input" [matDatepicker]="picker"
+                                                placeholder="{{'repoChoosefrom' | translate}}"
+                                                [formControl]="filtersForm.controls.dateFrom">
+                                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker></mat-datepicker>
+                                            <button type="button" class="reset-date" title="Clear date"
+                                                (click)="resetDatePicker()">
+                                                <span class="fa fa-times"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row row-input">
+                                        <div class="col-sm-2 pd-left-0">
+                                            &nbsp;
+                                        </div>
+                                        <div class="col-sm-3">
+                                            &nbsp;
+                                        </div>
+                                        <div class="col-sm-1">
+                                            &nbsp;
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <label class="control-label" translate>repodateto</label>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control date-input"
+                                                [matDatepicker]="pickerTo" placeholder="{{'repoChoose' | translate}}"
+                                                [formControl]="filtersForm.controls.dateTo">
+                                            <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+                                            <mat-datepicker #pickerTo></mat-datepicker>
+                                            <button type="button" class="reset-date" title="Clear date"
+                                                (click)="resetDatePickerTo()">
+                                                <span class="fa fa-times"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row row-input">
+                                        <div class="col-sm-2 pd-left-0">
+                                            <button class="globalButton" type="button" (click)="showReport()"
+                                                translate>reposhowreport
+                                            </button>
+                                        </div>
+                                        <div class="col-sm-8">&nbsp;</div>
+                                        <div class="col-sm-2">
+                                            <button class="globalButton" type="button" (click)="generatePDF()"
+                                                [disabled]="!isEnabled" translate>repoexportpdf</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="content" *ngIf="showdata==='showdata'">
+                        <div class="row" style="padding-bottom: 15px;">
+                            <div class="col-xs-12">
+                                <div class="col-lg-1">
+                                    &nbsp;
+                                </div>
+                                <div class="col-lg-2" style="padding-left: 0px;">
+                                    <h2>Incorrect : {{this.incorrectData.totalIncorrect}}</h2>
+                                </div>
+                                <div class="col-lg-1">
+                                    &nbsp;
+                                </div>
+                                <div class="col-lg-2" style="padding-left: 0px;">
+                                    <h2>Threat Types</h2>
+                                </div>
+                                <div class="col-lg-1">
+                                    &nbsp;
+                                </div>
+                                <div class="col-lg-2" style="padding-left: 0px;">
+                                    <h2>Weapons</h2>
+                                </div>
+                                <div class="col-lg-1">
+                                    &nbsp;
+                                </div>
+                                <div class="col-lg-2" style="padding-left: 0px;">
+                                    <h2>Locations</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="col-lg-3">
+                                    <canvas baseChart [data]="incorrectChart2ndLayerData"
+                                        [labels]="incorrectChart2ndLayerLabels" chartType="pie" [options]="options"
+                                        [legend]="false" (chartClick)="showTabularReport($event.active[0]._model.label,false,'all')"></canvas>
+                                </div>
+                                <div class="col-lg-3">
+                                    <canvas baseChart [data]="incorrectThreatTypeChartData"
+                                        [labels]="incorrectThreatTypeChartLabels" chartType="pie" [options]="options"
+                                        [legend]="false"
+                                        (chartClick)="showTabularReport($event.active[0]._model.label,false,'ThreatType')"></canvas>
+                                </div>
+                                <div class="col-lg-3">
+                                    <canvas baseChart [data]="incorrectWeaponsChartData"
+                                        [labels]="incorrectWeaponsChartLabels" chartType="pie" [options]="options"
+                                        [legend]="false"
+                                        (chartClick)="showTabularReport($event.active[0]._model.label,false,'Weapon')"></canvas>
+                                </div>
+                                <div class="col-lg-3">
+                                    <canvas baseChart [data]="incorrectAllLocationsChartData"
+                                        [labels]="incorrectAllLocationsChartLabels" chartType="pie" [options]="options"
+                                        [legend]="false"
+                                        (chartClick)="showTabularReport($event.active[0]._model.label,false,'Location')"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            &nbsp;
+                        </div>
+                        <div class="row" style="padding-bottom: 15px;">
+                            <div class="col-lg-1">
+                                &nbsp;
+                            </div>
+                            <div class="col-lg-2" style="padding-left: 0px;">
+                                <h2>Correct : {{this.correctData.totalCorrect}}</h2>
+                            </div>
+                            <div class="col-lg-1">
+                                &nbsp;
+                            </div>
+                            <div class="col-lg-2" style="padding-left: 0px;">
+                                <h2>Threat Types</h2>
+                            </div>
+                            <div class="col-lg-1">
+                                &nbsp;
+                            </div>
+                            <div class="col-lg-2" style="padding-left: 0px;">
+                                <h2>Weapons</h2>
+                            </div>
+                            <div class="col-lg-1">
+                                &nbsp;
+                            </div>
+                            <div class="col-lg-2" style="padding-left: 0px;">
+                                <h2>Locations</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="col-lg-3">
+                                    <canvas baseChart [data]="correctChart2ndLayerData"
+                                        [labels]="correctChart2ndLayerLabels" chartType="pie" [options]="options"
+                                        [legend]="false"
+                                        (chartClick)="showTabularReport($event.active[0]._model.label,true,'all')"></canvas>
+                                </div>
+                                <div class="col-lg-3">
+                                    <canvas baseChart [data]="correctThreatTypeChartData"
+                                        [labels]="correctThreatTypeChartLabels" chartType="pie" [options]="options"
+                                        [legend]="false"
+                                        (chartClick)="showTabularReport($event.active[0]._model.label,true,'ThreatType')"></canvas>
+                                </div>
+                                <div class="col-lg-3">
+                                    <canvas baseChart [data]="correctWeaponsChartData"
+                                        [labels]="correctWeaponsChartLabels" chartType="pie" [options]="options"
+                                        [legend]="false"
+                                        (chartClick)="showTabularReport($event.active[0]._model.label,true,'Weapon')"></canvas>
+                                </div>
+                                <div class="col-lg-3">
+                                    <canvas baseChart [data]="correctAllLocationsChartData"
+                                        [labels]="correctAllLocationsChartLabels" chartType="pie" [options]="options"
+                                        [legend]="false"
+                                        (chartClick)="showTabularReport($event.active[0]._model.label,true,'Location')"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center" *ngIf="showdata==='nodata'">
+                        <h3 style="height:200px; font-weight: bold; color: gray; margin-top: 100px;">
+                            Data Not Found</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

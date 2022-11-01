@@ -1,0 +1,189 @@
+@import '../../styles/_variables';
+@import '../../styles/_tables';
+.threatmanagement {
+    .card {
+        .title {
+            .main-title {
+                font-family: Arial;
+                font-size: 36px;
+                font-weight: bold;
+            }
+        }
+        .reset {
+            border: none;
+            background-color: white;
+            color: #3597EC;
+            font-weight: bold;
+        }
+        .pix {
+            height: 1px;
+            background: gray;
+        }
+        .dropdown {
+            // overflow: hidden;
+            margin-top: 10px;
+            // height: 100px;
+            // width: 200px;
+        }
+        .wrapper {
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20vh;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        textarea::-webkit-scrollbar {
+            width: 12px;
+            background-color: #F5F5F5;
+        }
+        .drop {
+            height: 40px;
+            width: 208px;
+            margin-bottom: 6px;
+            border-color: lightgray;
+        }
+        // textarea::-webkit-scrollbar-thumb {
+        //     border-radius: 10px;
+        //     background-color: #4285F4;
+        // }
+        .innerWrapper {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0px auto;
+            height: 600px;
+            // background-color: blue;
+        }
+        mat-slider {
+            width: 120px;
+            margin-left: 36px;
+            margin-top: 20px;
+        }
+        .line {
+            margin-bottom: 10px;
+        }
+        .border-line {
+            border-top: 1px solid #D3D3D3;
+        }
+        .border-line:last-child {
+            border-bottom: 1px solid #D3D3D3;
+        }
+        // mat-checkbox .mat-checkbox-layout .mat-checkbox-label{
+        //     color: #143345 !important;
+        // }
+        // // .btn{
+        //     cursor: pointer; border-radius: 0px; font-size: 12px; 
+        //     background-color: #143345;
+        //     text-transform: uppercase; padding: 10px 0px; width: 100%; margin-bottom: 5px;
+        //     color: white;
+        //     margin-top: 10px;
+        // }
+        // // .center{
+        //     -ms-transform: translateX(-50%) translateY(-50%);
+        //   -webkit-transform: translate(-50%,-50%);
+        //   transform: translate(-50%,-50%);
+        // //     transform: translate(-50, -100%); 
+        //     position:absolute;
+        //     top:50%;
+        //     left:50%;
+        // }
+        // .scroll{
+        //     // height: 225;
+        //     // // overflow-x: hidden;
+        //     // // overflow-y: auto;
+        //     // // overflow:scroll;
+        //     // overflow-x:hidden;
+        //     // overflow-y:scroll;
+        //     padding: 15px 15px 15px 15px;
+        //     height: 225px; 
+        //     overflow-x: hidden; 
+        //     overflow-y: auto; 
+        //     text-align:justify;
+        // }
+        // .checkb{
+        //     color: #143345;
+        // }
+        .action-icon-tooltip {
+            display: inline-block;
+            position: relative;
+            opacity: 1;
+            .action-icon {
+                border-radius: 50%;
+                color: gray;
+                cursor: pointer;
+                font-size: 24px;
+                height: 36px;
+                line-height: 36px;
+                width: 36px;
+                &:hover {
+                    color: $libertyBlue;
+                }
+            }
+            .action-tooltip {
+                background-color: $libertyBlue;
+                border-radius: 0px;
+                // box-shadow: $shadow;
+                display: none;
+                left: 45px;
+                padding: 10px 15px;
+                position: absolute;
+                top: 10px;
+                z-index: 999;
+                .action-tooltip-point {
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    border-top: 10px solid $libertyBlue;
+                    bottom: -7px;
+                    left: 26px;
+                    position: absolute;
+                }
+                .action-tooltip-text {
+                    color: $libertyBlue;
+                    font-weight: normal;
+                    font-size: 14px;
+                    letter-spacing: $letter-spacing-xxxs;
+                    line-height: 1.5;
+                    margin-bottom: 0px;
+                }
+                &.action-tooltip-alt {
+                    background-color: #EBEBEB;
+                    width: 340px;
+                    .action-tooltip-point {
+                        border-top-color: #EBEBEB;
+                    }
+                }
+            }
+            &:hover {
+                .action-tooltip {
+                    display: block;
+                }
+                @media only screen and (device-width: 768px) {
+                    /* For general iPad layouts */
+                }
+                @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+                    /* For portrait layouts only */
+                }
+                @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+                    /* For landscape layouts only */
+                }
+                // iPhone X in landscape 
+                @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3)and (orientation: landscape) {}
+                // iPhone X in portrait
+                @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {}
+                @media only screen and (min-device-width: 320px) and (max-device-width: 1024px) {}
+            }
+        }
+    }
+}
+
+.ng5-slider .ng5-slider-pointer {
+    background-color: #000000 !important;
+}
+
+.ng5-slider .ng5-slider-pointer:after {
+    width: 28px !important;
+    height: 28px !important;
+    top: 2px !important;
+    left: 2px !important;
+    border-radius: 13px !important;
+}

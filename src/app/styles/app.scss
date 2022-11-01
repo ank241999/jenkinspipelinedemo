@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,500,700,900");
+
+@import "bootstrap";
+@import "variables";
+@import "mixins";
+@import "md-override";
+@import "tables";
+@import "forms";
+@import "menu";
+
+body {
+  background-color: $bodyBg;
+  font-family: $font-family;
+}
+
+.main-navbar-container {
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: $libertyBlue;
+  box-shadow: $shadow-container;
+  // display: flex;
+  position: fixed;
+  z-index: 1250 !important;
+}
+
+.main-content-container {
+  padding-top: 60px;
+  .mat-sidenav-container {
+    .mat-drawer.mat-drawer-push {
+      background-color: transparent;
+    }
+  }
+
+  // mat-sidenav-content {
+  //   margin-left: 275px;
+  // }
+
+  .main-content-outer {
+    // Because we already have 15px from the condense menu toggle
+    padding-left: 15px;
+    padding-right: 30px;
+
+    @media only screen and (max-width: $screen-xs-max) {
+      padding-right: 15px;
+    }
+  }
+}
+
+// Other stuff
+
+.mat-sidenav-container {
+  background-color: transparent;
+}
+
+.mat-drawer {
+  height: 82px;
+  background: #e01717;
+  color: $white;
+  overflow: hidden !important;
+}
+.mat-drawer-backdrop {
+  display: none !important;
+}
+.mat-drawer-inner-container {
+  overflow: hidden !important;
+}
+.mat-tab-header {
+  display: none !important;
+}
+.mat-tab-body-content {
+  height: 150px !important;
+}
+.notification {
+  border: 0px none !important;
+  margin-bottom: 0px !important;
+  padding-bottom: 23px !important;
+  padding-top: 24px;
+}
+.notification-title,
+.notification-text {
+  color: $white !important;
+}
+
+.btn-notifications {
+  margin: 0px !important;
+}
+
+.card {
+  background-color: $card-bg-color;
+  border-radius: 5px;
+  box-shadow: $shadow;
+  color: $card-txt-color;
+  margin-bottom: 20px;
+  padding: 20px;
+
+  &.card-no-padding {
+    padding: 0;
+  }
+
+  .title {
+    margin-bottom: 20px;
+
+    .main-title {
+      font-size: $font-size-lg;
+      font-weight: 300;
+      letter-spacing: $letter-spacing-lg;
+      margin: 0;
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .sub-title {
+      color: $grey;
+      display: block;
+      font-size: $font-size-sm;
+      letter-spacing: $letter-spacing-sm;
+      margin-top: 7px;
+    }
+
+    .line {
+      border-color: $grey4;
+      margin-bottom: 0;
+      margin-top: 10px;
+    }
+  }
+}
+
+.color-red {
+  color: $red;
+}
+
+.color-green {
+  color: $green2;
+}
+
+.color-aqua {
+  color: $aqua;
+}
+
+.color-orange {
+  color: $orange2;
+}
+
+@media only screen and (max-width: 768px) and (min-width: 320px) {
+  .main-content-container {
+    padding-top: 120px;
+  }
+  .responsive-hide {
+    display: none !important;
+  }
+  .responsive-show {
+    display: block !important;
+  }
+  .mat-drawer {
+    height: 300px;
+  }
+  .mat-tab-body-content {
+    height: 300px !important;
+  }
+}
+.mat-drawer-content {
+  /*overflow: hidden !important;*/
+  overflow-y: auto !important;
+}
+
+//Alert notification//
+.alert-overlay-pane{
+	width: 100% !important;
+	position: absolute;
+    z-index: 1200 !important;
+
+  	.alert-mat-snack-bar-container {
+    	box-shadow: none;
+		max-width: 100% !important;
+		width: 100% !important;
+		padding: 0px !important;
+		margin: 60px auto 0px;
+
+		&.alert-notification-wrapper {
+			background: none;
+      }
+      
+		.alert-notification_th {
+			justify-content: space-between;
+			margin-bottom: 0px;
+			
+			background-color: #E01717;
+
+			padding-top: 23px;
+			margin: 0px;
+			padding-bottom: 15px !important;
+
+			.th-alert{
+				padding: 0px;
+				margin: 0px;
+				border-radius: 0px;
+				padding-bottom: 0px !important;
+				color: #ffffff;
+
+				.alert-close {
+					opacity: 1;
+					top: 6px;
+				}
+			}
+
+			.notification-icon {
+				color: $white !important;
+				font-size: 44px !important;
+				margin-left: 20px;
+			}
+			.alert-notification-gate{
+				font-family: Arial;
+				float: right;
+				text-transform: uppercase;
+	
+				.alert-gate-label{
+					font-size: 14px;
+					float: left;
+					margin-top: 3px;
+				}
+				.alert-gate-name{
+					font-size: 24px;
+					padding-left: 5px;
+				}
+			}
+			.alert-notification-lane{
+				font-family: Arial;
+				text-transform: uppercase;
+				width: fit-content;
+				margin: 0px auto;
+	
+				.alert-lane-label{
+					font-size: 14px;
+					float: left;
+					margin-top: 3px;
+				}
+				.alert-lane-name{
+					font-size: 24px;
+					padding-left: 5px;
+				}
+			}
+	
+			.alert-notification-guard{
+				font-family: Arial;
+				text-transform: uppercase;
+	
+				.alert-guard-label{
+					font-size: 14px;
+					float: left;
+					margin-top: 5px;
+				}
+				.alert-guard-name{
+					font-size: 24px;
+					padding-left: 5px;
+				}
+			}
+			.btn-view-notification{
+				border: solid 1px #ffffff;
+				background: transparent;
+				color: #ffffff;
+				float: left;
+				padding: 10px 0px;
+				text-align: center;
+				width: 150px;
+				font-size: 16px;
+				font-weight: bold;
+				font-family: Arial;
+				text-transform: uppercase;
+			}
+			.alert-notification-close{
+				font-size: 28px;
+				color: #ffffff;
+				float: right;
+				padding-left: 0px;
+			}
+		}
+	}
+}

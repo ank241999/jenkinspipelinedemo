@@ -1,0 +1,147 @@
+<div class="inputWrapper accountmanagement">
+	<div id="smart-tables">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="card">
+					<div class="row mb-15" style="margin-left: -45px; margin-right: -45px; min-height: 37px;">
+						<div class="col-xs-2 text-left">&nbsp;
+							<!-- <img src="../../../assets/images/backscreen_icon.jpg" (click)="onScreenBack()"
+								style="cursor: pointer;" /> -->
+						</div>
+						<div class="col-xs-8">&nbsp;</div>
+						<div class="col-xs-2 text-right">
+							<img src="../../../assets/images/closescreen_icon.jpg" (click)="onScreenClose()"
+								style="cursor: pointer;" />
+						</div>
+					</div>
+					<div class="innercard-wrapper">
+						<header class="row title pd-left-75">
+							<div class="col-xs-12">
+								<h2 class="main-title" translate>accmagaccountmanagement
+									<div class="action-icon-tooltip">
+										<!-- <i class="action-icon fa fa-question-circle-o"></i> -->
+										<img class="action-icon" src="../../../assets/images/question_icon.png" />
+										<div class="action-tooltip action-tooltip-alt">
+											<!-- <span class="action-tooltip-point"></span> -->
+											<p class="action-tooltip-text">
+												Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+											</p>
+										</div>
+									</div>
+								</h2>
+							</div>
+						</header>
+						<div class="row">
+							<div class="col-lg-5 col-xs-12">
+								<div class="search-bar-wrapper pd-left-75">
+									<i class="search-bar-icon fa fa-search"></i>
+									<input class="search-bar-input" type="text" matInput
+										(keyup)="applyFilter($event.target.value)"
+										placeholder="{{'accSearch' | translate}}" style="font-weight: bold;">
+								</div>
+								<!-- <mat-form-field class="filter-wrapper" style="overflow: hidden !important;">
+								<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter by any field ...">
+								</mat-form-field> -->
+							</div>
+							<div class="col-lg-7 col-xs-12">
+								<div class="row">
+									<div class="col-xs-12 col-lg-4 col-md-4 col-sm-12">
+										<button class="globalButton" type="button" (click)="openDialog()"
+											[disabled]="selection.selected.length===0 || selection.selected.length>1"
+											style="margin-bottom: 5px;" translate>accmageditaccount</button>
+									</div>
+									<div class="col-xs-12 col-lg-4 col-md-4 col-sm-12">
+										<button class="globalButton" type="button" [routerLink]="['addaccount']"
+											style="margin-bottom: 5px;" translate>accmagcreateaccount</button>
+									</div>
+									<div class="col-xs-12 col-lg-4 col-md-4 col-sm-12">
+										<button class="globalButton" type="button" (click)="deleteAccount()"
+											[disabled]="selection.selected.length===0"
+											translate>accmagdeleteaccount</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="table-wrapper">
+							<table class="table table-stripes" mat-table [dataSource]="dataSource" matSort
+								#sort="matSort">
+								<ng-container matColumnDef="select">
+									<th mat-header-cell *matHeaderCellDef style="padding-left: 8px; width: 75px;">
+										<!-- <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()">
+
+										</mat-checkbox> -->
+										<!-- <mat-checkbox (change)="$event ? masterToggle() : null"
+											[checked]="selection.hasValue() && isAllSelected()"
+											[indeterminate]="selection.hasValue() && !isAllSelected()"></mat-checkbox> -->
+									</th>
+									<td mat-cell *matCellDef="let row">
+										<!-- <mat-checkbox (click)="userRowClick(row,$even)" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+										</mat-checkbox> -->
+
+										<mat-checkbox [disabled]="loggedInUserId==row.email"
+											(click)="$event.stopPropagation()"
+											(change)="$event ? selection.toggle(row) : null"
+											[checked]="selection.isSelected(row)">
+										</mat-checkbox>
+									</td>
+								</ng-container>
+								<ng-container matColumnDef="firstName">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+											translate>accmaguserfullname</span> </th>
+									<td mat-cell *matCellDef="let row"> {{row.firstName}} {{row.lastName}} </td>
+								</ng-container>
+								<!-- <ng-container matColumnDef="lastName">
+										<th mat-header-cell *matHeaderCellDef mat-sort-header> Last name </th>
+										<td mat-cell *matCellDef="let row"> {{row.lastName}} </td>
+								</ng-container> -->
+								<ng-container matColumnDef="email">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header> <span translate>
+											accmaguseremail </span> </th>
+									<td mat-cell *matCellDef="let row"> {{row.email}} </td>
+								</ng-container>
+								<ng-container matColumnDef="roleName">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header> <span translate>
+											accmaguserrole </span> </th>
+									<td mat-cell *matCellDef="let row"> {{row.roleName}} </td>
+								</ng-container>
+								<ng-container matColumnDef="tabletID">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header> <span translate>
+											accmagtabletid </span> </th>
+									<td mat-cell *matCellDef="let row"> 098673749 </td>
+								</ng-container>
+								<ng-container matColumnDef="gateName">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header> <span translate> accmaggate
+										</span> </th>
+									<td mat-cell *matCellDef="let row"> North Entrance </td>
+								</ng-container>
+								<ng-container matColumnDef="expirydate">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header> <span translate>
+											accmagexpirationdate </span> </th>
+									<td mat-cell *matCellDef="let row"> {{row.expirydate}} </td>
+								</ng-container>
+								<!-- <ng-container matColumnDef="edit">
+
+									<th mat-header-cell *matHeaderCellDef mat-sort-header>Edit</th>
+									<td mat-cell *matCellDef="let row">
+										<i class="fa fa-edit" (click)="userRowClick(row)" style="cursor: pointer; font-size:36px"></i>
+									</td>
+								</ng-container>
+								<ng-container matColumnDef="delete">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header>Delete</th>
+									<td mat-cell *matCellDef="let row">
+										<i class="fa fa-remove" (click)="deleteTenant(row)" style="cursor: pointer; font-size:36px; color: red;"></i>
+									</td>
+								</ng-container> -->
+								<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+								<tr mat-row *matRowDef="let row; columns: displayedColumns;"
+									(click)="selection.toggle(row)"></tr>
+							</table>
+							<!-- <mat-paginator #paginator class="paginator" [pageSizeOptions]="[5, 10, 25]" [pageSize]="10">
+							</mat-paginator> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

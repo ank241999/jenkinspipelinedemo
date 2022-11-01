@@ -1,0 +1,190 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "angular-admin-template": {
+            "root": "",
+            "projectType": "application",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/browser",
+                        "index": "src/index.html",
+                        "main": "src/main/main.browser.ts",
+                        "tsConfig": "src/tsconfig.app.json",
+                        "showCircularDependencies": true,
+                        "polyfills": "src/polyfills.ts",
+                        "assets": [
+                            {
+                                "glob": "**/*",
+                                "input": "src/assets",
+                                "output": "/assets"
+                            },
+                            {
+                                "glob": "favicon.ico",
+                                "input": "src",
+                                "output": "/"
+                            }
+                        ],
+                        "styles": [
+                            "src/app/styles/main.scss"
+                        ],
+                        "scripts": [
+                            "node_modules/jquery/dist/jquery.min.js"
+                        ]
+                    },
+                    "configurations": {
+                        "production": {
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "angular-admin-template:build",
+                        "proxyConfig": "proxy.conf.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "angular-admin-template:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "angular-admin-template:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/test.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "src/tsconfig.spec.json",
+                        "karmaConfig": "src/karma.conf.js",
+                        "styles": [
+                            {
+                                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+                            }
+                        ],
+                        "scripts": [],
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets"
+                        ],
+                        "codeCoverage": true,
+                        "codeCoverageExclude": [
+                            "src/app/shared/alert/alert.component.ts",
+                            "src/app/shared/file-uploader/file-uploader.directive.ts",
+                            "src/app/shared/notification/notification.component.ts",
+                            "src/app/shared/preload-image/preload-image.component.ts",
+                            "src/assets/constants/activity-constants.ts",
+                            "src/app/admin/devicesetup/**",
+                            "src/app/core/404/**",
+                            "src/app/core/breadcrumb/**",
+                            "src/app/core/responsive-breakpoints/**",
+                            "src/app/core/side-menu/condense/**",
+                            "src/app/core/side-menu/content/**",
+                            "src/app/core/top-navbar/content/**",
+                            "src/app/core/top-navbar/messages-menu/**",
+                            "src/app/core/top-navbar/notifications-menu/**",
+                            "src/app/core/top-navbar/notifications-menu/button/**",
+                            "src/app/core/top-navbar/search-bar/**",
+                            "src/app/admin/customer/**",
+                            "src/app/admin/location/**",
+                            "src/app/shared/threatnotification/**",
+                            "src/app/user/login/server-url/**",
+                            "src/app/admin/devicemanagement/editdevice/**",
+                            "src/app/user/alreadylogin/**",
+                            "src/assets/services/share-data.service.ts",
+                            "src/app/admin/activitymonitoring/activitymonitoring.component.ts",
+                            "src/app/admin/accountmanagement/addaccount/addaccount.component.ts",
+                            "src/app/user/login/login.component.ts",
+                            "src/app/admin/accountmanagement/accountmanagement.component.ts",
+                            "src/app/user/register/register.component.ts",
+                            "src/app/user/terms/terms.component.ts",
+                            "src/app/admin/activitymonitoring/activitythreats.component.ts",
+                            "src/app/admin/reports/threatlogsreport/threatlogsreport.component.ts"
+                        ]
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "src/tsconfig.app.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                },
+                "server": {
+                    "builder": "@angular-devkit/build-angular:server",
+                    "options": {
+                        "outputPath": "dist/server",
+                        "main": "src/main/main.server.ts",
+                        "tsConfig": "src/tsconfig.server.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "defaultProject": "angular-admin-template",
+    "schematics": {
+        "@schematics/angular:class": {
+            "spec": false
+        },
+        "@schematics/angular:component": {
+            "spec": false,
+            "inlineStyle": false,
+            "inlineTemplate": false,
+            "prefix": "app",
+            "styleext": "scss"
+        },
+        "@schematics/angular:directive": {
+            "spec": false,
+            "prefix": "app"
+        },
+        "@schematics/angular:guard": {
+            "spec": false
+        },
+        "@schematics/angular:module": {
+            "spec": false
+        },
+        "@schematics/angular:pipe": {
+            "spec": false
+        },
+        "@schematics/angular:service": {
+            "spec": false
+        }
+    }
+}

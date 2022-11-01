@@ -1,0 +1,94 @@
+<div class="inputWrapper addcustomer">
+  	<div class="row">
+    	<div class="col-xs-12">
+      		<div class="card">
+        		<div class="row">
+          			<div class="col-xs-1 link_back" style="cursor: pointer;" (click)="close()">BACK</div>
+          			<div class="col-xs-10">&nbsp;</div>
+          				<div class="col-xs-1" style="text-align: right;">
+            				<a style="font-size: 26px; cursor: pointer;" (click)="close()">X</a>
+          				</div>
+        			</div>
+        			<header class="row title">
+          				<div class="col-xs-12 text-center">
+            				<h2 class="main-title">Add Customer</h2>
+          				</div>
+        			</header>
+        			<div class="row">
+          				<div class="col-xs-12">
+            				<form class="form-horizontal" [formGroup]="form" (ngSubmit)="onSubmit()" (input)="updateProgress()" (change)="updateProgress()" (reset)="updateProgress()">
+								  
+								<div class="row mt-25">
+                					<div class="col-lg-4">
+                  						<div class="form-group" [ngClass]="{ 'has-error': ((form.get('name').invalid) && (form.get('name').touched)) }">
+                    						<label class="col-sm-12 label-text" [attr.for]="'name'">Name</label>
+                    						<div class="col-sm-12">
+                      							<input type="text" class="form-control" formControlName="name" [id]="'name'" placeholder="Name">
+                    						</div>
+                    						<div class="validation-errors col-sm-12">
+                      							<ng-container *ngFor="let validation of validationMessages.name">
+                        							<div class="help-block" *ngIf="form.get('name').hasError(validation.type) && (form.get('name').dirty || form.get('name').touched)">
+                          								{{ validation.message }}
+                        							</div>
+                      							</ng-container>
+                    						</div>
+                  						</div>
+                					</div>
+                					<div class="col-lg-4">&nbsp;</div>
+                					<div class="col-lg-4">&nbsp;</div>
+              					</div>
+								  
+								<div class="row mt-25">
+                					<div class="col-lg-4">
+                  						<div class="form-group" [ngClass]="{ 'has-error': ((form.get('email').invalid) && (form.get('email').touched)) }">
+                    						<label class="col-sm-12 label-text" [attr.for]="'email'">Email</label>
+                    						<div class="col-sm-12">
+                      						<input type="email" class="form-control" formControlName="email" [id]="'email'" placeholder="Email">
+                    					</div>
+                    					<div class="validation-errors col-sm-12">
+                      						<ng-container *ngFor="let validation of validationMessages.email">
+                        						<div class="help-block" *ngIf="form.get('email').hasError(validation.type) && (form.get('email').dirty || form.get('email').touched)">
+                          							{{ validation.message }}
+                        						</div>
+                      						</ng-container>
+                    					</div>
+                  					</div>
+                				</div>
+								<div class="col-lg-4">&nbsp;</div>
+                				<div class="col-lg-4">&nbsp;</div>
+              				</div>
+							  
+							<div class="row">
+                				<div class="col-lg-4">
+                  					<div class="form-group basic-user">
+                    					<label class="col-sm-2 label-text">&nbsp;</label>
+                    					<div class="col-sm-12" style="text-align: right;">
+                      						&nbsp;
+                    					</div>
+                  					</div>
+                				</div>
+                				<div class="col-lg-4">&nbsp;</div>
+                				<div class="col-lg-4">&nbsp;</div>
+              				</div>
+							  
+							<div class="row">
+                				<div class="col-lg-4">
+                  					<div class="form-group basic-user">
+                    					<label class="col-sm-2 label-text">&nbsp;</label>
+                    					<div class="col-sm-12" style="text-align: right;">
+                      						&nbsp;
+                    					</div>
+                  					</div>
+                				</div>
+                				<div class="col-lg-6">&nbsp;</div>
+                				<div class="col-lg-2">
+                  					<input class="globalButton" type="submit" (click)="validateFields(); form.valid" value="SAVE" [disabled]="!form.valid">
+                				</div>
+              				</div>
+            			</form>
+          			</div>
+        		</div>
+      		</div>
+    	</div>
+  	</div>
+</div>

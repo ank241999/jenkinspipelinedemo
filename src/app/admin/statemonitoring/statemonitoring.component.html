@@ -1,0 +1,1363 @@
+<div class="inputWrapper statemonitor">
+    <div id="smart-tables">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card">
+                    <div class="row mb-15" style="margin-left: -45px; margin-right: -45px; min-height: 37px;">
+                        <div class="col-xs-2 text-left">&nbsp;
+                            <!-- <img src="../../../assets/images/backscreen_icon.jpg" (click)="onScreenBack()"
+                                style="cursor: pointer;" /> -->
+                        </div>
+                        <div class="col-xs-9 text-right">
+                        </div>
+                        <div class="col-xs-1 text-right">
+                            <img src="../../../assets/images/closescreen_icon.jpg" style="cursor: pointer;"
+                                (click)="onScreenClose()" />
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-1 link_back">&nbsp;</div>
+                            <div class="col-xs-10">&nbsp;</div>
+                            <div class="col-xs-1" style="text-align: right;">&nbsp;</div>
+                        </div>
+                        <div class="innercard-wrapper">
+                            <header class="row title  pd-left-75">
+                                <div class="col-xs-12">
+                                    <h2 class="main-title">Application State Monitor
+                                        <div class="action-icon-tooltip">
+                                            <!-- <i class="action-icon fa fa-question-circle-o"></i> -->
+                                            <img class="action-icon" src="../../../assets/images/question_icon.png" />
+
+                                            <div class="action-tooltip action-tooltip-alt">
+                                                <!-- <span class="action-tooltip-point"></span> -->
+                                                <p class="action-tooltip-text">
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </h2>
+                                    <!-- <span class="close">&times;</span> -->
+                                </div>
+                            </header>
+                            <div class="container-fluid" style="background: rgba(52, 95, 144, 0.07);">
+                                <div class="tab-slider--nav">
+                                    <ul class="tab-slider--tabs">
+                                        <li class="tab-slider--trigger" [class.active]="viewMode == 'tab1'" rel="tab1"
+                                            (click)="viewMode ='tab1'">{{leftdeviceName}}</li>
+                                        <li class="tab-slider--trigger" [class.active]="viewMode == 'tab2'" rel="tab2"
+                                            (click)="viewMode ='tab2'">{{rightdeviceName}}</li>
+                                    </ul>
+                                </div>
+                                <div class="tab-slider--container"
+                                    *ngIf="leftdeviceName!='No Device' && rightdeviceName!='No Device'"
+                                    [ngSwitch]="viewMode">
+                                    <div id="tab1" class="tab-slider--body" *ngSwitchCase="'tab1'">
+                                        <!-- Buttons row Start -->
+                                        <div class="container-fluid" style="margin-top: 10px;">
+                                            <div class="row">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-5">
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4 text-center"
+                                                            style="background-color: rgb(88, 175, 236); padding: 7px;">
+                                                            Core Services
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4 nopadding">
+                                                            <button type="button" class="btn btn-success"
+                                                                style="width: 35%" disabled
+                                                                (click)="changeServiceStatus('pipeline','start')">Start</button>
+                                                            <button type="button" class="btn btn-danger " disabled
+                                                                style="margin-left: 5px;width: 37%"
+                                                                (click)="changeServiceStatus('pipeline','stop')">Stop</button>
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-5">
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4 text-center"
+                                                            style="background-color: rgb(88, 175, 236); padding: 7px;">
+                                                            Logging
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4 nopadding">
+                                                            <button type="button" class="btn btn-success"
+                                                                style="width: 35%" disabled
+                                                                (click)="changeServiceStatus('logging','start')">Start</button>
+                                                            <button type="button" class="btn btn-danger "
+                                                                style="margin-left: 5px;width: 37%" disabled
+                                                                (click)="changeServiceStatus('logging','stop')">Stop</button>
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Buttons row End -->
+
+                                        <!--Menu Fuctions Start -->
+
+                                        <div class="container-fluid">
+                                            <div class="row" style="margin-top: 10px;">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-5">
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Camera
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            FPGA
+                                                            Inerface</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftallprocessrearrangedata.FPGAInterface == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftallprocessrearrangedata.FPGAInterface == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Data
+                                                            Reduction</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftallprocessrearrangedata.DataReduction == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftallprocessrearrangedata.DataReduction == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Image
+                                                            Recon</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftallprocessrearrangedata.ImageReconstruction == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftallprocessrearrangedata.ImageReconstruction == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Aggregator</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftallprocessrearrangedata.AiAggregate == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftallprocessrearrangedata.AiAggregate == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Recorder
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftallprocessrearrangedata.Recorder == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftallprocessrearrangedata.Recorder == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+
+                                                    </div>
+
+
+
+
+                                                </div>
+
+                                                <div class="col-md-5">
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            ElasticSearch
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.ElasticSearch.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.ElasticSearch.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Fluentd</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Fluentd.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Fluentd.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Grafana</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Grafana.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Grafana.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Kibana</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Kibana.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Kibana.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Prometheus</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Prometheus.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Prometheus.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Menu Fuctions End -->
+
+                                        <!-- Buttons row Start -->
+                                        <div class="container-fluid" style="margin-top: 10px;">
+                                            <div class="row">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-5">
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4 text-center"
+                                                            style="background-color: rgb(88, 175, 236); padding: 7px;">
+                                                            AI Services
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4 nopadding">
+                                                            <button type="button" disabled class="btn btn-success"
+                                                                style="width: 35%">Start</button>
+                                                            <button type="button" disabled class="btn btn-danger "
+                                                                style="margin-left: 5px;width: 37%">Stop</button>
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-5">
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4 text-center"
+                                                            style="background-color: rgb(88, 175, 236); padding: 7px;">
+                                                            Backend Services
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4 nopadding">
+                                                            <button type="button" class="btn btn-success"
+                                                                style="width: 35%" disabled
+                                                                (click)="changeServiceStatus('backend','start')">Start</button>
+                                                            <button type="button" class="btn btn-danger "
+                                                                style="margin-left: 5px;width: 37%" disabled
+                                                                (click)="changeServiceStatus('backend','stop')">Stop</button>
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Buttons row End -->
+
+                                        <!--Menu Fuctions Start -->
+
+                                        <div class="container-fluid">
+                                            <div class="row" style="margin-top: 10px;">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-5">
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            AI
+                                                            Interface</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.HexwaveLog.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.HexwaveLog.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-5">
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Active Monitor Frontend
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.ActiveMonitorFrontend.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.ActiveMonitorFrontend.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            AI Simulator Frontend</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.AISimulatorFrontend.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.AISimulatorFrontend.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Active Monitor Backend</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.ActiveMonitorBackend.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.ActiveMonitorBackend.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            AI Simulator Backend</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.AISimulatorBackend.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.AISimulatorBackend.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Device Detect</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.DeviceDetect.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.DeviceDetect.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Device Setting</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.DeviceSetting.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.DeviceSetting.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Hexwave Log</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.HexwaveLog.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.HexwaveLog.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Peripheral</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Peripheral.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Peripheral.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Report</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Report.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Report.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            User Setting</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.UserSetting.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.UserSetting.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Adminer</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Adminer.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Adminer.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Auth</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Auth.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Auth.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Keycloak</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Keycloak.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Keycloak.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Kong</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Kong.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Kong.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            db</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3" *ngIf="leftDeviceStatus.db.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.db.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Menu Fuctions End -->
+                                    </div>
+                                    <div id="tab2" class="tab-slider--body" *ngSwitchCase="'tab2'">
+                                        <!-- Buttons row Start -->
+                                        <div class="container-fluid" style="margin-top: 10px;">
+                                            <div class="row">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-5">
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4 text-center"
+                                                            style="background-color: rgb(88, 175, 236); padding: 7px;">
+                                                            Core Services
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4 nopadding">
+                                                            <button type="button" disabled class="btn btn-success"
+                                                                style="width: 35%">Start</button>
+                                                            <button type="button" disabled class="btn btn-danger "
+                                                                style="margin-left: 5px;width: 37%">Stop</button>
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-5">
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4 text-center"
+                                                            style="background-color: rgb(88, 175, 236); padding: 7px;">
+                                                            Logging
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4 nopadding">
+                                                            <button type="button" disabled class="btn btn-success"
+                                                                style="width: 35%">Start</button>
+                                                            <button type="button" disabled class="btn btn-danger "
+                                                                style="margin-left: 5px;width: 37%">Stop</button>
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Buttons row End -->
+
+                                        <!--Menu Fuctions Start -->
+
+                                        <div class="container-fluid">
+                                            <div class="row" style="margin-top: 10px;">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-5">
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Camera
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            FPGA
+                                                            Inerface</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightallprocessrearrangedata.FPGAInterface == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightallprocessrearrangedata.FPGAInterface == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Data
+                                                            Reduction</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightallprocessrearrangedata.DataReduction == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightallprocessrearrangedata.DataReduction == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Image
+                                                            Recon</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightallprocessrearrangedata.ImageReconstruction == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightallprocessrearrangedata.ImageReconstruction == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Aggregator</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightallprocessrearrangedata.AiAggregate == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightallprocessrearrangedata.AiAggregate == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Recorder
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightallprocessrearrangedata.Recorder == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightallprocessrearrangedata.Recorder == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+
+                                                    </div>
+
+
+
+
+                                                </div>
+
+                                                <div class="col-md-5">
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            ElasticSearch
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.ElasticSearch.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.ElasticSearch.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Fluentd</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Fluentd.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Fluentd.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Grafana</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Grafana.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Grafana.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Kibana</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Kibana.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Kibana.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Prometheus</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Prometheus.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Prometheus.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Menu Fuctions End -->
+
+                                        <!-- Buttons row Start -->
+                                        <div class="container-fluid" style="margin-top: 10px;">
+                                            <div class="row">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-5">
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4 text-center"
+                                                            style="background-color: rgb(88, 175, 236); padding: 7px;">
+                                                            AI Services
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4 nopadding">
+                                                            <button type="button" disabled class="btn btn-success"
+                                                                style="width: 35%">Start</button>
+                                                            <button type="button" disabled class="btn btn-danger "
+                                                                style="margin-left: 5px;width: 37%">Stop</button>
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-5">
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4 text-center"
+                                                            style="background-color: rgb(88, 175, 236); padding: 7px;">
+                                                            Backend Services
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4 nopadding">
+                                                            <button type="button" disabled class="btn btn-success"
+                                                                style="width: 35%">Start</button>
+                                                            <button type="button" disabled class="btn btn-danger "
+                                                                style="margin-left: 5px;width: 37%">Stop</button>
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+
+                                        </div>
+
+                                        <!-- Buttons row End -->
+
+                                        <!--Menu Fuctions Start -->
+
+                                        <div class="container-fluid">
+                                            <div class="row" style="margin-top: 10px;">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-5">
+                                                    <div class="row ">
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            AI
+                                                            Interface</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.HexwaveLog.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.HexwaveLog.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-5">
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Active Monitor Frontend
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.ActiveMonitorFrontend.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.ActiveMonitorFrontend.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            AI Simulator Frontend</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.AISimulatorFrontend.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.AISimulatorFrontend.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Active Monitor Backend</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.ActiveMonitorBackend.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.ActiveMonitorBackend.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            AI Simulator Backend</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.AISimulatorBackend.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.AISimulatorBackend.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Device Detect</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.DeviceDetect.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.DeviceDetect.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Device Setting</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.DeviceSetting.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.DeviceSetting.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Hexwave Log</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.HexwaveLog.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.HexwaveLog.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Peripheral</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Peripheral.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="leftDeviceStatus.Peripheral.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Report</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Report.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Report.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            User Setting</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.UserSetting.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.UserSetting.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Adminer</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Adminer.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Adminer.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Auth</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Auth.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Auth.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Keycloak</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Keycloak.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Keycloak.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            Kong</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Kong.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.Kong.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                    <div class="row ">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-4"
+                                                            style="border: solid 1px; margin-top: 2px; text-align: center;padding: 4px;margin-bottom: 5px;">
+                                                            db</div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.db.status == 'UP'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #5cb85c !important;padding: 5px;margin-bottom: 5px;">
+                                                            ON</div>
+                                                        <div class="col-md-3"
+                                                            *ngIf="rightDeviceStatus.db.status == 'DOWN'"
+                                                            style="margin-top: 2px; text-align: center;background-color: #d9534f;padding: 5px;margin-bottom: 5px;">
+                                                            OFF
+                                                        </div>
+                                                        <div class="col-md-2"></div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Menu Fuctions End -->
+                                    </div>
+                                </div>
+                                <div class="tab-slider--container"
+                                    *ngIf="leftdeviceName=='No Device' && rightdeviceName=='No Device'"
+                                    [ngSwitch]="viewMode">
+                                    <span>No device is connected with this tablet.</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

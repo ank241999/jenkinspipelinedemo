@@ -1,0 +1,343 @@
+<div id="forms-wizard">
+  <div class="card">
+
+    <header class="row title">
+      <div class="col-xs-12">
+        <h1 class="main-title">Setting up HEXWAVE devices</h1>
+        <!-- <span class="sub-title">Get a quote for the development of your app</span> -->
+      </div>
+    </header>
+
+    <form [formGroup]="form" (ngSubmit)="doSubmit()" *ngIf="!formSubmitted">
+
+      <div formGroupName="step0FormGroup" *ngIf="steps[0].current" class="step">
+        <header class="row text-center inner-title">
+          <div class="col-xs-12">
+            <h2 class="main-title">Select the location</h2>
+          </div>
+        </header>
+        <div class="row text-center">
+          <div class="row text-center">
+            <div class="col-xs-1 col-lg-4"></div>
+            <div class="col-xs-10 col-lg-4">
+              <select class="form-control location_list" formControlName="location" [id]="'location'" style="margin-bottom: 5px !important; background-color: transparent; color: #fff;">
+                <option value="0"> -- Select the location -- </option>
+                <option *ngFor="let item of locations" [value]="item.id">{{ item.name }}</option>
+              </select>
+              <span [ngStyle]="{'display': showLocationError}" style="color: #a94442; float: left; font-size: 14px;">This field is required.</span>
+            </div>
+            <div class="col-xs-1 col-lg-4"></div>
+          </div>
+          <div class="row text-center" style="margin-top: 75px;">
+            <div class="col-xs-3 col-lg-5"></div>
+            <div class="col-xs-6 col-lg-2">
+              <button class="ld-btn-primary" type="button" (click)="selectLocation();">Proceed</button>
+            </div>
+            <div class="col-xs-3 col-lg-5"></div>
+          </div>
+        </div>
+      </div>
+
+      <div formGroupName="step1FormGroup" *ngIf="steps[1].current" class="step">
+        <header class="row text-center inner-title">
+          <div class="col-xs-12">
+            <h2 class="main-title">HEXWAVE device has been setup?</h2>
+            <!-- <span class="sub-title">&nbsp;</span> -->
+          </div>
+        </header>
+        <div class="row text-center">
+          <img src="../../assets/imgs/char_1.png" alt="HEXWAVE Device" class="step1_charimg">
+          <div class="row text-center">
+            <div class="col-xs-1 col-lg-4"></div>
+            <div class="col-xs-5 col-lg-2">
+              <button class="ld-btn-primary" type="button" (click)="changeStep(1)">Yes</button>
+            </div>
+            <div class="col-xs-5 col-lg-2">
+              <button class="ld-btn-secondary" type="button">No</button>
+            </div>
+            <div class="col-xs-1 col-lg-4"></div>
+          </div>
+        </div>
+      </div>
+
+      <div formGroupName="step2FormGroup" *ngIf="steps[2].current" class="step">
+
+        <header class="row text-center inner-title">
+          <div class="col-xs-12">
+            <h2 class="main-title">Select GATE from the map.</h2>
+            <!-- <span class="sub-title">&nbsp;</span> -->
+          </div>
+        </header>
+
+        <div class="row text-center">
+          <div class="col-lg-5"></div>
+          <div class="col-lg-2">
+            <button class="ld-btn-default" type="button">Venue Map</button>
+          </div>
+          <div class="col-lg-5"></div>
+        </div>
+        <div class="row text-center" style="margin-top: 50px;">
+          <div class="col-lg-4"></div>
+          <div class="col-lg-4">
+            <img class="step2_mapimg" src="../../assets/imgs/venue_map.jpg" alt="Venue Map">
+          </div>
+          <div class="col-lg-4"></div>
+        </div>
+
+        <div class="row text-center" style="margin-top: 50px;">
+          <div class="form-group form-group-vertical col-xs-12 col-sm-offset-1 col-sm-10">
+            <!-- <label class="form-label">APP FEATURES</label> -->
+            <div class="row text-center">
+              <div class="col-lg-2" *ngFor="let item of gates">
+                <mat-button-toggle-group name="multipleSelect" vertical="false">
+                  <mat-button-toggle (click)="selectGate(item.id,item.name)">{{item.name}}</mat-button-toggle>
+                </mat-button-toggle-group>
+              </div>
+              <!-- <div class="col-lg-2">
+                  <mat-button-toggle-group name="multipleSelect" vertical="false">
+                    <mat-button-toggle (click)="changeStep(1)">GATE B</mat-button-toggle>
+                  </mat-button-toggle-group>
+              </div>
+              <div class="col-lg-2">
+                  <mat-button-toggle-group name="multipleSelect" vertical="false">
+                    <mat-button-toggle (click)="changeStep(1)">GATE C</mat-button-toggle>
+                  </mat-button-toggle-group>
+              </div>
+              <div class="col-lg-2">
+                  <mat-button-toggle-group name="multipleSelect" vertical="false">
+                    <mat-button-toggle (click)="changeStep(1)">GATE D</mat-button-toggle>
+                  </mat-button-toggle-group>
+              </div>
+              <div class="col-lg-2">
+                  <mat-button-toggle-group name="multipleSelect" vertical="false">
+                    <mat-button-toggle (click)="changeStep(1)">GATE E</mat-button-toggle>
+                  </mat-button-toggle-group>
+              </div>
+              <div class="col-lg-2">
+                  <mat-button-toggle-group name="multipleSelect" vertical="false">
+                    <mat-button-toggle (click)="changeStep(1)">GATE F</mat-button-toggle>
+                  </mat-button-toggle-group>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div formGroupName="step3FormGroup" *ngIf="steps[3].current" class="step">
+
+        <header class="row text-center inner-title">
+          <div class="col-xs-12">
+            <h2 class="main-title">QR code of HEXWAVE device's entrance.</h2>
+          </div>
+        </header>
+
+        <div class="row text-center" style="margin-top: 50px;">
+
+          <div class="col-xs-1 col-lg-1"></div>
+          <div class="col-xs-2 col-lg-2" style="text-align: center;">
+            <img src="../../assets/imgs/sample_qr.png" alt="QR Code" class="entrance_qrimg" style="width: 100%;">
+            <button class="ld-btn-primary step3btn_qr" type="button" (click)="submitDevice(1,1)">Ok</button>
+          </div>
+          <div class="col-xs-4 col-lg-4"></div>
+          <div class="col-xs-4 col-lg-4 wd-100">
+            <img src="../../assets/imgs/Char-2.png" class="step3_charimg" alt="Left Device">
+          </div>
+          <div class="col-xs-1 col-lg-1"></div>
+
+        </div>
+      </div>
+
+
+      <div formGroupName="step4FormGroup" *ngIf="steps[4].current" class="step">
+        <header class="row text-center inner-title">
+          <div class="col-xs-12">
+            <h2 class="main-title">Does this device have a portal partner?</h2>
+            <span class="sub-title">&nbsp;</span>
+          </div>
+        </header>
+        <div class="row text-center" style="margin-bottom: 50px;">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-2">
+            <div class="partner_wrap">
+              <span class="partner_txt">Portal Partner</span>
+              <div class="partner_arrow"></div>
+            </div>
+          </div>
+          <div class="col-lg-4 no-padding">
+            <img class="step4_charimg" src="../../assets/imgs/char_1.png" alt="HEXWAVE Device">
+          </div>
+          <div class="col-lg-2">
+            <div class="arrow_box">
+              <span class="device-details-txt">
+                <strong>Device ID: </strong>
+                <span id="first-device-id">{{devices[0].deviceId}}</span>
+              </span>
+              <span class="device-details-txt">
+                <strong>Device Name: </strong>
+                <span id="first-device-name">{{devices[0].deviceName}}</span>
+              </span>
+              <span class="device-details-txt">
+                <strong>Device UID: </strong>
+                <span id="first-device-name">{{devices[0].macAddress}}</span>
+              </span>
+            </div>
+          </div>
+          <div class="col-lg-2"></div>
+        </div>
+        <div class="row text-center">
+          <div class="col-xs-1 col-lg-4"></div>
+          <div class="col-xs-5 col-lg-2">
+            <button class="ld-btn-primary" type="button" (click)="changeStep(1)">Yes</button>
+          </div>
+          <div class="col-xs-5 col-lg-2">
+            <button class="ld-btn-secondary" type="button" (click)="goToStep(6)">No</button>
+          </div>
+          <div class="col-xs-1 col-lg-4"></div>
+        </div>
+      </div>
+
+      <div formGroupName="step5FormGroup" *ngIf="steps[5].current" class="step">
+        <header class="row text-center inner-title">
+          <div class="col-xs-12">
+            <h2 class="main-title">QR code of partner device's entrance.</h2>
+          </div>
+        </header>
+
+        <div class="row text-center" style="margin-top: 50px;">
+
+          <div class="col-lg-1"></div>
+          <div class="col-lg-2">
+            <img src="../../assets/imgs/sample_qr.png" alt="QR Code" class="entrance_qrimg" style="width: 100%;">
+            <button class="ld-btn-primary step3btn_qr" type="button" (click)="submitDevice(1,2)" style="margin-top: 50px; margin-bottom: 50px;">Ok</button>
+          </div>
+          <div class="col-lg-4"></div>
+          <div class="col-lg-4">
+            <img src="../../assets/imgs/Char-3.png" class="step3_charimg" alt="Left Device">
+          </div>
+          <div class="col-lg-1"></div>
+
+        </div>
+      </div>
+
+      <div formGroupName="step6FormGroup" *ngIf="steps[6].current" class="step">
+        <header class="row text-center inner-title step6_header">
+          <div class="col-xs-12">
+            <!-- <h2 class="main-title">Does this device have a portal partner?</h2> -->
+            <span class="sub-title">&nbsp;</span>
+          </div>
+        </header>
+        <div class="row text-center" style="margin-bottom: 50px;">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-2">
+            <div class="arrow_box_right" *ngIf="isPortalPartner">
+              <span class="device-details-txt">
+                <strong>Device ID: </strong>
+                <span id="first-device-id">{{devices[1].deviceId}}</span>
+              </span>
+              <span class="device-details-txt">
+                <strong>Device Name: </strong>
+                <span id="first-device-name">{{devices[1].deviceName}}</span>
+              </span>
+              <span class="device-details-txt">
+                <strong>Device UID: </strong>
+                <span id="first-device-name">{{devices[1].macAddress}}</span>
+              </span>
+            </div>
+          </div>
+          <div class="col-lg-4 no-padding">
+            <img class="step6_charimg" src="../../assets/imgs/char_1.png" alt="HEXWAVE Device">
+          </div>
+          <div class="col-lg-2">
+            <div class="arrow_box arrow_box_summary">
+              <span class="device-details-txt">
+                <strong>Device ID: </strong>
+                <span id="first-device-id">{{devices[0].deviceId}}</span>
+              </span>
+              <span class="device-details-txt">
+                <strong>Device Name: </strong>
+                <span id="first-device-name">{{devices[0].deviceName}}</span>
+              </span>
+              <span class="device-details-txt">
+                <strong>Device UID: </strong>
+                <span id="first-device-name">{{devices[0].macAddress}}</span>
+              </span>
+            </div>
+          </div>
+          <div class="col-lg-2"></div>
+        </div>
+        <div class="row text-center">
+          <div class="col-lg-5"></div>
+          <div class="col-lg-2">
+            <!-- <button class="ld-btn-primary" type="button" (click)="doSubmit()">View Summary</button> -->
+          </div>
+
+          <div class="col-lg-5"></div>
+        </div>
+      </div>
+
+
+    </form>
+
+    <!-- <div *ngIf="formSubmitted" class="step" style="padding-left: 50px;">
+      <header class="row inner-title">
+        <div class="col-xs-12">
+          <h2 class="main-title">Summary</h2>
+        </div>
+      </header>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="summary_row" style="width: 100%; float: left; margin-bottom: 15px;">
+            <div class="summary_row_inner" style="border-bottom: solid 1px #ffffff; float: left; width: 550px; margin-right: 20px; padding-bottom: 10px;">
+              <span style="font-size: 18px;">HEXWAVE device has been setup?</span>
+            </div>
+            <button class="progress-button" type="button" style="background: #102937; width: 120px; height: 35px; margin: 0px 10px; border-radius: 10px; border: solid 1px #707070; float: left;">Yes</button>
+          </div>
+          <div class="summary_row" style="width: 100%; float: left; margin-bottom: 15px;">
+            <div class="summary_row_inner" style="border-bottom: solid 1px #ffffff; float: left; width: 550px; margin-right: 20px; padding-bottom: 10px;">
+              <span style="font-size: 18px;">Select GATE from the map.</span>
+            </div>
+            <button class="progress-button" type="button" style="background: #102937; width: 120px; height: 35px; margin: 0px 10px; border-radius: 10px; border: solid 1px #707070; float: left;" (click)="goToStep(3)">{{selectedGate}}</button>
+          </div>
+          <div class="summary_row" style="width: 100%; float: left; margin-bottom: 15px;">
+            <div class="summary_row_inner" style="border-bottom: solid 1px #ffffff; float: left; width: 550px; margin-right: 20px; padding-bottom: 10px;">
+              <span style="font-size: 18px;">QR code of HEXWAVE device's entrance.</span>
+            </div>
+            <button class="progress-button" type="button" style="background: #102937; width: 120px; height: 35px; margin: 0px 10px; border-radius: 10px; border: solid 1px #707070; float: left;">{{devices[0].deviceId}}</button>
+          </div>
+          <div class="summary_row" style="width: 100%; float: left; margin-bottom: 15px;" *ngIf="isPortalPartner">
+            <div class="summary_row_inner" style="border-bottom: solid 1px #ffffff; float: left; width: 550px; margin-right: 20px; padding-bottom: 10px;">
+              <span style="font-size: 18px;">Does this device have a portal partner?</span>
+            </div>
+            <button class="progress-button" type="button" style="background: #102937; width: 120px; height: 35px; margin: 0px 10px; border-radius: 10px; border: solid 1px #707070; float: left;" *ngIf="isPortalPartner">Yes</button>
+          </div>
+          <div class="summary_row" style="width: 100%; float: left; margin-bottom: 15px;" *ngIf="isPortalPartner">
+            <div class="summary_row_inner" style="border-bottom: solid 1px #ffffff; float: left; width: 550px; margin-right: 20px; padding-bottom: 10px;">
+              <span style="font-size: 18px;">QR code of partner device's entrance.</span>
+            </div>
+            <button class="progress-button" type="button" style="background: #102937; width: 120px; height: 35px; margin: 0px 10px; border-radius: 10px; border: solid 1px #707070; float: left;">{{devices[1].deviceId}}</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="row wizard-progress">
+      <div class="col-xs-1 progress-number text-center">
+        <label>{{progress}}%</label>
+      </div>
+      <div class="col-xs-10 wizard-progress-bar">
+        <mat-progress-bar [value]="progress"></mat-progress-bar>
+        <button *ngFor="let step of steps; let i = index" class="progress-button" type="button" (click)="goToStep(i)" [style.left]="'calc('+(((i)/(steps.length-1))*100)+'% - 20px)'"
+          [ngClass]="{active: (currentStep > i), disabled: (formSubmitted)}">
+          <i class="fa fa-check"></i>
+        </button>
+      </div>
+      <div class="col-xs-1 progress-bar-action-button-col">
+        <!-- <button class="progress-button" type="button" *ngIf="currentStep != steps.length - 1 && (!formSubmitted)" (click)="changeStep(1)">NEXT</button> -->
+        <!-- <button class="progress-button" type="button" *ngIf="((currentStep == steps.length - 1) && (!formSubmitted))" (click)="doSubmit()">SUBMIT</button> -->
+        <button class="progress-button" type="button" *ngIf="formSubmitted" (click)="finish()">FINISH</button>
+      </div>
+    </div>
+
+  </div>
+</div>

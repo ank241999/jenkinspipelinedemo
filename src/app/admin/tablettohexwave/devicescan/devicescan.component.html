@@ -1,0 +1,52 @@
+<!-- <p>devicescan works!</p> -->
+
+<div class="inputWrapper">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="card">
+                <div class="row mb-15" style="margin-left: -45px; margin-right: -45px; min-height: 37px;">
+                    <div class="col-xs-2 text-left">
+                        <img src="../../../assets/images/backscreen_icon.jpg" (click)="onScreenBack()" style="cursor: pointer;" />
+                    </div>
+                    <div class="col-xs-8 text-center">
+                        <h2 style="font-size: 30px; font-weight: bold; color: #102937; ">{{entrance.name}} | {{laneName}}</h2>
+                    </div>
+                    <div class="col-xs-2 text-right">
+                        <img src="../../../assets/images/closescreen_icon.jpg" (click)="onScreenClose()" style="cursor: pointer;" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-10 col-md-5 text-center">
+                        <h2 class="dev">PORTAL</h2>
+                        <img src="../../../../assets/imgs/Portal.png" style="width:52%;">
+
+                        <div class="row text-center">
+                            <div class="col-xs-12 col-md-3"></div>
+                            <div class="col-xs-12 col-md-6">
+                                <button class="btn btn-info btn-block" (click)="showButton1()" style="color:#ffffff; background-color: #102937;">SELECT</button>
+                            </div>
+                            <div class="col-xs-12 col-md-3"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 col-md-2 text-center">
+                        <!-- <div class="ruler"></div> -->
+                    </div>
+                    <div class="col-xs-10 col-md-5 text-center">
+                        <h2 class="dev">S-PATH</h2>
+                        <img src="../../../../assets/imgs/S-Path.png" style="width:52%;">
+
+                        <div class="row text-center">
+                            <div class="col-xs-12 col-md-3"></div>
+                            <div class="col-xs-12 col-md-6">
+                                <button class="btn btn-info btn-block" (click)="showButton2()" style="color:#ffffff; background-color: #102937;">SELECT
+                                </button>
+                            </div>
+                            <div class="col-xs-12 col-md-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

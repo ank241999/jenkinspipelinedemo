@@ -1,0 +1,90 @@
+<div class="main-navbar-container" style="width: 100%; height: 60px; z-index: 999;">
+    <div class="row" style="width: 100%;">
+        <div class="col-lg-3 col-xs-3">&nbsp;</div>
+        <div class="col-lg-6 col-xs-5">
+            <div class="branding-col">
+                <div class="brand-wrapper" style="text-align: center;">
+                    <img alt="Liberty Defense" class="brand-logo" [src]="logoImagePath" height="55">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-xs-4">&nbsp;</div>
+    </div>
+</div>
+
+<div class="inputWrapper alreadyloginalert">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="card">
+                <div class="login_wrapper">
+                        
+                    <form class="form-horizontal login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="row text-center responsive-hide">
+                                    <div class="col-sm-12">
+                                        <h2>&nbsp;</h2>
+                                    </div>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-sm-12">
+                                        <h2 class="title_text" translate>lblAlreadyLoginHeading</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div>
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-8">
+                                    <div class="row text-center mt-25">
+                                        <div class="col-xs-2 col-sm-1">&nbsp;</div>
+                                        <label class="col-xs-8 col-sm-10 label-text nopadding" translate>lblNameOrEmail</label>
+                                        <div class="col-xs-2 col-sm-1 responsive-hide">&nbsp;</div>
+                                    </div>
+
+                                    <div class="row text-center">
+                                        <div class="col-xs-2 col-sm-1">&nbsp;</div>
+                                        <div class="col-xs-8 col-sm-10 nopadding" id="email_input_wrapper">
+                                            <input id="email" #email type="email" class="form-control" placeholder="" formControlName="email" disabled>
+                                            <span id="txtAlreadyLogin" class="message-text" style="top: 23px; display: block !important;" translate>lblLoggedInAlready</span>
+                                        </div>
+                                        <div class="col-xs-2 col-sm-1 hidden-label">&nbsp;</div>
+                                    </div>
+
+                                    <div class="row text-center mt-25">
+                                        <div class="col-xs-2 col-sm-1">&nbsp;</div>
+                                        <label id="loggout-alert-sp" class="col-xs-8 col-sm-10 label-text nopadding" style="text-align: center;" translate>lblalreadyloggedDevice</label>
+                                        <div class="col-xs-2 col-sm-1 hidden-label">&nbsp;</div>
+                                    </div>
+
+                                    <div class="row text-center notlogin mt-25">
+                                        <div class="col-xs-2 col-sm-1"></div>
+                                        <div class="col-xs-8 col-sm-10">
+                                            <button class="globalButton" id="btnLogoutAlert" type="submit" translate>{{alreadyLoggedInButtonText}}</button>
+                                        </div>
+                                        <div class="col-xs-2 col-sm-1"></div>
+                                    </div>
+
+                                    <div class="row text-center mt-25">
+                                        <a class="col-sm-12 label_link" href="#" (click)="cancel()"><strong translate>lblCAN</strong></a>
+                                    </div>
+
+                                    <div class="row text-center mt-25 responsive-hide">
+                                        <div class="col-sm-12">
+                                            <h2>&nbsp;</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2"></div>
+
+                                
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

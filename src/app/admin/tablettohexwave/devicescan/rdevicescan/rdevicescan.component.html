@@ -1,0 +1,184 @@
+<!-- <p>rdevicescan works!</p> -->
+
+<div class="inputWrapper rdevicescan">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="card">
+                <div class="row mb-15" style="margin-left: -45px; margin-right: -45px; min-height: 37px;">
+                    <div class="col-xs-2 text-left">&nbsp;
+                        <!-- <img src="../../../assets/images/backscreen_icon.jpg" (click)="onScreenBack()" style="cursor: pointer;" /> -->
+                    </div>
+                    <div class="col-xs-8">&nbsp;</div>
+                    <div class="col-xs-2 text-right">&nbsp;
+                        <!-- <img src="../../../assets/images/closescreen_icon.jpg" (click)="onScreenClose()" style="cursor: pointer;" /> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-10 col-md-5 text-center">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-2"></div>
+                            <div class="col-xs-12 col-md-8">
+
+                                <div class="row text-center">
+                                    <div class="col-xs-12 col-md-2"></div>
+                                    <div class="col-xs-12 col-md-8">
+                                        <img src="../../../../../assets/imgs/Right Device Scan.png" style="width:100%;">
+                                    </div>
+                                    <div class="col-xs-12 col-md-2"></div>
+                                </div>
+
+                                <div class="row text-center">
+                                    <div class="col-xs-12 col-md-2"></div>
+                                    <div class="col-xs-12 col-md-8">
+                                        <p style="font-weight: bold; color: gray; margin: 10px 0px;">ENTRANCE</p>
+                                    </div>
+                                    <div class="col-xs-12 col-md-2"></div>
+                                </div>
+
+                                <div class="row text-center">
+                                    <div class="col-xs-12 col-md-2"></div>
+                                    <div class="col-xs-12 col-md-8">
+                                        <img src="../../../../../assets/imgs/Guy.png">
+                                    </div>
+                                    <div class="col-xs-12 col-md-2"></div>
+                                </div>
+
+                                <div class="row text-center">
+                                    <div class="col-xs-12 col-md-2"></div>
+                                    <div class="col-xs-12 col-md-8">
+                                        <p style="font-weight: bold; color:#102937; margin: 10px 0px;">Stand at
+                                            entrance-side and position QR code in-front of camera of left (portal).</p>
+                                    </div>
+                                    <div class="col-xs-12 col-md-2"></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-md-2"></div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-xs-12 col-md-7 text-center" (click)="openRightDevice()">
+                        <img class="scanner" src="../../../../../assets/imgs/Lqrcode.PNG">
+                    </div> -->
+                    <div class="col-xs-12 col-md-7 text-center">
+                        <div class="row mt-25">
+                            <label class="col-sm-12 label-text" translate>lblAvailableDevices</label>
+                            <div class="col-sm-12">
+                                <select class="form-control" [id]="'status'" #t (change)="changeDevice(t.value)">
+                                    <option [value]=""></option>
+                                    <option *ngFor="let item of device" [value]="item.id">
+                                        {{ item.name }}
+                                    </option>
+                                </select>
+                                <div class="col-sm-12" *ngIf="isDeviceAvailable"
+                                    style="text-align: left; color: red; padding-left: 0px;">
+                                    {{ isDeviceAvailable }}
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="showDevice">
+                            <div class="row mt-25">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="col-sm-12" style="text-align: left;">
+                                            <h2>
+                                                Device Details
+                                            </h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-25">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-12 label-text" translate>addName</label>
+                                        <div class="col-sm-12" style="text-align: left;">
+                                            {{ selectedDevice.name }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-12 label-text" translate>addside</label>
+                                        <div class="col-sm-12" style="text-align: left;">
+                                            {{ selectedDevice.side }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-25">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-12 label-text" translate>addmacAddress</label>
+                                        <div class="col-sm-12" style="text-align: left;">
+                                            {{ selectedDevice.macAddress }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-12 label-text" translate>addsoundAddress</label>
+                                        <div class="col-sm-12" style="text-align: left;">
+                                            {{ selectedDevice.soundAddress }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-25">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-12 label-text" translate>addlightingAddress</label>
+                                        <div class="col-sm-12" style="text-align: left;">
+                                            {{ selectedDevice.lightingAddress }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-12 label-text" translate>addphysicalMark</label>
+                                        <div class="col-sm-12" style="text-align: left;">
+                                            {{ selectedDevice.physicalMark }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-25">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-12 label-text"
+                                            translate>addleftProximitysensorAddress</label>
+                                        <div class="col-sm-12" style="text-align: left;">
+                                            {{ selectedDevice.leftProximitySensorAddress }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label class="col-sm-12 label-text"
+                                            translate>addrightProximitysensorAddress</label>
+                                        <div class="col-sm-12" style="text-align: left;">
+                                            {{ selectedDevice.rightProximitySensorAddress }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-25">
+                            <div class="col-lg-8">&nbsp;</div>
+                            <div class="col-lg-2">
+                                <div class="text-center">
+                                    <input class="globalButton" type="button" (click)="detectDevice()" value="DETECT"
+                                        style="margin-bottom: 10px;" [disabled]="selectedDevice==null">
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="text-center">
+                                    <input class="globalButton" type="button" (click)="openRightDevice()" value="SYNC"
+                                        style="margin-bottom: 10px;" [disabled]="readyToSync==false">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

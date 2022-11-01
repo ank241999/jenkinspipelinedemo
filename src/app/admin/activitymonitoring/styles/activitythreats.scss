@@ -1,0 +1,295 @@
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '../../../styles/_variables';
+@import '../../../styles/_mixins';
+
+.activitythreats{
+  	.canvas_wrapper{
+		background: $white; //$libertyBlue;
+		border-color: $libertyBlue;
+		border-style: solid;
+		border-width: 30px;
+		display: block;
+		height: 100%;
+		padding: 0px;
+		position: relative;
+		text-align: center;
+		
+		.seperator{
+			min-height: 400px;
+		}
+		.txt_view_title_front{
+			position: absolute;
+			top: 60px;
+            left: 0px;
+			color: $libertyBlue;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.txt_view_title_back{
+			position: absolute;
+			top: 60px;
+            right: 0px;
+			color: $libertyBlue;
+			font-size: 18px;
+			font-weight: bold;
+		}
+
+		.txt_side_front_left{
+			position: absolute;
+			bottom: 54px;
+            right: 60px;
+			color: $libertyBlue;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.txt_side_front_right{
+			position: absolute;
+			bottom: 54px;
+            left: 60px;
+			color: $libertyBlue;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.txt_side_back_left{
+			position: absolute;
+			bottom: 60px;
+            left: 60px;
+			color: $libertyBlue;
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.txt_side_back_right{
+			position: absolute;
+			bottom: 60px;
+            right: 60px;
+			color: $libertyBlue;
+			font-size: 18px;
+			font-weight: bold;
+		}
+
+		.activity_header{
+			padding-left: 15px;
+			padding-right: 15px;
+
+			h1{
+				color: $libertyBlue;
+				font-size: 34px;
+				font-weight: bold;
+				margin: 0px;
+			}
+		}
+		.threatstatus_wrapper{
+			min-height: 120px !important;
+
+			
+			.threatstatus_details{
+			//	border: solid 4px #000000;
+				font-weight: bold;
+				background: #f8f8f8;
+				padding-bottom: 15px;
+				padding-top: 15px;
+
+			  	.recent-act-div{
+					padding-bottom: 5px;
+					text-align: left;
+					color: $libertyBlue;
+
+					.activity-text{
+					  font-weight: bold;
+					}
+					.activity-text-value{
+					  font-size: 12px;
+					}
+			  	}
+			}
+	  	}
+    	.canvasBaseImg{
+      		max-width: 310px;
+      		width: 100%;
+    	}
+  	}
+
+  	.activityRightPanel{
+		background: $white;
+		padding-right: 0px !important;
+
+    	.activityRightPanel_heading{
+      		font-size: 16px;
+      		font-weight: bold;
+      		margin-bottom: 20px;
+      		margin-top: 15px;
+    	}
+    	.threatstatus_wrapper{
+      		min-height: 120px !important;
+
+      		.threatstatus_img{
+        		.md-card-image{
+          			max-width: 80px;
+          			width: 100%;
+        		}
+      		}
+      		.threatstatus_details{
+        		.recent-act-div{
+          			padding-bottom: 5px;
+
+          			.activity-text{
+            			font-weight: bold;
+          			}
+          			.activity-text-value{
+            			font-size: 12px;
+          			}
+        		}
+      		}
+    	}
+    	.mat-elevation-z8{
+      		box-shadow: none !important;
+      		padding-bottom: 20px;
+
+      		h2{
+        		font-size: 16px;
+        		font-weight: bold;
+      		}
+      		.recentactivity_list{
+        		max-width: 390px;
+        		overflow-y: auto;
+        		width: 100%;
+
+        		.mat-table{
+          			.threat-act{
+            			border-bottom: 0px solid !important;
+            			padding-left: 10px !important;
+            			padding-right: 0px !important;
+          			}
+          			.mat-row{
+            			cursor: pointer;
+            			min-height: 60px !important;
+          			}
+          			.mat-row:hover{
+            			background: $grey9;
+          			}
+        		}
+      		}
+		}
+  	}
+}
+
+/* Custom Media Queries Begin */
+@media only screen and (max-width: 480px) and (min-width: 320px) {
+  	.activitythreats{
+		.canvas_wrapper{
+			.activity_header{
+				h1{
+					font-size: 22px;
+				}
+			}
+		}
+    	.activityRightPanel{
+      		padding-top: 10px;
+      		width: 100%;
+
+      		.mat-elevation-z8{
+        		.recentactivity_list{
+          			margin-left: -8px;
+				}
+      		}
+		}
+  	}
+}
+@media only screen and (max-width: 768px) and (min-width: 481px)  {
+  	.activitythreats{
+		.seperator{
+			min-height: 50px;
+		}
+    	.activityRightPanel{
+      		padding-top: 10px;
+      		width: 100% !important;
+    	}
+  	}
+}
+@media only screen and (max-width: 1024px) and (min-width: 769px)  {
+  	.activitythreats{
+    	.activityRightPanel{
+      		max-width: 100% !important;
+      		padding-top: 10px;
+      		width: 100% !important;
+
+      		.threatstatus_wrapper{
+        		.threatstatus_details{
+          			.recent-act-div{
+            			.activity-text-value{
+              				font-size: 14px !important;
+            			}
+          			}
+        		}
+      		}
+      		.mat-elevation-z8{
+        		.recentactivity_list{
+          			max-width: 100%;
+          			width: 100%;
+
+          			.mat-table{
+            			max-width: 100% !important;
+            			width: 100% !important;
+          			}
+        		}
+      		}
+    	}
+  	}
+}
+
+@media only screen and (max-width: 1380px) and (min-width: 1025px)  {
+  	.activitythreats{
+    	.canvas_wrapper{
+			.seperator{
+				min-height: 200px;
+			}
+			.txt_view_title_front{
+				top: 40px;
+                left: 10px;
+                color: #ffffff;
+			}
+			.txt_view_title_back{
+				top: 40px;
+                right: 10px;
+                color: #ffffff;
+			}
+			.activity_header{
+				h1{
+					font-size: 26px;
+				}
+			}
+      		.canvasBaseImg{
+        		max-width: 215px !important;
+				width: 100% !important;
+      		}
+    	}
+    	.activityRightPanel{
+      		.threatstatus_wrapper{
+        		.threatstatus_details{
+          			.recent-act-div{
+            			.activity-text{
+              				font-size: 12px !important;
+            			}
+            			.activity-text-value{
+              				font-size: 10px !important;
+            			}
+          			}
+        		}
+      		}
+      		
+    	}
+  	}
+    .inputWrapper{
+		padding: 0px 0px 0px 0px;
+		overflow-y: hidden;
+		overflow-x: hidden;
+	}
+}
+// iPad in landscape
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { 
+    
+}
+// iPad in portrait
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    
+}

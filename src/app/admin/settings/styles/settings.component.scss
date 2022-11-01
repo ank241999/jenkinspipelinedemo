@@ -1,0 +1,132 @@
+@import '../../../styles/_variables.scss';
+@import '../../../styles/_mixins.scss';
+
+.inputWrapper{
+  .card{
+    .title{
+      .main-title{
+          font-family: Arial;
+          font-size: 36px;
+          font-weight: bold;
+      }
+    }
+    .form-horizontal{
+      .form-group{
+        // .form-label{
+
+        // }
+        // .hidden-label{
+
+        // }
+        mat-accordion{
+          mat-expansion-panel{
+            // mat-expansion-panel-header{
+
+            // }
+            // .user-setting-text{
+
+            // }
+            ul{
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              width: 100%;
+
+              li{
+                a{
+                  border-bottom: 1px solid #5d5656;
+                  color: $libertyBlue;
+                  display: block;
+                  padding: 20px 16px;
+                  text-decoration: none;
+                }
+                a:hover, a:focus{
+                  background: $white;
+                  color: $libertyBlue;
+                  text-decoration: none;
+                }
+                .next{
+                  position: relative !important;
+
+                  .color-dv{
+                    border-radius: 30px;
+                    cursor: pointer;
+                    margin: 0px auto;
+                    width: 20px;
+                  }
+                  .color-popup-dv{
+                    display: none;
+                    opacity: 1;
+                    padding: 24px 42px 15px 12px;
+                    position: absolute;
+                    right: 0;
+                    top: 0px;
+                    
+                    .color-outer-dv{
+                      border: 1.5px solid #000000 !important;
+                      border-radius: 30px !important;
+                      float: right;
+                      height: 28px !important;
+                      margin-left: 5px !important;
+                      margin-right: 5px !important;
+                      margin-top: -7px;
+                      padding: 2px;
+                      width: 28px !important;
+
+                      .color-dv-popup{
+                        border-radius: 30px;
+                        cursor: pointer;
+                        height: 16px;
+                        margin: 2px auto;
+                        width: 16px;
+                      }
+                    }
+                  }
+                }
+              }
+              li:last-child a{
+                border-bottom: 0px none;
+                color: $libertyBlue;
+                display: block;
+                padding: 20px 16px;
+                text-decoration: none;
+                
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+// iPhone X in landscape
+@media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3)and (orientation : landscape) {
+  
+}
+// iPhone X in portrait
+@media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : portrait) {
+  
+}
+
+// iPad in landscape
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { 
+
+}
+// iPad in portrait
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)  {
+
+}
+@media screen and (width: 1600px), screen and (height: 900px) {
+  
+}
+@media screen and (width: 1366px), screen and (height: 768px) {
+  
+}

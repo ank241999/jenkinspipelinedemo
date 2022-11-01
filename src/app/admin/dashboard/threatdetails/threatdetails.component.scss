@@ -1,0 +1,128 @@
+@import "../../../styles/variables";
+@import "../../../styles/_tables";
+// @import '~@angular/cdk/overlay-prebuilt.css';
+.threatDetails {    
+    #smart-tables {
+        .card{
+            .innercard-wrapper{
+                .title{
+					.main-title{
+						font-family: Arial;
+						font-size: 36px;
+						font-weight: bold;
+					}
+                }
+                .globalButton{
+					font-family: Arial;
+					font-size: 16px;
+					font-weight: 700;
+					letter-spacing: 2px;
+                }
+                .table-wrapper{
+					.mat-table{
+						.mat-header-row{
+							.mat-header-cell{
+								height: 64px;
+								
+								.mat-sort-header-container{
+									display: block !important;
+
+									.mat-sort-header-button{
+										
+										color: $tableHeaderColor;
+										font-family: Arial;
+										font-size: 12px;
+									}
+								}
+							}
+							.mat-column-select{
+								.mat-checkbox{
+									label{
+										margin-bottom: 0px;
+										text-align: center;
+
+										.mat-checkbox-inner-container{
+											height: 18px;
+											width: 18px;
+
+											.mat-checkbox-frame{
+												border-color: #E4E4E4;
+											}
+										}
+									}
+								}
+							}
+						}
+					
+                        
+						tr{
+							td{
+								color: $libertyBlue;
+								font-family: Arial;
+								font-size: 17px;
+								font-weight: bold;
+							}
+						}
+						.mat-column-select{
+							background: $white;
+							padding-left: 0px;
+			
+							.mat-checkbox{
+								label{
+									text-align: center;
+
+									.mat-checkbox-inner-container{
+										height: 24px;
+										width: 24px;
+
+										.mat-checkbox-frame{
+											border-color: #E4E4E4;
+										}
+									}
+								}
+							}
+						}
+						
+                    }
+                }
+            }
+        }
+    }
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    // border-bottom: 1px dotted black;
+    opacity: 1 !important;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 160px;
+    height: 200px;
+    // font-size: 20px;
+    background-color: white;
+    color: $libertyBlue;
+    text-align: center;
+    // border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    width: 360px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    box-shadow: $shadow;
+}

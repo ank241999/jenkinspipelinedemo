@@ -1,0 +1,41 @@
+@import "../../styles/_variables";
+@import "../../styles/_tables";
+
+
+
+.terms{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  max-width: 811px;
+  width: 100%;
+  min-height: 718px;
+  padding: 0px;
+  
+  .card{
+      margin-bottom: 0px;
+      min-height: 718px;
+      
+      .terms_wrapper{
+          .terms-form{
+              .title_text{
+                  font-size: 36px;
+                  font-weight: bold;
+              }
+              .form-control{
+                  font-size: 16px;
+                  height: 60px;
+              }
+              .label_link{
+                  font-size: 14px;
+                  color: $libertyBlue;
+                  font-weight: bold;
+                  cursor: pointer;
+              }
+          }
+      }
+  }
+}

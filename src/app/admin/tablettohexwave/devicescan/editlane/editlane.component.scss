@@ -1,0 +1,47 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/_mixins.scss';
+.edittablet{
+  	.card{
+		padding: 20px;
+
+    	.title{
+      		.main-title{
+				font-size: 36px;
+				font-family: Arial;
+				font-weight: bold;
+				text-transform: capitalize;
+      		}
+		}
+		.form-horizontal{
+			.form-group{
+				.form-label{
+					text-align: left !important;
+				}
+				.form-control{
+					border-radius: 0px;
+                    font-size: 16px;
+                    height: 60px;
+				}
+				.date-input{
+					height: 58px;
+					
+				}
+				
+			}
+		}
+  	}
+}
+
+.basic-user{
+	display: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

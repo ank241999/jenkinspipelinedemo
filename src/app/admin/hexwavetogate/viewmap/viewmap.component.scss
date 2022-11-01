@@ -1,0 +1,83 @@
+@import '../../../styles/_variables';
+@import '../../../styles/_tables';
+.viewmap {
+    .card {
+        padding: 20px;
+        .title {
+            .main-title {
+                font-size: 36px;
+                font-family: Arial;
+                font-weight: bold;
+                text-transform: capitalize;
+            }
+        }
+    }
+}
+
+.fa-times-circle-o:before {
+    color: #9e9e9e;
+    font-size: 30px;
+}
+
+.map_btn {
+    border: none;
+    background-color: white;
+    color: #D3D3D3;
+    font-weight: bold;
+    padding: 10px;
+    cursor: auto;
+    outline: none;
+}
+
+.list_btn {
+    border: none;
+    background-color: white;
+    color: #3597EC;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+    outline: none;
+}
+
+
+.drgdrpev {
+    // float: left;
+    // width: 200px;
+    height: 50px;
+    margin: 0px 0px 5px 0px;
+    /*padding: 10px;*/
+    border: 0px solid #143345;
+
+    .globalButton{
+        position: relative !important;
+
+        img.btn_delete_gate{
+            display: block !important;
+        }
+        img.btn_reverse_gate{
+            display: none !important;
+        }
+    }
+}
+.drgdrpev_droppable {
+    height: 40px;
+    padding: 0px !important;
+    border: 0px solid #143345;
+
+    .globalButton{
+        height: 35px !important;
+        font-size: 11px !important;
+        background: #707070;
+        border-radius: 5px !important;
+        position: relative !important;
+        z-index: 1;
+
+        img.btn_delete_gate{
+            display: none !important;
+        }
+        img.btn_reverse_gate{
+            display: block !important;
+        }
+    }
+}
+

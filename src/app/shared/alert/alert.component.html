@@ -1,0 +1,27 @@
+<div class="alert-modal">
+    <div class="row">
+        <div class="col-xs-2 link_back">&nbsp;</div>
+        <div class="col-xs-8">&nbsp;</div>
+        <div class="col-xs-2" style="text-align: right;">
+            <button type="button" style="font-size: 26px; cursor: pointer; background: none; border: 0px none; margin-top: -10px;" [mat-dialog-close]="false">
+            <img src="../../../assets/images/closescreen_icon.jpg"></button>
+        </div>
+    </div>
+    <!-- <span *ngIf="icon" [ngClass]="'alert-modal-icon alert-modal-icon-' + iconColor + ' fa fa-' + icon"></span> -->
+    <h1 class="alert-modal-title">{{ title }}</h1>
+    <!-- <span class="alert-modal-text">{{ text }}</span> -->
+    <div *ngIf="input">
+        <input class="alert-modal-input form-control" [(ngModel)]="inputData">
+        <div class="alert-modal-buttons" *ngIf="input">
+            <button type="button" class="btn alert-modal-button alert-modal-button-success" [mat-dialog-close]="inputData">CONFIRM</button>
+            <button type="button" class="btn alert-modal-button alert-modal-button-failure" [mat-dialog-close]="false">CANCEL</button>
+        </div>
+    </div>
+    <div class="alert-modal-buttons" *ngIf="!input && options">
+        <button type="button" class="btn alert-modal-button globalButton" [mat-dialog-close]="true">CONFIRM</button>
+        <!-- <button type="button" class="btn alert-modal-button alert-modal-button-failure" [mat-dialog-close]="false">NO</button> -->
+    </div>
+    <div class="alert-modal-buttons" *ngIf="!input && !options && button">
+        <button type="button" class="btn alert-modal-button" [mat-dialog-close]="false">{{ button }}</button>
+    </div>
+</div>

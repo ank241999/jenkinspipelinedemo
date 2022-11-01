@@ -1,0 +1,50 @@
+<!-- <p>threaticondetails works!</p> -->
+<div class="alert-modal" style="width: 400px;">
+    <div class="row">
+        <div class="col-xs-12"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-2" style="text-align: center;">
+            <img src="{{activityDashboard.threatIcon}}" alt="Anomaly">
+        </div>
+
+        <div class="col-xs-10">
+            <span class="device-details-txt">
+                <strong>Threat Status:</strong>
+                <span><strong>{{activityDashboard.status}}</strong></span>
+            </span>
+
+            <span class="device-details-txt">
+                <strong>Threat Type:</strong>
+                <span><strong> {{activityDashboard.threatType}} </strong></span>
+            </span>
+
+            <span class="device-details-txt">
+                <strong>Date:</strong>
+                <span><strong> {{activityDashboard.timestamp | date : 'MM/dd/yyyy'}} </strong></span>
+            </span>
+
+            <span class="device-details-txt">
+                <strong>Time:</strong>
+                <span><strong> {{activityDashboard.time}} </strong></span>
+            </span>
+
+            <span class="device-details-txt">
+                <strong>Guard:</strong>
+                <span><strong> {{activityDashboard.guardName}} </strong></span>
+            </span>
+        </div>
+    </div>
+
+    <div class="row" style="height: 20px;"></div>
+
+    <div class="alert-modal-buttons">
+        <div class="col-xs-2"></div>
+        <div class="col-xs-8">
+            <button type="submit" class="btn alert-modal-button globalButton" (click)="viewActivity()">View
+                Activity</button>
+        </div>
+        <div class="col-xs-2"></div>
+    </div>
+</div>

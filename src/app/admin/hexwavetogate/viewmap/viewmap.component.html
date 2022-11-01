@@ -1,0 +1,124 @@
+<div class="inputWrapper viewmap">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="card mb-0">
+                <div class="row mb-15" style="margin-left: -45px; margin-right: -45px; min-height: 37px;">
+                    <div class="col-xs-2 text-left">
+                        <img src="../../../assets/images/backscreen_icon.jpg" (click)="onScreenBack()"
+                            style="cursor: pointer;" />
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        <button class="map_btn">MAP VIEW</button>
+                        <button class="list_btn" (click)="onListView()">LIST VIEW</button>
+                    </div>
+                    <div class="col-xs-1 text-right">
+                        <img src="../../../assets/images/closescreen_icon.jpg" (click)="onScreenClose()"
+                            style="cursor: pointer;" />
+                    </div>
+                </div>
+                <header class="row title">
+                    <div class="col-lg-8 col-xs-12">
+                        <h2 class="main-title" translate>hextogatemapview</h2>
+                    </div>
+                    <div class="col-lg-4 col-xs-12">
+                        <p class="text-right" style="font-weight: bold;" translate>hextogatedraganddropthegates</p>
+                    </div>
+                </header>
+
+                <div class="row">
+                    <div class="col-lg-7 col-xs-12">
+                        <div style="width: 100%; height: 580px; background-repeat: no-repeat; background-size: cover; background-position: center;"
+                            [ngStyle]="{'background-image': 'url('+ footPrintImagePath+')'}">
+                            <!-- <img [src]="footPrintImagePath" style="width:650px; max-width: 100%; max-height: 100%;"> -->
+
+                            <div class="row" *ngFor='let in of counter(15) ;let j = index'>
+                                <div class="col-xs-1 drgdrpev_droppable" *ngFor='let in of counter(12) ;let i = index'
+                                    id="dvdrop_{{j}}{{i}}" (drop)="drop($event)" (dragover)="allowDrop($event)">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-5 col-xs-12 text-center">
+                        <div class="row text-center">
+                            <div class="col-xs-12">
+                                <div class="row text-center">
+                                    <div class="col-xs-3">&nbsp;</div>
+                                    <div class="col-xs-6 mb-25">
+                                        <!-- <button *ngFor="let item of gates" id="{{item.id}}" class="globalButton" style="max-width: 200px; margin-bottom: 10px;" cdkDrag [cdkDragFreeDragPosition]="{x:item.xcoordinate,y:item.ycoordinate}" (cdkDragEnded)="dragEnd($event,item.id)">{{item.name}}
+                                            <img src="../../../../assets/images/close_button.png"
+                                                style="position: absolute; top: 10px; right: -40px;"
+                                                (click)="deleteGate(item.id,item.name)">
+                                        </button> -->
+                                        <!-- <button *ngFor="let item of gates" id="{{item.id}}" class="globalButton drgdrpev" style="max-width: 200px; margin-bottom: 10px;" id="{{item.id}}" (drop)="drop($event)" (dragover)="allowDrop($event)">{{item.name}}
+                                            <img src="../../../../assets/images/close_button.png"
+                                                style="position: absolute; top: 10px; right: -40px;"
+                                                (click)="deleteGate(item.id,item.name)">
+                                        </button> -->
+                                        <div class="drgdrpev" *ngFor="let item of gates" id="{{item.id}}"
+                                            (drop)="drop($event)" (dragover)="allowDrop($event)">
+                                            <button draggable="true" (dragstart)="drag($event)" id="img_{{item.id}}"
+                                                class="globalButton"
+                                                style="max-width: 200px; margin-bottom: 10px;">{{item.name}}
+                                                <img class="btn_delete_gate"
+                                                    src="../../../../assets/images/close_button.png"
+                                                    style="position: absolute; top: 10px; right: -40px;"
+                                                    (click)="deleteGate(item.id,item.name)">
+                                                <img class="btn_reverse_gate"
+                                                    src="../../../../assets/images/reverse_button.png"
+                                                    style="position: absolute; top: -15px; right: -20px;"
+                                                    (click)="reverseGate(item.id)">
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">&nbsp;</div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="row text-center">
+                                    <div class="col-xs-3">&nbsp;</div>
+                                    <div class="col-xs-6">
+                                        <button class="globalButton" style="max-width: 200px; margin-bottom: 10px;"
+                                            (click)="onAddClick()" *ngIf="!doneAndEdit"
+                                            translate>hextogateaddgates</button>
+                                    </div>
+                                    <div class="col-xs-3">&nbsp;</div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-xs-12">
+                                <div class="row text-center">
+                                    <div class="col-xs-3">&nbsp;</div>
+                                    <div class="col-xs-6">
+                                        <button class="globalButton" style="max-width: 200px; margin-bottom: 10px;" *ngIf="isConfirm"
+                                            (click)="submit()" translate>hextogateconfirm</button>
+                                    </div>
+                                    <div class="col-xs-3">&nbsp;</div>
+                                </div>
+                            </div> -->
+                            <div class="col-xs-12">
+                                <div class="row text-center">
+                                    <div class="col-xs-3">&nbsp;</div>
+                                    <div class="col-xs-6">
+                                        <button class="globalButton" (click)="editMap()"
+                                            style="max-width: 200px; margin-bottom: 10px;" *ngIf="doneAndEdit"
+                                            translate>hextogateeditmap
+                                        </button>
+                                    </div>
+                                    <div class="col-xs-3">&nbsp;</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-xs-12 ">
+                    <button class="globalButton" *ngIf="isConfirm"
+                        (click)="submit()" translate>hextogateconfirm</button>
+                    <button class="globalButton" *ngIf="doneAndEdit" [routerLink]="['../../tablettohexwave']"
+                        translate>hextogatedone</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

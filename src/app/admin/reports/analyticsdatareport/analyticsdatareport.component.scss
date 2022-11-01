@@ -1,0 +1,49 @@
+@import '../../../styles/_variables';
+
+body{
+    background: #EBEBEB !important;
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    color: #143245;
+}
+.analyticsdata{
+	.card{
+		padding: 20px !important;
+	}
+	.title{
+		.main-title{
+			font-family: Arial;
+			font-size: 36px;
+			font-weight: bold;
+		}
+	}
+}
+
+
+@media only screen and (device-width: 768px) {
+  /* For general iPad layouts */
+  
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+  /* For portrait layouts only */
+  
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+  /* For landscape layouts only */
+  
+}
+
+// iPhone X in landscape 
+@media only screen and (min-device-width : 320px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3)and (orientation : landscape) { 
+  
+}
+// iPhone X in portrait
+@media only screen and (min-device-width : 320px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : portrait) {
+  
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 1024px) {
+
+}

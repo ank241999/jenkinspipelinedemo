@@ -1,0 +1,76 @@
+<div class="inputWrapper positionwise">
+	<div id="smart-tables">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="card table-2">
+					<header class="row title">
+						<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 mb-20">
+							<h2 class="main-title" translate>lblThreatsby</h2>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+							<button class="globalButton" type="button" [routerLink]="['../datewise']">Threats by
+								date</button>
+						</div>
+					</header>
+					<div class="row">
+						<div class="col-xs-12">
+							<div *ngIf="filtersVisible" class="table-1-filters">
+								<form [formGroup]="filtersForm">
+									<!-- <mat-form-field class="filter-wrapper" style="overflow: hidden !important;">
+										<input matInput (keyup)="applyFilter($event.target.value)"
+										placeholder="{{'lblFilter' | translate}}" 
+										>
+									</mat-form-field> -->
+								</form>
+							</div>
+						</div>
+						<div class="col-xs-2 float-right">
+							<button class="globalButton" type="button" (click)="downloadPDF()" id="exportbtn">EXPORT
+								PDF</button>
+						</div>
+					</div>
+					<div class="table-wrapper">
+						<table class="table table-stripes" mat-table [dataSource]="dataSource" matSort #sort="matSort">
+							<ng-container matColumnDef="threatPosition">
+								<th mat-header-cell *matHeaderCellDef mat-sort-header> THREAT POSITION </th>
+								<td mat-cell *matCellDef="let row"> {{row.threatPosition | camelCase}} </td>
+							</ng-container>
+							<ng-container matColumnDef="handgun">
+								<th mat-header-cell *matHeaderCellDef mat-sort-header> HANDGUN </th>
+								<td mat-cell *matCellDef="let row"> {{row.handgun}} </td>
+							</ng-container>
+							<ng-container matColumnDef="rifle">
+								<th mat-header-cell *matHeaderCellDef mat-sort-header> RIFLE </th>
+								<td mat-cell *matCellDef="let row"> {{row.rifle}} </td>
+							</ng-container>
+							<ng-container matColumnDef="pipeBomb">
+								<th mat-header-cell *matHeaderCellDef mat-sort-header> PIPE BOMB </th>
+								<td mat-cell *matCellDef="let row"> {{row.pipeBomb}} </td>
+							</ng-container>
+							<ng-container matColumnDef="knife">
+								<th mat-header-cell *matHeaderCellDef mat-sort-header> KNIFE </th>
+								<td mat-cell *matCellDef="let row"> {{row.knife}} </td>
+							</ng-container>
+							<ng-container matColumnDef="threat">
+								<th mat-header-cell *matHeaderCellDef mat-sort-header> THREAT </th>
+								<td mat-cell *matCellDef="let row"> {{row.threat}} </td>
+							</ng-container>
+							<ng-container matColumnDef="anomaly">
+								<th mat-header-cell *matHeaderCellDef mat-sort-header> ANOMALY </th>
+								<td mat-cell *matCellDef="let row"> {{row.anomaly}} </td>
+							</ng-container>
+							<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+							<tr mat-row *matRowDef="let row; columns: displayedColumns;"
+								(click)="selection.toggle(row)"></tr>
+						</table>
+						<!-- <mat-paginator #paginator class="paginator" [pageSizeOptions]="[5, 10, 25]" [pageSize]="25"></mat-paginator> -->
+						<div class="text-center" id="showdata" style="display: none;">
+								<h3 style="height:200px; font-weight: bold; color: gray; margin-top: 100px;">
+									Data Not Found</h3>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,120 @@
+<div class="inputWrapper datewise">
+	<div id="smart-tables">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="card table-2">
+					<header class="row title">
+						<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 mb-20">
+							<h2 class="main-title" translate>repothreatsbydatereport</h2>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+							<button class="globalButton" type="button" [routerLink]="['../positionwise']"
+								translate>repothreatsbylocation
+							</button>
+						</div>
+					</header>
+					<div class="row">
+						<div class="col-xs-12">
+							<div *ngIf="filtersVisible" class="table-1-filters">
+								<form [formGroup]="filtersForm">
+									<div class="row row-input" style="margin-top: 5px !important;">
+										<div class="col-sm-3 pd-left-0">
+											<label class="control-label" translate>repodatefrom</label>
+										</div>
+										<div class="col-sm-5">
+											<input type="text" class="form-control date-input" [matDatepicker]="picker"
+											placeholder="{{'repoChoosefrom' | translate}}" 
+												[formControl]="filtersForm.controls.subscribed">
+											<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+											<mat-datepicker #picker></mat-datepicker>
+											<button type="button" class="reset-date" title="Clear date"
+												(click)="resetDatePicker()">
+												<span class="fa fa-times"></span>
+											</button>
+										</div>
+									</div>
+									<div class="row row-input">
+										<div class="col-sm-3 pd-left-0">
+											<label class="control-label" translate>repodateto</label>
+										</div>
+										<div class="col-sm-5">
+											<input type="text" class="form-control date-input"
+												[matDatepicker]="pickerTo" placeholder="{{'repoChoose' | translate}}"  
+												[formControl]="filtersForm.controls.dateTo">
+											<mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+											<mat-datepicker #pickerTo></mat-datepicker>
+											<button type="button" class="reset-date" title="Clear date"
+												(click)="resetDatePickerTo()">
+												<span class="fa fa-times"></span>
+											</button>
+										</div>
+									</div>
+									<div class="row row-input">
+										<div class="col-sm-2 pd-left-0">
+											<button class="globalButton" type="button" (click)="showReport()"
+												translate>reposhowreport
+											</button>
+										</div>
+										<div class="col-sm-8">&nbsp;</div>
+										<div class="col-sm-2">
+											<button class="globalButton" type="button" (click)="downloadPDF()"
+												[disabled]="!isEnabled" translate>repoexportpdf</button>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<div class="table-wrapper">
+						<table class="table table-stripes" mat-table [dataSource]="dataSource" matSort #sort="matSort"
+							matSortActive="threatDate" matSortDirection="desc">
+							<ng-container matColumnDef="threatDate">
+								<th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+										translate>repothreatoccurrence</span> </th>
+								<td mat-cell *matCellDef="let row"> {{row.threatDate | date : 'MM/dd/yyyy'}} </td>
+							</ng-container>
+							<ng-container matColumnDef="handgun">
+								<th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+										translate>repohandgun</span> </th>
+								<td mat-cell *matCellDef="let row"> {{row.handgun}} </td>
+							</ng-container>
+							<ng-container matColumnDef="rifle">
+								<th mat-header-cell *matHeaderCellDef mat-sort-header> <span translate>reporifle</span>
+								</th>
+								<td mat-cell *matCellDef="let row"> {{row.rifle}} </td>
+							</ng-container>
+							<ng-container matColumnDef="pipeBomb">
+								<th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+										translate>repopipebomb</span> </th>
+								<td mat-cell *matCellDef="let row"> {{row.pipeBomb}} </td>
+							</ng-container>
+							<ng-container matColumnDef="knife">
+								<th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+										translate>repoknife</span> </th>
+								<td mat-cell *matCellDef="let row"> {{row.knife}} </td>
+							</ng-container>
+							<ng-container matColumnDef="threat">
+								<th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+										translate>repothreat</span> </th>
+								<td mat-cell *matCellDef="let row"> {{row.threat}} </td>
+							</ng-container>
+							<ng-container matColumnDef="anomaly">
+								<th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+										translate>repoanomaly</span> </th>
+								<td mat-cell *matCellDef="let row"> {{row.anomaly}} </td>
+							</ng-container>
+
+							<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+							<tr mat-row *matRowDef="let row; columns: displayedColumns;"
+								(click)="selection.toggle(row)"></tr>
+						</table>
+						<div class="text-center" id="showdata" style="display: none;">
+							<h3 style="height:200px; font-weight: bold; color: gray; margin-top: 100px;">
+								Data Not Found</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

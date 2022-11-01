@@ -1,0 +1,174 @@
+<div class="inputWrapper calibrationservice">
+    <div id="smart-tables">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card">
+                    <div class="row mb-15" style="margin-left: -45px; margin-right: -45px; min-height: 37px;">
+                        <div class="col-xs-2 text-left">&nbsp;
+                            <!-- <img src="../../../assets/images/backscreen_icon.jpg" (click)="onScreenBack()"
+                                style="cursor: pointer;" /> -->
+                        </div>
+                        <div class="col-xs-9 text-right">
+                        </div>
+                        <div class="col-xs-1 text-right">
+                            <img src="../../../assets/images/closescreen_icon.jpg" style="cursor: pointer;"
+                                (click)="refresh()" />
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-1 link_back">&nbsp;</div>
+                            <div class="col-xs-10">&nbsp;</div>
+                            <div class="col-xs-1" style="text-align: right;">&nbsp;</div>
+                        </div>
+                        <div class="innercard-wrapper">
+                            <header class="row title  pd-left-75">
+                                <div class="col-xs-12">
+                                    <h2 class="main-title">Air Calibration
+                                        <div class="action-icon-tooltip">
+                                            <!-- <i class="action-icon fa fa-question-circle-o"></i> -->
+                                            <img class="action-icon" src="../../../assets/images/question_icon.png" />
+
+                                            <div class="action-tooltip action-tooltip-alt">
+                                                <!-- <span class="action-tooltip-point"></span> -->
+                                                <p class="action-tooltip-text">
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </h2>
+                                    <!-- <span class="close">&times;</span> -->
+                                </div>
+                            </header>
+                            <div class="container-fluid">
+                                <mat-horizontal-stepper #stepper>
+                                    <mat-step [stepControl]="firstFormGroup">
+                                        <form [formGroup]="firstFormGroup">
+                                            <ng-template matStepLabel>Capture Air</ng-template>
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-3"></div>
+                                                    <div class="col-md-6" style="font-size: 30px;font-weight: 800;">
+                                                        Ensure that there is enough space and no
+                                                        objects in front of the device</div>
+                                                    <div class="col-md-3"></div>
+                                                </div>
+                                                <div class="row" style="margin-top: 40px">
+                                                    <div class="col-md-3"></div>
+                                                    <div class="col-md-3" style="font-size: 25px;">
+                                                        Number of Frames
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <input type="number" min="0" class="form-control text-center"
+                                                            formControlName="firstframe" (input)="checkValue($event)" required>
+                                                    </div>
+                                                    <div class="col-md-5"></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-10"></div>
+                                                    <div class="col-md-2">
+                                                        <button class="globalButton" [disabled]="!firstFormGroup.valid"
+                                                            (click)="captureAir()" matStepperNext>Next</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </mat-step>
+                                    <mat-step [stepControl]="secondFormGroup">
+                                        <form [formGroup]="secondFormGroup">
+                                            <ng-template matStepLabel>Capture Target</ng-template>
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-3"></div>
+                                                    <div class="col-md-6" style="font-size: 30px;font-weight: 800;">
+                                                        Click the timer. The target image will be captured at the
+                                                        expiration of the timer</div>
+                                                    <div class="col-md-3"></div>
+                                                </div>
+                                                <div class="row" style="margin-top: 40px">
+                                                    <div class="col-md-7"></div>
+                                                    <div class="col-md-4" style="font-size: 25px;">
+                                                        Distance of Target (in inches)
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <input type="number" class="form-control text-center"
+                                                            formControlName="targetdistance" (input)="checkValue($event)" required>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-1"></div>
+                                                    <div class="col-md-2">
+                                                        <button class="globalButton" [disabled]="clicked"
+                                                            (click)='startTimer(); clicked = true;'>Start
+                                                            Timer</button>
+                                                    </div>
+                                                    <div class="col-md-1">
+                                                        <div class="timer" *ngIf="timeLeft<10">
+                                                            <span id="seconds"> {{timeLeft}} </span>S
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8"></div>
+                                                </div>
+                                                <div class="row" style="margin-top: 40px">
+                                                    <div class="col-md-10"></div>
+                                                    <div class="col-md-2">
+                                                        <button class="globalButton"
+                                                            [disabled]="timeLeft>0 || !secondFormGroup.valid" matStepperNext>Next</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </mat-step>
+                                    <mat-step [stepControl]="secondFormGroup">
+                                        <form [formGroup]="secondFormGroup">
+                                            <ng-template matStepLabel>Calibration Results</ng-template>
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-md-3"></div>
+                                                    <div class="col-md-6" style="text-align: center;">
+                                                        <img style="width: 40%;" [src]="imgsrc" (load)="hidespinner()" (error)="onImageError()">
+                                                    </div>
+                                                    <div class="col-md-3"></div>
+                                                </div>
+                                                <div class="row" style="margin-top: 40px">
+                                                    <div class="col-md-10"></div>
+                                                    <div class="col-md-2">
+                                                        <button class="globalButton" matStepperNext>Next</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </mat-step>
+                                    <mat-step>
+                                        <ng-template matStepLabel>Persist Calibration Output</ng-template>
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-md-4"></div>
+                                                <div class="col-md-5" style="font-size: 30px;font-weight: 800;">
+                                                    You can now save the Air Calibration as needed</div>
+                                                <div class="col-md-3"></div>
+                                            </div>
+                                            <div class="row" style="margin-top: 40px">
+                                                <div class="col-md-4"></div>
+                                                <div class="col-md-4">
+                                                    <button class="globalButton" type="submit" (click)="saveair()">Save
+                                                        Air</button>
+                                                </div>
+                                                <div class="col-md-4"></div>
+                                            </div>
+                                            <div class="row" style="margin-top: 40px">
+                                                <div class="col-md-10"></div>
+                                                <div class="col-md-2">
+                                                    <button class="globalButton" (click)="refresh()">END</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </mat-step>
+                                </mat-horizontal-stepper>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

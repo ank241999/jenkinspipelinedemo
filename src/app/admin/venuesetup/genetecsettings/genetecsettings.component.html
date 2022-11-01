@@ -1,0 +1,151 @@
+<div class="alert-modal">
+    <div class="row mb-15" style="min-height: 37px;">
+        <div class="col-xs-10">
+            <h1 class="alert-modal-title text-left" style="margin-top: 0px;" translate>venuGenetecSetting</h1>
+        </div>
+        <div class="col-xs-2 text-right">
+            <img src="../../assets/images/closescreen_icon.jpg" (click)="onScreenClose()" style="cursor: pointer;" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <form class="form-horizontal" [formGroup]="form" (ngSubmit)="onSubmit()" (input)="updateProgress()"
+                (change)="updateProgress()" (reset)="updateProgress()">
+                <div class="col-lg-12">
+                    <!-- url -->
+                    <div class="row mt-25">
+                        <div class="col-lg-12">
+                            <div class="form-group"
+                                [ngClass]="{ 'has-error': ((form.get('url').invalid) && (form.get('url').touched)) }">
+                                <label class="col-sm-12 label-text" [attr.for]="'url'" translate>venuUrl</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" formControlName="url" [id]="'url'"
+                                        placeholder="{{'addTypehere' | translate}}">
+                                </div>
+                                <div class="validation-errors col-sm-12">
+                                    <ng-container *ngFor="let validation of validationMessages.url">
+                                        <div class="help-block"
+                                            *ngIf="form.get('url').hasError(validation.type) && (form.get('url').dirty || form.get('url').touched)">
+                                            {{ validation.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- securityKey -->
+                    <div class="row mt-25">
+                        <div class="col-lg-12">
+                            <div class="form-group"
+                                [ngClass]="{ 'has-error': ((form.get('securityKey').invalid) && (form.get('securityKey').touched)) }">
+                                <label class="col-sm-12 label-text" [attr.for]="'securityKey'"
+                                    translate>venuSecurityKey</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" formControlName="securityKey"
+                                        [id]="'securityKey'" placeholder="{{'addTypehere' | translate}}">
+                                </div>
+                                <div class="validation-errors col-sm-12">
+                                    <ng-container *ngFor="let validation of validationMessages.securityKey">
+                                        <div class="help-block"
+                                            *ngIf="form.get('securityKey').hasError(validation.type) && (form.get('securityKey').dirty || form.get('securityKey').touched)">
+                                            {{ validation.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- userName-->
+                    <div class="row mt-25">
+                        <div class="col-lg-12">
+                            <div class="form-group"
+                                [ngClass]="{ 'has-error': ((form.get('userName').invalid) && (form.get('userName').touched)) }">
+                                <label class="col-sm-12 label-text" [attr.for]="'userName'"
+                                    translate>venuUserName</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" formControlName="userName" [id]="'userName'"
+                                        placeholder="{{'addTypehere' | translate}}">
+                                </div>
+                                <div class="validation-errors col-sm-12">
+                                    <ng-container *ngFor="let validation of validationMessages.userName">
+                                        <div class="help-block"
+                                            *ngIf="form.get('userName').hasError(validation.type) && (form.get('userName').dirty || form.get('userName').touched)">
+                                            {{ validation.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- password-->
+                    <div class="row mt-25">
+                        <div class="col-lg-12">
+                            <div class="form-group"
+                                [ngClass]="{ 'has-error': ((form.get('password').invalid) && (form.get('password').touched)) }">
+                                <label class="col-sm-12 label-text" [attr.for]="'password'"
+                                    translate>venuPassword</label>
+                                <div class="col-sm-12">
+                                    <input type="password" class="form-control" formControlName="password"
+                                        [id]="'password'" placeholder="{{'addTypehere' | translate}}">
+                                </div>
+                                <div class="validation-errors col-sm-12">
+                                    <ng-container *ngFor="let validation of validationMessages.password">
+                                        <div class="help-block"
+                                            *ngIf="form.get('password').hasError(validation.type) && (form.get('password').dirty || form.get('password').touched)">
+                                            {{ validation.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card Holder Id-->
+                    <div class="row mt-25">
+                        <div class="col-lg-12">
+                            <div class="form-group"
+                                [ngClass]="{ 'has-error': ((form.get('cardHolderId').invalid) && (form.get('cardHolderId').touched)) }">
+                                <label class="col-sm-12 label-text" [attr.for]="'cardHolderId'"
+                                    translate>venuCardHolderID</label>
+                                <div class="col-sm-12">
+                                    <input type="text" class="form-control" formControlName="cardHolderId"
+                                        [id]="'cardHolderId'" placeholder="{{'addTypehere' | translate}}">
+                                </div>
+                                <div class="validation-errors col-sm-12">
+                                    <ng-container *ngFor="let validation of validationMessages.cardHolderId">
+                                        <div class="help-block"
+                                            *ngIf="form.get('cardHolderId').hasError(validation.type) && (form.get('cardHolderId').dirty || form.get('cardHolderId').touched)">
+                                            {{ validation.message }}
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- is ON-->
+                    <div class="row mt-25">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <div class="col-sm-1">
+                                    <input type="checkbox" class="form-control" formControlName="on" [id]="'on'"
+                                        style="margin-top: 0px; height: 20px; width: 20px;"
+                                        placeholder="{{'addTypehere' | translate}}">
+                                </div>
+                                <div class="col-sm-11">
+                                    <label class="label-text" [attr.for]="'on'" translate>venuOnMsg</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-25">
+                        <div class="text-center">
+                            <input class="globalButton" type="submit" (click)="validateFields(); form.valid"
+                                value="DONE" style="margin-bottom: 10px;" [disabled]="!form.valid">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

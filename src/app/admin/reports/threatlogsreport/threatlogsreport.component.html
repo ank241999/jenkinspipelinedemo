@@ -1,0 +1,241 @@
+<div class="inputWrapper throughputReport">
+    <div id="smart-tables">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card table-2">
+                    <div class="row mb-15" *ngIf="showBackButton===true"
+                        style="margin-left: -45px; margin-right: -45px; min-height: 37px;">
+                        <div class="col-xs-2 text-left">
+                            <img src="../../../assets/images/backscreen_icon.jpg" (click)="onScreenBack()"
+                                style="cursor: pointer;" />
+                        </div>
+                        <div class="col-xs-8">&nbsp;</div>
+                        <div class="col-xs-2 text-right">
+                            <img src="../../../assets/images/closescreen_icon.jpg" (click)="onScreenClose()"
+                                style="cursor: pointer;" />
+                        </div>
+                    </div>
+                    <header class="row title pd-left-75" *ngIf="showBackButton===true">
+                        <div class="col-xs-12">
+                            <h2 class="main-title" translate>betaRepoBetaTestModeReport</h2>
+                        </div>
+                    </header>
+                    <header class="row title" *ngIf="showBackButton===false">
+                        <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 mb-20">
+                            <h2 class="main-title" translate>betaRepoBetaTestModeReport</h2>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            &nbsp;
+                        </div>
+                    </header>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div *ngIf="filtersVisible" class="table-1-filters">
+                                <form [formGroup]="filtersForm">
+                                    <div class="row row-input" style="margin-top: 5px !important;">
+                                        <div class="col-sm-2 pd-left-0">
+                                            <label class="control-label" translate>repodatefrom</label>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control date-input" [matDatepicker]="picker"
+                                                placeholder="{{'repoChoosefrom' | translate}}"
+                                                [formControl]="filtersForm.controls.dateFrom">
+                                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker></mat-datepicker>
+                                            <button type="button" class="reset-date" title="Clear date"
+                                                (click)="resetDatePicker()">
+                                                <span class="fa fa-times"></span>
+                                            </button>
+                                        </div>
+                                        <div class="col-sm-2 pd-left-0">
+                                            <label class="control-label" translate>betaRepoThreatType</label>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <select class="form-control" formControlName="threatType"
+                                                [id]="'threatType'" #threatType>
+                                                <option value="">Select
+                                                </option>
+                                                <option value="Anomaly">Anomaly
+                                                </option>
+                                                <option value="Threat">Threat
+                                                </option>
+                                                <option value="No Threat">Non Threat
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row row-input">
+                                        <div class="col-sm-2 pd-left-0">
+                                            <label class="control-label" translate>repodateto</label>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <input type="text" class="form-control date-input"
+                                                [matDatepicker]="pickerTo" placeholder="{{'repoChoose' | translate}}"
+                                                [formControl]="filtersForm.controls.dateTo">
+                                            <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+                                            <mat-datepicker #pickerTo></mat-datepicker>
+                                            <button type="button" class="reset-date" title="Clear date"
+                                                (click)="resetDatePickerTo()">
+                                                <span class="fa fa-times"></span>
+                                            </button>
+                                        </div>
+                                        <div class="col-sm-2 pd-left-0">
+                                            <label class="control-label" translate>betaRepoWeapon</label>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <select class="form-control" formControlName="weapon" [id]="'weapon'"
+                                                #weapon>
+                                                <option value="">Select
+                                                </option>
+                                                <option value="Cellphone">Cellphone
+                                                </option>
+                                                <option value="Handgun">Handgun
+                                                </option>
+                                                <option value="Knife">Knife
+                                                </option>
+                                                <option value="Keys">Keys
+                                                </option>
+                                                <option value="Pipebomb">Pipebomb
+                                                </option>
+                                                <option value="Rifle">Rifle
+                                                </option>
+                                                <option value="Threat Threat">Threat Threat
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row row-input">
+                                        <div class="col-sm-2 pd-left-0">
+                                            &nbsp;
+                                        </div>
+                                        <div class="col-sm-5">
+                                            &nbsp;
+                                        </div>
+                                        <div class="col-sm-2 pd-left-0">
+                                            <label class="control-label" translate>betaRepoLocation</label>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <select class="form-control" formControlName="location" [id]="'location'"
+                                                #location>
+                                                <option value="">Select
+                                                </option>
+                                                <option *ngFor="let threatLocation of threatLocations"
+                                                    [value]="threatLocation.value">
+                                                    {{threatLocation.value}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row row-input">
+                                        <div class="col-sm-2 pd-left-0">
+                                            <button class="globalButton" type="button" (click)="showReport('initial')"
+                                                translate>reposhowreport
+                                            </button>
+                                        </div>
+                                        <div class="col-sm-8">&nbsp;</div>
+                                        <div class="col-sm-2">
+                                            <button class="globalButton" type="button" (click)="downloadEXCEL()"
+                                                [disabled]="!isEnabled" translate>EXPORT TO EXCEL</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="table table-stripes" mat-table [dataSource]="dataSource" matSort #sort="matSort"
+                            matSortActive="creationDate" matSortDirection="desc">
+                            <ng-container matColumnDef="guardName">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+                                        translate>betaRepoGuardName</span>
+                                </th>
+                                <td mat-cell *matCellDef="let row"> {{row.guardName}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="deviceName">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+                                        translate>betaRepoDevice</span>
+                                </th>
+                                <td mat-cell *matCellDef="let row"> {{row.deviceName}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="gateName">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+                                        translate>betaRepoGateName</span>
+                                </th>
+                                <td mat-cell *matCellDef="let row"> {{row.gateName}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="laneName">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+                                        translate>betaRepoLaneName</span>
+                                </th>
+                                <td mat-cell *matCellDef="let row"> {{row.laneName}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="creationDate">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+                                        translate>betaRepoThreatDateTime</span> </th>
+                                <td mat-cell *matCellDef="let row"> {{row.creationDate | utcToLocal : 'MM/dd/yyyy h:mm:ss'}}
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="actualResult">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+                                        translate>betaRepoCorrectResult</span>
+                                </th>
+                                <td mat-cell *matCellDef="let row"> <span *ngIf="row.actualResult===true">Yes</span>
+                                    <span *ngIf="row.actualResult===false">No</span>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="configWeaponType">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+                                        translate>betaRepoConfigWeapon</span>
+                                </th>
+                                <td mat-cell *matCellDef="let row"> {{row.configWeaponType}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="configThreatType">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+                                        translate>betaRepoConfigThreatType</span> </th>
+                                <td mat-cell *matCellDef="let row"> {{row.configThreatType}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="configThreatLocation">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+                                        translate>betaRepoConfigLocation</span> </th>
+                                <td mat-cell *matCellDef="let row"> {{row.configThreatLocation}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="logWeaponType">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+                                        translate>betaRepoLogWeapon</span>
+                                </th>
+                                <td mat-cell *matCellDef="let row"> {{row.logWeaponType}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="logThreatType">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+                                        translate>betaRepoLogThreatType</span> </th>
+                                <td mat-cell *matCellDef="let row"> {{row.logThreatType}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="logThreatLocation">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+                                        translate>betaRepoLogLocation</span> </th>
+                                <td mat-cell *matCellDef="let row"> {{row.logThreatLocation}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="notes">
+                                <th mat-header-cell *matHeaderCellDef mat-sort-header> <span
+                                        translate>betaRepoNotes</span>
+                                </th>
+                                <td mat-cell *matCellDef="let row"> {{row.note}} </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                                (click)="selection.toggle(row)"></tr>
+                        </table>
+                        <mat-paginator #paginator class="paginator" [length]="totalRecords"
+                            [pageSizeOptions]="pageSizeOptions" [pageSize]="pageSize" (page)="onPaginateChange($event)"
+                            showFirstLastButtons>
+                        </mat-paginator>
+                        <div class="text-center" id="showdata" style="display: none;">
+                            <h3 style="height:200px; font-weight: bold; color: gray; margin-top: 100px;">
+                                Data Not Found</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

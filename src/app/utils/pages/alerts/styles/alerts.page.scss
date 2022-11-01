@@ -1,0 +1,21 @@
+@import '../../../../styles/_variables';
+@import '../../../../styles/_mixins';
+
+.card-alert {
+  .card-alert-text {
+    color: $grey8;
+    display: block;
+    margin: 40px auto;
+    text-align: center;
+  }
+
+  .card-alert-button {
+    @include button($white, $libertyBlue, $libertyBlue);
+    display: block;
+    font-weight: 400;
+    margin: auto;
+    margin-bottom: 10px;
+    min-width: 90px;
+    width: 60%;
+  }
+}

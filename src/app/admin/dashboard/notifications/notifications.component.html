@@ -1,0 +1,191 @@
+<div class="inputWrapper notifications_screen">
+    <div id="smart-tables">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="card">
+                    <div class="row mb-15" style="margin-left: -45px; margin-right: -45px; min-height: 37px;">
+                        <div class="col-xs-2 text-left">&nbsp;
+                            <!-- <img src="../../../assets/images/backscreen_icon.jpg" (click)="onScreenBack()"
+                                style="cursor: pointer;" /> -->
+                        </div>
+                        <div class="col-xs-8">&nbsp;</div>
+                        <div class="col-xs-2 text-right">
+                            <img src="../../../assets/images/closescreen_icon.jpg" (click)="onScreenClose()"
+                                style="cursor: pointer;" />
+                        </div>
+                    </div>
+                    <div class="innercard-wrapper">
+                        <header class="row title">
+                            <div class="col-xs-12">
+                                <h2 class="main-title">Notifications</h2>
+                            </div>
+                        </header>
+                        <div class="row mt-25">&nbsp;</div>
+                        <div class="table-wrapper">
+                            <table class="table table-stripes" mat-table [dataSource]="dataSourceThreats" matSort
+                                #sortThreats="matSort">
+                                <ng-container matColumnDef="threatIcon">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header
+                                        style="text-align: center; width: 136px;">
+                                        TYPE OF THREAT </th>
+                                    <td mat-cell *matCellDef="let row"
+                                        style="height: 60px; vertical-align: middle; text-align: center; "> <img
+                                            style="height: 60%;" src="{{row.threatIcon}}"
+                                            (click)="showthreatIconDetails()" /> </td>
+                                </ng-container>
+                                <ng-container matColumnDef="creationTimestamp">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center;">
+                                        DATE </th>
+                                    <td mat-cell *matCellDef="let row" style="height: 60px; vertical-align: middle;">
+                                        {{row.timestamp | date : 'MM/dd/yyyy'}}</td>
+                                </ng-container>
+                                <ng-container matColumnDef="time">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center;">
+                                        TIME </th>
+                                    <td mat-cell *matCellDef="let row" style="height: 60px; vertical-align: middle;">
+                                        {{row.timestamp | date : 'H:mm'}}
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="entranceName">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center;">
+                                        GATE NAME </th>
+                                    <td mat-cell *matCellDef="let row" style="height: 60px; vertical-align: middle;">
+                                        North
+                                        {{row.gateName}}
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="laneName">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center;">
+                                        LANE NAME </th>
+                                    <td mat-cell *matCellDef="let row" style="height: 60px; vertical-align: middle;">
+                                        {{row.laneName}}
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="guardName">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center;">
+                                        GUARD NAME </th>
+                                    <td mat-cell *matCellDef="let row" style="height: 60px; vertical-align: middle;"
+                                        class="color">
+                                        {{row.userName}}
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="tabletId">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center;">
+                                        TABLET ID </th>
+                                    <td mat-cell *matCellDef="let row" style="height: 60px; vertical-align: middle;">
+                                        {{row.tabletName}}
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="timeIn">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center;">
+                                        TIME IN </th>
+                                    <td mat-cell *matCellDef="let row" style="height: 60px; vertical-align: middle;">
+                                        {{row.timeIn}}
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="timeOut">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center;">
+                                        TIME OUT </th>
+                                    <td mat-cell *matCellDef="let row" style="height: 60px; vertical-align: middle;">
+                                        {{row.timeOut}}
+                                    </td>
+                                </ng-container>
+                                <ng-container matColumnDef="view">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header style="text-align: center;">
+                                    </th>
+                                    <td mat-cell *matCellDef="let row"
+                                        style="text-align: center; height: 60px; vertical-align: middle;"> <button
+                                            class="btn btn-danger" (click)="viewThreat(row)">VIEW</button>
+                                    </td>
+                                </ng-container>
+                                <tr mat-header-row *matHeaderRowDef="displayedColumnsThreats"></tr>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumnsThreats;"
+                                    (click)="selection.toggle(row)"></tr>
+                            </table>
+                            <mat-paginator #paginatorThreats class="paginator" [pageSizeOptions]="[]" [pageSize]="50"
+                                style="display: none;">
+                            </mat-paginator>
+
+                            <!-- <table class="table table-stripes">
+                                <tr>
+                                    <th> Type of Threat</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Gatename</th>
+                                    <th>Lanename</th>
+                                    <th>Guardname</th>
+                                    <th>Tablet id</th>
+                                    <th>Time in</th>
+                                    <th>Time out</th>
+                                    <th></th>
+                                </tr>
+
+                                <tr>
+                                    <td><img src="/../assets/imgs/Ok small.png" class="center"> </td>
+                                    <td> 10/08/2019 </td>
+                                    <td>4:34PM </td>
+                                    <td> North Entrance</td>
+                                    <td>one</td>
+                                    <td class="color">Jon Doe </td>
+                                    <td>123456789 </td>
+                                    <td>10:20AM </td>
+                                    <td>12:00AM </td>
+                                    <td><button class="btn btn-danger">VIEW</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><img src="/../assets/imgs/Threat Small.png" class="center"> </td>
+                                    <td> 10/08/2019 </td>
+                                    <td>4:34PM </td>
+                                    <td> North Entrance</td>
+                                    <td>one</td>
+                                    <td class="color">Jon Doe </td>
+                                    <td>123456789 </td>
+                                    <td>10:20AM </td>
+                                    <td>12:00AM </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="/../assets/imgs/Warning Small.png" class="center"> </td>
+                                    <td> 10/08/2019 </td>
+                                    <td>4:34PM </td>
+                                    <td> North Entrance</td>
+                                    <td>one</td>
+                                    <td class="color">Jon Doe </td>
+                                    <td>123456789 </td>
+                                    <td>10:20AM </td>
+                                    <td>12:00AM </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="/../assets/imgs/Ok small.png" class="center"> </td>
+                                    <td> 10/08/2019 </td>
+                                    <td>4:34PM </td>
+                                    <td> North Entrance</td>
+                                    <td>one</td>
+                                    <td class="color">Jon Doe </td>
+                                    <td>123456789 </td>
+                                    <td>10:20AM </td>
+                                    <td>12:00AM </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="/../assets/imgs/Warning Small.png" class="center"> </td>
+                                    <td> 10/08/2019 </td>
+                                    <td>4:34PM </td>
+                                    <td> North Entrance</td>
+                                    <td>one</td>
+                                    <td class="color">Jon Doe </td>
+                                    <td>123456789 </td>
+                                    <td>10:20AM </td>
+                                    <td>12:00AM </td>
+                                    <td></td>
+                                </tr>
+                            </table> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

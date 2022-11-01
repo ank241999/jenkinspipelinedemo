@@ -1,0 +1,139 @@
+<div class="alert-modal">
+    <div class="row mb-15" style="min-height: 37px;">
+        <div class="col-xs-10">
+            <h1 class="alert-modal-title text-left" style="margin-top: 0px;" translate>Log Details</h1>
+        </div>
+        <div class="col-xs-2 text-right">
+            <img src="../../assets/images/closescreen_icon.jpg" (click)="onScreenClose()" style="cursor: pointer;" />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-lg-12">
+                <div class="row mt-25">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="col-sm-6 label-text" style="font-weight: 900" translate>THREAT RESULT</label>
+                            <div class="col-sm-2" *ngIf="threatdetail.actualResult==true"
+                            style="text-align: left;color: white;background: green;">
+                                Correct
+                            </div>
+                            <div class="col-sm-2" *ngIf="threatdetail.actualResult==false"
+                                style="text-align: left;color: white;background: red;">
+                                Incorrect
+                            </div>
+                            <div class="col-sm-4">
+                                &nbsp;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="threatdetail.actualResult==false">
+                    <div class="row mt-25" style="border-bottom: solid 1px">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <div class="col-sm-4">
+                                    &nbsp;
+                                </div>
+                                <label class="col-sm-4 label-text" style="font-weight: 900" translate>ACTUAL</label>
+                                <label class="col-sm-4 label-text" style="font-weight: 900" translate>LOGGED</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-25" style="border-bottom: solid 1px">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 label-text" translate>THREAT TYPE</label>
+                                <div class="col-sm-4">
+                                    {{actualThreat}}
+                                </div>
+                                <div class="col-sm-4">
+                                    {{logThreat}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-25" style="border-bottom: solid 1px">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 label-text" translate>TYPE OF WEAPON</label>
+                                <div class="col-sm-4">
+                                    {{actualWeapon}}
+                                </div>
+                                <div class="col-sm-4">
+                                    {{logWeapon}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-25" style="border-bottom: solid 1px">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 label-text" translate>LOCATION OF WEAPON</label>
+                                <div class="col-sm-4">
+                                    {{actualLocation}}
+                                </div>
+                                <div class="col-sm-4">
+                                    {{logLocation}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="threatdetail.actualResult==true">
+                    <div class="row mt-25" style="border-bottom: solid 1px">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <div class="col-sm-6">
+                                    &nbsp;
+                                </div>
+                                <label class="col-sm-6 label-text" style="font-weight: 900" translate>ACTUAL</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-25" style="border-bottom: solid 1px">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="col-sm-6 label-text" translate>THREAT TYPE</label>
+                                <div class="col-sm-6">
+                                    {{actualThreat}}
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-25" style="border-bottom: solid 1px">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="col-sm-6 label-text" translate>TYPE OF WEAPON</label>
+                                <div class="col-sm-6">
+                                    {{actualWeapon}}
+                                </div>                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-25" style="border-bottom: solid 1px">
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label class="col-sm-6 label-text" translate>LOCATION OF WEAPON</label>
+                                <div class="col-sm-6">
+                                    {{actualLocation}}
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-25">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label class="col-sm-12 label-text" style="font-weight: 900" translate>NOTE</label>
+                            <div class="col-sm-12">
+                                {{note}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

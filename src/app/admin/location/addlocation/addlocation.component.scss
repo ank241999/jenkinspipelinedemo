@@ -1,0 +1,26 @@
+@import '../../../styles/_variables.scss';
+
+.inputWrapper{
+  	.card{
+    	.title{
+      		.main-title{
+				font-family: Arial;
+				font-size: 36px;
+				font-weight: bold;
+				text-transform: capitalize;
+      		}
+		}
+		.form-horizontal{
+			.form-group{
+				.form-label{
+					text-align: left !important;
+				}
+				.form-control{
+					border-radius: 0px;
+                    font-size: 16px;
+                    height: 60px;
+                }
+			}
+		}
+  	}
+}

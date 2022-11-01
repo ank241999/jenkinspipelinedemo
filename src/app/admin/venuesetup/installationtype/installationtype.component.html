@@ -1,0 +1,84 @@
+<div class="inputWrapper installationtype">
+    <div class="card mb-0">
+        <div class="row mb-15" style="margin-left: -45px; margin-right: -45px; min-height: 37px;">
+            <div class="col-xs-2 text-left">
+                <!-- <img src="../../../assets/images/backscreen_icon.jpg" (click)="onScreenBack()" style="cursor: pointer;" /> -->
+            </div>
+            <div class="col-xs-8">&nbsp;</div>
+            <div class="col-xs-2 text-right">
+                <img src="../../../assets/images/closescreen_icon.jpg" (click)="onScreenClose()" style="cursor: pointer;" />
+            </div>
+        </div>
+        <header class="row title">
+            <div class="col-xs-12">
+                <div class="col-xs-12 col-md-6">
+                    <h2 class="main-title" translate>installChoose</h2>
+                </div>
+                <div class="col-xs-12 col-md-5"></div>
+                <div class="col-xs-12 col-md-1"></div>
+            </div>
+        </header>
+        <div style="height: 30px;"></div>
+
+        <div class="row" style="height: 550px;">
+            <div class="col-xs-12 col-md-10" style="font-weight: bold;">
+                <div class="row ml-0">
+                    <div class="col-xs-12 col-md-1">
+                        <div class="squaredFour">
+
+                            <input id="radio-1" class="radio-custom installtype" name="radio-group" type="radio">
+                            <label for="radio-1" class="radio-custom-label"></label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-3 pd-top-10">
+                        <p style="color:#3799e8; font-size: 24px;" translate>installFIXED</p>
+                    </div>
+                    <div class="col-xs-12 col-md-8 pd-top-10" style="color: #143345; font-size: 16px;">
+                        <p translate>installThesedevices</p>
+                    </div>
+
+                </div>
+
+                <div class="row mt-15 ml-0">
+                    <div class="col-xs-12 col-md-1">
+                        <div class="squaredFour">
+
+                            <input id="radio-2" class="radio-custom installtype" name="radio-group" type="radio">
+                            <label for="radio-2" class="radio-custom-label"></label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-3 pd-top-10">
+                        <p style="color:#3799e8; font-size: 24px;" translate>installSTOWABLE</p>
+                    </div>
+                    <div class="col-xs-12 col-md-8 pd-top-10" style="color: #143345; font-size: 16px;">
+                        <p translate>installdevices</p>
+                    </div>
+
+                </div>
+
+                <div class="row mt-15 ml-0">
+                    <div class="col-xs-12 col-md-1">
+                        <div class="squaredFour">
+
+                            <input id="radio-3" class="radio-custom installtype" name="radio-group" type="radio">
+                            <label for="radio-3" class="radio-custom-label"></label>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-3 pd-top-10">
+                        <p style="color:#3799e8; font-size: 24px;" translate>installMOBILE</p>
+                    </div>
+                    <div class="col-xs-12 col-md-8 pd-top-10" style="color: #143345; font-size: 16px;">
+                        <p translate>installguarantee</p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-2"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-info done" id="iddone" style="display:none" (click)="onSubmit()" translate>installDone</button>
+        </div>
+    </div>
+</div>
